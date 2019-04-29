@@ -25,10 +25,6 @@ namespace GeoClueProject.Controllers
             return View();
         }
 
-        public IActionResult Register()
-        {
-            return Content("Here is the page where you register");
-        }
 
         [Route("")]
         public async Task<IActionResult> IndexAsync()
