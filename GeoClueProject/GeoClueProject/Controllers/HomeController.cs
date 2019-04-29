@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GeoClueProject.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GeoClueProject.Controllers
@@ -27,6 +28,14 @@ namespace GeoClueProject.Controllers
         public IActionResult Register()
         {
             return Content("Here is the page where you register");
+        }
+
+        [Route("")]
+        public async Task<IActionResult> IndexAsync()
+        {
+            var helper = new ApiImage();
+            var result = await helper.Search("United states of america");
+            return Content(result);
         }
 
     }
