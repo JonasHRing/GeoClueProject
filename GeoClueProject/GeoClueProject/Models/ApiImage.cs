@@ -10,6 +10,8 @@ namespace GeoClueProject.Models
 {
     public class ApiImage
     {
+        public string Pic { get; set; }
+
         const string ApiKey = "12337311-1f9f60b3e0fe189a322c3a724";
 
         public async Task<string> Search(string searchPhrase)
@@ -25,7 +27,8 @@ namespace GeoClueProject.Models
             // Deserialize JSON
             var root = JsonConvert.DeserializeObject<Rootobject>(json);
 
-            return root.hits[0].largeImageURL;
+            Pic = root.hits[0].largeImageURL;
+            return Pic;
 
 
         }
