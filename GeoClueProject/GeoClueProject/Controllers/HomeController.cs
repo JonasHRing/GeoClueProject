@@ -22,7 +22,7 @@ namespace GeoClueProject.Controllers
 
         public IActionResult Login()
         {
-            return Content("Now you are at the login page");
+            return View();
         }
 
         public IActionResult Register()
