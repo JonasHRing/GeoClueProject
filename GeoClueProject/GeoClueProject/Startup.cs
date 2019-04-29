@@ -53,6 +53,7 @@ namespace GeoClueProject
             app.UseAuthentication();
             //app.UseMvc();
             app.UseMvcWithDefaultRoute();
+            app.UseStaticFiles();
         }
     }
 }

@@ -1,9 +1,26 @@
-﻿
-@{
+﻿@{
+    @model AccountLoginVM
     ViewBag.Title = "Index";
 }
+<div id="IndexContent">
+    <h1>Index</h1>
 
-<h1>Index</h1>
+    <h3>Login</h3>
+    <form asp-controller="Account" asp-action="Login">
+    @*asp-route-returnUrl="@Model.ReturnUrl"*@
+        <label asp-for="Username"></label>
+        <input asp-for="Username" />
+        <span asp-validation-for="Username"></span>
 
-
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+        <br />
+        <input type="submit" value="Login" />
+    </form>
+    <div asp-validation-summary="All"></div>
+    <a asp-controller="Account" asp-action="Welcome">Play as guest</a>
+    <br />
+    <a asp-controller="Account" asp-action="Register">Register as user</a>
+</div>
 

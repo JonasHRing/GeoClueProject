@@ -2,7 +2,7 @@
 @model GeoClueProject.Models.ViewModels.AccountLoginVM
 
 <h3>Login</h3>
-<form asp-controller="Account" asp-action="Login" @*asp-route-returnUrl="@Model.ReturnUrl"*@>
+<form asp-controller="Account" asp-action="Login" > @*asp-route-returnUrl="@Model.ReturnUrl"*@
     <label asp-for="Username"></label>
     <input asp-for="Username" />
     <span asp-validation-for="Username"></span>
