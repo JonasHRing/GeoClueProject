@@ -3,22 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using GeoClueProject.Models.ViewModels;
+using GeoClueProject.Models;
+
 
 namespace GeoClueProject.Controllers
 {
-    public class HomeController : Controller
+    public class AccountController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [Route("Game/Singleplayer")]
-        public IActionResult Game()
-        {
-            return View();
-        }
-
         public IActionResult Login()
         {
             return View();
@@ -26,8 +18,7 @@ namespace GeoClueProject.Controllers
 
         public IActionResult Register()
         {
-            return Content("Here is the page where you register");
+            return View();
         }
-
     }
 }
