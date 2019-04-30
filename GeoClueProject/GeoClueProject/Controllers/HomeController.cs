@@ -12,7 +12,6 @@ namespace GeoClueProject.Controllers
     public class HomeController : Controller
     {
         
-
         HomeService homeService;
 
         public HomeController(HomeService homeService)
@@ -36,10 +35,7 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game(HomeGameVM viewModelx)
         {
-
-
             return View(await homeService.GetImageURL());
-
         }
 
         public IActionResult Login()
