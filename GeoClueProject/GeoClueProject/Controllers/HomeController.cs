@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using GeoClueProject.Models;
 using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GeoClueProject.Controllers
 {
@@ -29,17 +29,15 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game()
         {
-            return View(await homeService.GetImageURL());
+            var viewModel = await homeService.GetImageURL();
+            return View(await homeService.GetRoot(viewModel));
         }
 
         [HttpPost]
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game(HomeGameVM viewModelx)
         {
-
-
             return View(await homeService.GetImageURL());
-
         }
 
         public IActionResult Login()
@@ -47,15 +45,12 @@ namespace GeoClueProject.Controllers
             return View();
         }
 
-        [HttpGet]
-        [Route("/home/root")]
-        public async Task<IActionResult> Root()
-        {
-            var helper = new ApiCountry();
-            var result = await helper.CountryList();
-            //var viewModel = new HomeGameVM { ImageURL = result };
-            return Content(result[0]);
-        }
+        
+        //[Route("Game/SinglePlayer")]
+        //public async Task<IActionResult> Root()
+        //{
+        //    return View(await homeService.GetRoot());
+        //}
 
 
 
