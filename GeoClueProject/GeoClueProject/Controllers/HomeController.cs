@@ -28,14 +28,6 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game()
         {
-
-            var a = new HomeService();
-            var test =await a.GetImageURL();
-
-            var helper = new ApiImage(); // lägg i helper class
-            var result = await helper.Search("India");// lägg i helper class
-            var viewModel = new HomeGameVM { ImageURL = result };
-            return View(viewModel);
             return View(await homeService.GetImageURL());
         }
 
@@ -44,12 +36,21 @@ namespace GeoClueProject.Controllers
         public async Task<IActionResult> Game(HomeGameVM viewModelx)
         {
             return View(await homeService.GetImageURL());
-
         }
 
         public IActionResult Login()
         {
             return View();
+        }
+
+        [HttpGet]
+        [Route("/home/root")]
+        public async Task<IActionResult> Root()
+        {
+            var helper = new ApiCountry();
+            var result = await helper.CountryList();
+            //var viewModel = new HomeGameVM { ImageURL = result };
+            return Content(result[0]);
         }
 
 
