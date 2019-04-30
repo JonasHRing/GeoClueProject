@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace GeoClueProject.Models.ViewModels
 {
-    public class MyIdentityUser
+    public class HomeGameVM
     {
+        public string ImageURL { get; set; }
     }
 }

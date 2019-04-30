@@ -1,16 +1,8 @@
 ﻿
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Game</title>
-</head>
-<body>
-    <img scr="@Model.Pic" />
-</body>
-</html>
+@model HomeGameVM
+<img src="@Model.ImageURL" />
+<form asp-controller="Home" asp-action="Game" >
+    <input type="text" />
+    <input type="submit" value="Guess" />
+</form>

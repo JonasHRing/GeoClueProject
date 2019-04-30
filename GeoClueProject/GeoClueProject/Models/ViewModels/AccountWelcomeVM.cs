@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace GeoClueProject.Models.ViewModels
 {
-    public class MyIdentityContext
+    public class AccountWelcomeVM
     {
+        public string Username { get; set; }
     }
 }
