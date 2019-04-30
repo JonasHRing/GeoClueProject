@@ -1,0 +1,12 @@
+﻿@model AccountWelcomeVM
+@{
+    ViewData["Title"] = "Members";
+}
+
+<h1>Members</h1>
+<p>Hello @Model.Username</p>
+
+@*<a href="~/Logout">Logout</a>*@
+<form asp-controller="Account" asp-action="Logout">
+    <Input type="submit" value="Logout" />
+</form>
