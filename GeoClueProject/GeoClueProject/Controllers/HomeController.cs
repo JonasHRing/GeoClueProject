@@ -23,8 +23,19 @@ namespace GeoClueProject.Controllers
             return View();
         }
 
+        [HttpGet]
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game()
+        {
+            var helper = new ApiImage();
+            var result = await helper.Search("United states of america");
+            var viewModel = new HomeGameVM { ImageURL = result };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [Route("Game/Singleplayer")]
+        public async Task<IActionResult> Game(HomeGameVM viewModelx)
         {
             var helper = new ApiImage();
             var result = await helper.Search("United states of america");

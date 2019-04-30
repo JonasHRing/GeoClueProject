@@ -2,3 +2,7 @@
 
 @model HomeGameVM
 <img src="@Model.ImageURL" />
+<form asp-controller="Home" asp-action="Game" >
+    <input type="text" />
+    <input type="submit" value="Guess" />
+</form>
