@@ -31,7 +31,7 @@ namespace GeoClueProject.Controllers
         }
 
         [Route("")]
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> GameAsync()
         {
             var helper = new ApiImage();
             var result = await helper.Search("United states of america");
