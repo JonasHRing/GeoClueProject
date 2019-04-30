@@ -44,8 +44,8 @@ namespace GeoClueProject.Controllers
         public async Task<IActionResult> Game(HomeGameVM viewModelx)
         {
             var helper = new ApiImage();
-            var result = await helper.Search("India");
-            var viewModel = new HomeGameVM { ImageURL = result }; // lägg i helper class
+            var result = await helper.Search("India"); // United states of america
+            var viewModel = new HomeGameVM { ImageURL = result };
             return View(viewModel);
         }
 
