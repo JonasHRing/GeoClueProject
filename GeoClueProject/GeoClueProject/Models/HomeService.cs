@@ -22,22 +22,22 @@ namespace GeoClueProject.Models
         //{
         //    var helper = new ApiCountry();
         //    var result = await helper.CountryList();
-            
+
         //    return null;
         //}
 
-        //public void RandomCountry()
-        //{
-        //    var helper = new ApiCountry();
-        //    var result = await helper.CountryList();
+        public string RandomCountry()
+        {
+            var countries = new ApiCountry();
+            var countryList = countries.CountryList();
 
-        //    for (int i = 0; i < result.Length; i++)
-        //    {
-        //       result[i];
-        //    }
+            var rnd = new Random();
+            var index = rnd.Next(countryList.Result.Length);
+            var country = countryList.Result[index];
+           
+            return country;
             
-            
-        //}
+        }
 
 
     }

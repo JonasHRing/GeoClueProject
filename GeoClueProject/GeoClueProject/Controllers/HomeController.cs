@@ -47,10 +47,13 @@ namespace GeoClueProject.Controllers
         [Route("/home/root")]
         public async Task<IActionResult> Root()
         {
-            var helper = new ApiCountry();
-            var result = await helper.CountryList();
+            var test = homeService.RandomCountry();
+            //var helper = new ApiCountry();
+            //var result = await helper.CountryList();
             //var viewModel = new HomeGameVM { ImageURL = result };
-            return Content(result[1]);
+            return Content(test );
+
+
         }
 
 
