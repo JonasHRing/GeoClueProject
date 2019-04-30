@@ -1,17 +1,4 @@
 ﻿
-@{
-    Layout = null;
-}
 
-@model ApiImage   
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Game</title>
-</head>
-<body>
-    <img scr="@Model.imageURL" />
-</body>
-</html>
+@model HomeGameVM
+<img src="@Model.ImageURL" />

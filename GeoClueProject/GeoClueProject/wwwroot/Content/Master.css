@@ -17,14 +17,6 @@ body {
     background-size: cover;
 }
 
-footer {
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    background-color: cornflowerblue;
-}
-
 h1 {
     text-align: center;
 }
@@ -58,15 +50,21 @@ h1 {
     text-align:center;
 }
 
+#ContentBox a {
+    color: white;
+}
+
 #IndexContent {
     text-align:center;
-
 }
 
 #IndexContent a {
     color: white;
 }
 
-.form-submit-button {
-    background-color:white;
+footer {
+    background-color: cornflowerblue;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
