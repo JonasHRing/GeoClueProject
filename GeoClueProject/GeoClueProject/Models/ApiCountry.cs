@@ -10,9 +10,9 @@ namespace GeoClueProject.Models
 {
     public class ApiCountry
     {
-        public async Task<string> Search(string searchPhrase)
+        public async Task<string[]> CountryList()
         {
-            var encodedSearchPhrase = HttpUtility.UrlEncode(searchPhrase);
+            //var encodedSearchPhrase = HttpUtility.UrlEncode(searchPhrase);
 
             var httpClient = new HttpClient();
             var url = $"https://restcountries.eu/rest/v2/all";
@@ -21,11 +21,12 @@ namespace GeoClueProject.Models
             var json = await httpClient.GetStringAsync(url);
 
             // Deserialize JSON
-            var root = JsonConvert.DeserializeObject<Rootobject>(json);
 
-            return null; //root.hits[0].largeImageURL;
+            var countries = JsonConvert.DeserializeObject<List<Class1>>(json);
 
-
+            return countries
+                .Select(o => o.name)
+                .ToArray();
         }
 
         public class Rootobject
@@ -98,5 +99,10 @@ namespace GeoClueProject.Models
             public string[] otherNames { get; set; }
         }
 
+
     }
+
+
+
+
 }

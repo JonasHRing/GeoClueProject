@@ -28,7 +28,7 @@ namespace GeoClueProject.Controllers
         public async Task<IActionResult> Game()
         {
             var helper = new ApiImage();
-            var result = await helper.Search("India");
+            var result = await helper.Search("China");
             var viewModel = new HomeGameVM { ImageURL = result };
             return View(viewModel);
         }
@@ -38,7 +38,7 @@ namespace GeoClueProject.Controllers
         public async Task<IActionResult> Game(HomeGameVM viewModelx)
         {
             var helper = new ApiImage();
-            var result = await helper.Search("India");
+            var result = await helper.Search("China");
             var viewModel = new HomeGameVM { ImageURL = result };
             return View(viewModel);
         }
@@ -46,6 +46,16 @@ namespace GeoClueProject.Controllers
         public IActionResult Login()
         {
             return View();
+        }
+
+        [HttpGet]
+        [Route("/home/root")]
+        public async Task<IActionResult> Root()
+        {
+            var helper = new ApiCountry();
+            var result = await helper.CountryList();
+            //var viewModel = new HomeGameVM { ImageURL = result };
+            return Content(result[0]);
         }
 
 

@@ -4,5 +4,10 @@
 <img src="@Model.ImageURL" />
 <form asp-controller="Home" asp-action="Game" >
     <input type="text" />
+    <label asp-for="CountryList"></label>
+    <select  asp-items="@Model.CountryList">
+        <option value="country">country</option>
+    </select>
     <input type="submit" value="Guess" />
+    <input type="submit" value="Hint" />
 </form>
