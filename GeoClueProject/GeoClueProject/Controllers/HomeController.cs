@@ -49,15 +49,7 @@ namespace GeoClueProject.Controllers
         }
 
 
-        [Route("")]
-        public async Task<IActionResult> GameAsync()
-        {
-            var helper = new ApiImage();
-            var result = await helper.Search("United states of america");
-            return Content(result);
-        }
-
-
+    
         //[Route("")]
         //public async Task<IActionResult> IndexAsync()
         //{
