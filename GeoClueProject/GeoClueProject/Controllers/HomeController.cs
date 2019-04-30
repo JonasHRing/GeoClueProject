@@ -12,7 +12,6 @@ namespace GeoClueProject.Controllers
     public class HomeController : Controller
     {
         
-
         HomeService homeService;
 
         public HomeController(HomeService homeService)
@@ -44,7 +43,6 @@ namespace GeoClueProject.Controllers
         {
             return View();
         }
-
         
         //[Route("Game/SinglePlayer")]
         //public async Task<IActionResult> Root()
@@ -52,6 +50,15 @@ namespace GeoClueProject.Controllers
         //    return View(await homeService.GetRoot());
         //}
 
+        [HttpGet]
+        [Route("/home/root")]
+        public async Task<IActionResult> Root()
+        {
+            var helper = new ApiCountry();
+            var result = await helper.CountryList();
+            //var viewModel = new HomeGameVM { ImageURL = result };
+            return Content(result[1]);
+        }
 
 
         //[Route("")]
