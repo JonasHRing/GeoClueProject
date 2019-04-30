@@ -6,10 +6,12 @@ using GeoClueProject.Models;
 using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace GeoClueProject.Controllers
 {
     public class HomeController : Controller
     {
+        
 
         //HomeService homeService;
 
@@ -27,8 +29,12 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game()
         {
-            var helper = new ApiImage();
-            var result = await helper.Search("India");
+
+            var a = new HomeService();
+            var test =await a.GetImageURL();
+
+            var helper = new ApiImage(); // lägg i helper class
+            var result = await helper.Search("India");// lägg i helper class
             var viewModel = new HomeGameVM { ImageURL = result };
             return View(viewModel);
         }
@@ -39,7 +45,7 @@ namespace GeoClueProject.Controllers
         {
             var helper = new ApiImage();
             var result = await helper.Search("India");
-            var viewModel = new HomeGameVM { ImageURL = result };
+            var viewModel = new HomeGameVM { ImageURL = result }; // lägg i helper class
             return View(viewModel);
         }
 
