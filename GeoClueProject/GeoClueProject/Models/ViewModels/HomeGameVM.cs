@@ -13,7 +13,12 @@ namespace GeoClueProject.Models.ViewModels
 
         [Display(Name ="Country")]
         public SelectListItem[] CountryList { get; set; }
+
+        [Range(1,3)]
+        public int SelectedCountryValue { get; set; }
+
         
+
     }
 
 

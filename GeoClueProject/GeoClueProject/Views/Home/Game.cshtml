@@ -2,12 +2,10 @@
 
 @model HomeGameVM
 <img src="@Model.ImageURL" />
-<form asp-controller="Home" asp-action="Game" >
-    <input type="text" />
+<form asp-controller="Home" asp-action="Game">
+    
     <label asp-for="CountryList"></label>
-    <select  asp-items="@Model.CountryList">
-        <option value="country">country</option>
-    </select>
+    <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
     <input type="submit" value="Guess" />
     <input type="submit" value="Hint" />
 </form>
