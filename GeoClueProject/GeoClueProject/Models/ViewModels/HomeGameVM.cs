@@ -15,4 +15,6 @@ namespace GeoClueProject.Models.ViewModels
         public SelectListItem[] CountryList { get; set; }
         
     }
+
+
 }

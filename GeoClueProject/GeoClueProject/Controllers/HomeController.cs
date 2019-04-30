@@ -6,17 +6,19 @@ using GeoClueProject.Models;
 using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace GeoClueProject.Controllers
 {
     public class HomeController : Controller
     {
+        
 
-        //HomeService homeService;
+        HomeService homeService;
 
-        //public HomeController(HomeService homeService)
-        //{
-        //    this.homeService = homeService;
-        //}
+        public HomeController(HomeService homeService)
+        {
+            this.homeService = homeService;
+        }
 
         public IActionResult Index()
         {
@@ -27,20 +29,17 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game()
         {
-            var helper = new ApiImage();
-            var result = await helper.Search("China");
-            var viewModel = new HomeGameVM { ImageURL = result };
-            return View(viewModel);
+            return View(await homeService.GetImageURL());
         }
 
         [HttpPost]
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game(HomeGameVM viewModelx)
         {
-            var helper = new ApiImage();
-            var result = await helper.Search("China");
-            var viewModel = new HomeGameVM { ImageURL = result };
-            return View(viewModel);
+
+
+            return View(await homeService.GetImageURL());
+
         }
 
         public IActionResult Login()
