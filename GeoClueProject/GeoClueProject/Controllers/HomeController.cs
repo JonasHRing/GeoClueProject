@@ -54,7 +54,7 @@ namespace GeoClueProject.Controllers
             var helper = new ApiCountry();
             var result = await helper.CountryList();
             //var viewModel = new HomeGameVM { ImageURL = result };
-            return Content(result[0]);
+            return Content(result[1]);
         }
 
 

@@ -15,11 +15,26 @@ namespace GeoClueProject.Models
             var result = await helper.Search("India");
             return new HomeGameVM { ImageURL = result };
         }
-        public async Task<HomeGameVM> GetRoot()
-        {
-            var helper = new ApiImage();
-            var result = await helper.Search("India");
-            return new HomeGameVM { ImageURL = result };
-        }
+
+        //public async Task<HomeGameVM> GetRoot()
+        //{
+        //    var helper = new ApiCountry();
+        //    var result = await helper.CountryList();
+            
+        //    return null;
+        //}
+
+        //public void RandomCountry()
+        //{
+        //    var helper = new ApiCountry();
+        //    var result = await helper.CountryList();
+
+        //    for (int i = 0; i < result.Length; i++)
+        //    {
+        //       result[i];
+        //    }
+            
+            
+        //}
     }
 }
