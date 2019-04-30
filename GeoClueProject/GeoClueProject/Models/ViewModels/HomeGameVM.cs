@@ -9,4 +9,6 @@ namespace GeoClueProject.Models.ViewModels
     {
         public string ImageURL { get; set; }
     }
+
+
 }

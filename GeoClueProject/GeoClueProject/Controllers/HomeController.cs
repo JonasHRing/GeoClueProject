@@ -13,12 +13,12 @@ namespace GeoClueProject.Controllers
     {
         
 
-        //HomeService homeService;
+        HomeService homeService;
 
-        //public HomeController(HomeService homeService)
-        //{
-        //    this.homeService = homeService;
-        //}
+        public HomeController(HomeService homeService)
+        {
+            this.homeService = homeService;
+        }
 
         public IActionResult Index()
         {
@@ -37,16 +37,17 @@ namespace GeoClueProject.Controllers
             var result = await helper.Search("India");// lägg i helper class
             var viewModel = new HomeGameVM { ImageURL = result };
             return View(viewModel);
+            return View(await homeService.GetImageURL());
         }
 
         [HttpPost]
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game(HomeGameVM viewModelx)
         {
-            var helper = new ApiImage();
-            var result = await helper.Search("India"); // United states of america
-            var viewModel = new HomeGameVM { ImageURL = result };
-            return View(viewModel);
+
+            return View(await homeService.GetImageURL());
+
+
         }
 
         public IActionResult Login()
