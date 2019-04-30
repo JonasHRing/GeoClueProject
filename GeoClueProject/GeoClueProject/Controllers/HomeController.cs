@@ -35,7 +35,9 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game(HomeGameVM viewModelx)
         {
+
             return View(await homeService.GetImageURL());
+
 
         }
 
