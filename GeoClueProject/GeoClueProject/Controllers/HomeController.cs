@@ -34,9 +34,14 @@ namespace GeoClueProject.Controllers
 
         [HttpPost]
         [Route("Game/Singleplayer")]
-        public async Task<IActionResult> Game(HomeGameVM viewModelx)
+        public async Task<IActionResult> Game(HomeGameVM viewModel)
         {
-            return View(await homeService.GetImageURL());
+            var root = await homeService.GetRoot(viewModel);
+            var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
+            if (selectedCountry == "Sweden")
+                return Content("Sweden för fan!");
+            else
+                return View(await homeService.GetImageURL());
         }
 
         public IActionResult Login()
