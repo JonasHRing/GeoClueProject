@@ -10,7 +10,7 @@ namespace GeoClueProject.Models
 {
     public class ApiCountry
     {
-        public async Task<string[]> CountryList()
+        public async Task<string[]> GetCountryList()
         {
             //var encodedSearchPhrase = HttpUtility.UrlEncode(searchPhrase);
 

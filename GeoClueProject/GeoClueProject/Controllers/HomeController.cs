@@ -38,8 +38,8 @@ namespace GeoClueProject.Controllers
         {
             var root = await homeService.GetRoot(viewModel);
             var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
-            if (selectedCountry == "Sweden")
-                return Content("Sweden för fan!");
+            if (selectedCountry == homeService.correctCountry)
+                return Content("Congrats! "+homeService.correctCountry+" is the correct country!");
             else
                 return View(await homeService.GetImageURL());
         }

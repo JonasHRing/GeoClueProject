@@ -43,7 +43,7 @@ namespace GeoClueProject
             services.ConfigureApplicationCookie(o => o.LoginPath = "/LogIn");
 
             services.AddTransient<AccountService>();
-            services.AddTransient<HomeService>();
+            services.AddSingleton<HomeService>();
 
             services.AddMvc();
         }

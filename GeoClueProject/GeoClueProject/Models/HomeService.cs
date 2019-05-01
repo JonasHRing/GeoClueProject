@@ -10,10 +10,16 @@ namespace GeoClueProject.Models
 {
     public class HomeService
     {
+      
+        public string correctCountry;
+        
         public async Task<HomeGameVM> GetImageURL()
         {
             var helper = new ApiImage();
-            var result = await helper.Search(RandomCountry());
+            var nameOfCountry = RandomCountry();
+            var result = await helper.Search(nameOfCountry);
+            correctCountry = nameOfCountry;
+
             return new HomeGameVM { ImageURL = result };
 
         }
@@ -21,7 +27,7 @@ namespace GeoClueProject.Models
         public async Task<HomeGameVM> GetRoot(HomeGameVM viewModel)
         {
             var helper = new ApiCountry();
-            var result = await helper.CountryList();
+            var result = await helper.GetCountryList();
             //var viewModel = new HomeGameVM()
             //{
             //    CountryList = new SelectListItem[] { new SelectListItem { Value = "1", Text = "Åland" }, new SelectListItem { Value = "2", Text = "Gotland" }, new SelectListItem { Value = "3", Text = "USA" }, }
@@ -41,12 +47,12 @@ namespace GeoClueProject.Models
 
         public string RandomCountry()
         {
-            var countries = new ApiCountry();
-            var countryList = countries.CountryList();
+            var apiCountry = new ApiCountry();
+            var countryList = apiCountry.GetCountryList();
 
             var rnd = new Random();
-            var index = rnd.Next(countryList.Result.Length);
-            var country = countryList.Result[index];
+            var index = rnd.Next(1,5);
+            var country = countryList.Result[index-1];
            
             return country;
             
