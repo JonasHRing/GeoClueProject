@@ -23,5 +23,15 @@ namespace GeoClueProject.Models
             var result = await helper.Search("India");
             return new HomeGameVM { ImageURL = result };
         }
+
+        public async Task<HomeGameVM> GetRandomImageUrl()
+        {
+            var helper = new ApiImage(); // Ny instans av helper ger tillgång till async task metoden 
+            var result = await helper.Search("India"); // Kallar på helper metoden som ligger i ApiImage,
+            return new  HomeGameVM { ImageURL = result };
+
+        }
+
+
     }
 }
