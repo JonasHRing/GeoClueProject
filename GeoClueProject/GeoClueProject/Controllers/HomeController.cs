@@ -46,12 +46,12 @@ namespace GeoClueProject.Controllers
                 return PartialView("Wrong");
         }
 
-
         [HttpGet]
         public IActionResult DisplayRightOrWrong()
         {
             return PartialView("_GetHint1",homeService.correctCountry);
         }
+
 
         public IActionResult Login()
         {
