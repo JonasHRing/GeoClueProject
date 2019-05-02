@@ -11,3 +11,19 @@
     <input type="submit" value="Guess" />
 
 </form>
+
+<Button ID="btnSubmit" value="Hint" @*runat="server"*@ OnClick="Submit" >Picture Hint</Button>
+<hr />
+
+
+<script type="text/javascript" src="@Model.ImageURL">
+
+
+    $(function () {
+        $("#lnk").click(function ()
+
+        {
+            $("[id*=btnSubmit]").click();
+        });
+    });
+</script>
