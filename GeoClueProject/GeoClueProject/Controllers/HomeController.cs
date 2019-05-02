@@ -44,6 +44,13 @@ namespace GeoClueProject.Controllers
                 return View(await homeService.GetImageURL());
         }
 
+        
+        [HttpGet]
+        public IActionResult GetHint1()
+        {
+            return PartialView("_GetHint1",homeService.GetImageURL());
+        }
+
         public IActionResult Login()
         {
             return View();
@@ -55,18 +62,19 @@ namespace GeoClueProject.Controllers
         //    return View(await homeService.GetRoot());
         //}
 
-        [HttpGet]
-        [Route("/home/root")]
-        public async Task<IActionResult> Root()
-        {
-            var test = homeService.RandomCountry();
-            //var helper = new ApiCountry();
-            //var result = await helper.CountryList();
-            //var viewModel = new HomeGameVM { ImageURL = result };
-            return Content(test );
+        //[HttpGet]
+        //[Route("/home/root")]
+        //public async Task<IActionResult> Root()
+        //{
+        //    var test = homeService.RandomCountry();
+        //    //var helper = new ApiCountry();
+        //    //var result = await helper.CountryList();
+        //    //var viewModel = new HomeGameVM { ImageURL = result };
+        //    return Content(test );
 
 
-        }
+        //}
+
 
         [HttpGet]
         public IActionResult ImageHint()
