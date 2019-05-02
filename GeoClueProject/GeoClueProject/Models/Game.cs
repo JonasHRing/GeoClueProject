@@ -10,6 +10,5 @@ namespace GeoClueProject.Models
         public string CorrectCountry { get; set; }
 
         public string CountryImage { get; set; }
-
     }
 }

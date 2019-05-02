@@ -1,11 +1,39 @@
 ﻿
-
 @model HomeGameVM
-<img src="@Model.ImageURL" />
+<img src="@Model.ImageURL[0]" alt="Picture of the country" />
+
+<div id="divResult"></div>
+
 <form asp-controller="Home" asp-action="Game">
-    
+
     <label asp-for="CountryList"></label>
     <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
     <input type="submit" value="Guess" />
-    <input type="submit" value="Hint" />
+
+
 </form>
+
+<img style="display:none;" id="hint1pic" src="hint1pic" />
+<button onclick="showPicture1()">Hint 1</button>
+<img style="display:none;" id="hint2pic" src="hint2pic" />
+<button onclick="showPicture2()">Hint 2</button>
+
+@section scripts
+{
+    <script>
+            function showPicture1() {
+            var sourceOfPicture = "@Model.ImageURL[1]";
+            var img = document.getElementById('hint1pic')
+            img.src = sourceOfPicture.replace();
+            img.style.display = "block";
+            }
+
+            function showPicture2() {
+            var sourceOfPicture = "@Model.ImageURL[2]";
+            var img = document.getElementById('hint2pic')
+            img.src = sourceOfPicture.replace();
+            img.style.display = "block";
+            }
+
+    </script>
+}
