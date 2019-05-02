@@ -44,6 +44,10 @@ namespace GeoClueProject.Controllers
                 return View(await homeService.GetImageURL());
         }
 
+        //public int Score()
+        //{
+
+        //}
         public IActionResult Login()
         {
             return View();
