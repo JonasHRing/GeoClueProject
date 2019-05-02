@@ -7,16 +7,17 @@ using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+
 namespace GeoClueProject.Controllers
 {
     public class HomeController : Controller
     {
-        
         HomeService homeService;
-
+        
         public HomeController(HomeService homeService)
         {
             this.homeService = homeService;
+           
         }
 
         public IActionResult Index()
@@ -39,13 +40,12 @@ namespace GeoClueProject.Controllers
             var root = await homeService.GetRoot(viewModel);
             var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
             if (selectedCountry == homeService.correctCountry)
+
                 return PartialView("Right");
             else
                 return PartialView("Wrong");
-
         }
 
-        
         [HttpGet]
         public IActionResult DisplayRightOrWrong()
         {
@@ -56,36 +56,11 @@ namespace GeoClueProject.Controllers
         {
             return View();
         }
-        
-        //[Route("Game/SinglePlayer")]
-        //public async Task<IActionResult> Root()
-        //{
-        //    return View(await homeService.GetRoot());
-        //}
-
-        //[HttpGet]
-        //[Route("/home/root")]
-        //public async Task<IActionResult> Root()
-        //{
-        //    var test = homeService.RandomCountry();
-        //    //var helper = new ApiCountry();
-        //    //var result = await helper.CountryList();
-        //    //var viewModel = new HomeGameVM { ImageURL = result };
-        //    return Content(test );
-
-
-        //}
-
-
-
-        //[Route("")]
-        //public async Task<IActionResult> IndexAsync()
-        //{
-        //    var helper = new ApiImage();
-        //    var result = await helper.Search("India");
-        //    return Content(result);
-        //}
-
-
+       
+        [HttpGet]
+        public IActionResult ImageHint()
+        {
+            return PartialView("_ImageHint");
+        }
     }
 }
