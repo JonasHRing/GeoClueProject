@@ -1,16 +1,13 @@
 ﻿
 @model HomeGameVM
-<img src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-<div id="divResult"></div>
+<img src="@Model.ImageURL[0]" alt="Picture of the country" />
 
 <form asp-controller="Home" asp-action="Game">
 
     <label asp-for="CountryList"></label>
     <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
     <input type="submit" value="Guess" />
-
-
 </form>
 
 <img style="display:none;" id="hint1pic" src="hint1pic" />
