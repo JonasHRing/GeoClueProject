@@ -8,15 +8,28 @@
     <link rel="stylesheet" href="@Url.Content("../Content/Master.css")" />
 </head>
 <body>
-    <div id="menubar">
-        <a asp-controller="Home" asp-action="Index">Home</a>
-        <a asp-controller="Home" asp-action="Game">Single</a>
-        <a asp-controller="Home" asp-action="Game">Multiplayer</a>
-        <a asp-controller="Account" asp-action="Login">Login</a>
-        <a asp-controller="Account" asp-action="Register">Register</a>
-    </div>
-    <h1>Geo Clue</h1>    
-    <div id="ContentBox" @*style="background-color:#CCC; padding:10px;"*@>
+    @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
+    {
+        <div id="menubar">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-controller="Home" asp-action="Game">Single</a>
+            <a asp-controller="Home" asp-action="Game">Multiplayer</a>
+            <a asp-controller="Account" asp-action="Login">Login</a>
+            <a asp-controller="Account" asp-action="Register">Register</a>
+        </div>
+
+    }
+    else
+    {
+        <div id="menubar">
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-controller="Account" asp-action="Login">Login</a>
+            <a asp-controller="Account" asp-action="Register">Register</a>
+        </div>
+    }
+
+    <h1>Geo Clue</h1>
+    <div id="ContentBox" @*style="background-color:#CCC; padding:10px;" *@>
         @RenderBody()
         <footer>&copy; GeoCatch 2019</footer>
     </div>

@@ -6,6 +6,19 @@
 <h1>Members</h1>
 <p>Hello @Model.Username</p>
 
+
+@if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
+{
+    <p>This is your total score: </p>
+
+}
+else
+{
+    <p>If you want to see your score please register</p>;
+    <br />
+    <a asp-controller="Account" asp-action="Register">Register as user</a>
+}
+
 @*<a href="~/Logout">Logout</a>*@
 <form asp-controller="Account" asp-action="Logout">
     <Input type="submit" value="Logout" />
