@@ -14,8 +14,6 @@ namespace GeoClueProject.Controllers
     {
         HomeService homeService;
         
-
-
         public HomeController(HomeService homeService)
         {
             this.homeService = homeService;
@@ -42,20 +40,17 @@ namespace GeoClueProject.Controllers
             var root = await homeService.GetRoot(viewModel);
             var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
             if (selectedCountry == homeService.correctCountry)
-            {
-                return Content("Congrats! "+homeService.correctCountry+" is the correct country!");
-            }
-         
-           else
-                return View(await homeService.GetImageURL());
+
+                return PartialView("Right");
+            else
+                return PartialView("Wrong");
         }
 
 
-
         [HttpGet]
-        public IActionResult GetHint1()
+        public IActionResult DisplayRightOrWrong()
         {
-            return PartialView("_GetHint1",homeService.GetImageURL());
+            return PartialView("_GetHint1",homeService.correctCountry);
         }
 
         public IActionResult Login()
