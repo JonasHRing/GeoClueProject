@@ -5,12 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace GeoClueProject.Models
 {
     public class HomeService
     {
-      
+
+        public Timer aTimer = new Timer();
+       
+
         public string correctCountry;
         
         public async Task<HomeGameVM> GetImageURL()
@@ -39,7 +43,7 @@ namespace GeoClueProject.Models
             {
                 viewModel.CountryList[i] = new SelectListItem { Value = i.ToString(), Text = result[i] };
             }
-           
+
 
             return viewModel;
         }
@@ -51,13 +55,34 @@ namespace GeoClueProject.Models
             var countryList = apiCountry.GetCountryList();
 
             var rnd = new Random();
-            var index = rnd.Next(15,18);
-            var country = countryList.Result[index-1];
+            var index = rnd.Next(15, 18);
+            var country = countryList.Result[index - 1];
 
             return country;
-            
+
 
         }
+
+
+        public async  void SetTimer()
+        {
+            Timer aTimer = new Timer();
+            aTimer.Interval = 20000;
+            aTimer.Enabled = true;
+            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+
+           
+        }
+
+        // Specify what you want to happen when the Elapsed event is raised.
+        private static void OnTimedEvent(object source, ElapsedEventArgs e)
+        {
+            Console.WriteLine("Hello World!");
+        }
+
+
+
+
 
 
     }
