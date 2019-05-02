@@ -28,10 +28,6 @@ namespace GeoClueProject.Models
         {
             var helper = new ApiCountry();
             var result = await helper.GetCountryList();
-            //var viewModel = new HomeGameVM()
-            //{
-            //    CountryList = new SelectListItem[] { new SelectListItem { Value = "1", Text = "Åland" }, new SelectListItem { Value = "2", Text = "Gotland" }, new SelectListItem { Value = "3", Text = "USA" }, }
-            //};
 
             viewModel.CountryList = new SelectListItem[result.Length];
 
@@ -39,11 +35,9 @@ namespace GeoClueProject.Models
             {
                 viewModel.CountryList[i] = new SelectListItem { Value = i.ToString(), Text = result[i] };
             }
-           
 
             return viewModel;
         }
-
 
         public string RandomCountry()
         {
@@ -55,10 +49,6 @@ namespace GeoClueProject.Models
             var country = countryList.Result[index-1];
 
             return country;
-            
-
         }
-
-
     }
 }

@@ -37,26 +37,6 @@ namespace GeoClueProject.Models
             }
             return imageURL;
         }
-       
-
-        //public async Task<string> GetRandomPic(string searchPhrase, int picsToRandomize)
-        //{
-        //    var encodedSearchPhrase = HttpUtility.UrlEncode(searchPhrase); // "India"
-
-        //    var httpClient = new HttpClient();
-        //    var url = $"https://pixabay.com/api/?key={ApiKey}&q={encodedSearchPhrase}&image_type=photo&per_page={picsToRandomize}";
-        //    // Make HTTP call
-        //    var json = await httpClient.GetStringAsync(url);
-
-        //    // Deserialize JSON
-        //    var root = JsonConvert.DeserializeObject<Rootobject>(json); // GÖr om json objekt till .net core
-
-           
-
-        //     imageURL = root.hits[0].largeImageURL;
-            
-        //    return imageURL;
-        //}
 
         public class Rootobject // 
         {
@@ -90,10 +70,6 @@ namespace GeoClueProject.Models
             public string userImageURL { get; set; }
             public string previewURL { get; set; }
         }
-
-
-
-
     }
 }
 
