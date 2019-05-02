@@ -40,10 +40,10 @@ namespace GeoClueProject.Controllers
             var root = await homeService.GetRoot(viewModel);
             var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
             if (selectedCountry == homeService.correctCountry)
+            { return PartialView("Right"); }
 
-                return PartialView("Right");
             else
-                return PartialView("Wrong");
+            { return PartialView("Wrong"); }
         }
 
         [HttpGet]
