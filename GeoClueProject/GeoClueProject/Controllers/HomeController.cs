@@ -51,12 +51,12 @@ namespace GeoClueProject.Controllers
         }
 
 
+
         [HttpGet]
         public IActionResult GetHint1()
         {
             return PartialView("_GetHint1",homeService.GetImageURL());
         }
-
 
         public IActionResult Login()
         {
