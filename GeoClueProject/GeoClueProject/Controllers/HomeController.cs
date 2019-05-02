@@ -68,6 +68,12 @@ namespace GeoClueProject.Controllers
 
         }
 
+        [HttpGet]
+        public IActionResult ImageHint()
+        {
+            return PartialView("_ImageHint");
+        }
+
 
         //[Route("")]
         //public async Task<IActionResult> IndexAsync()
