@@ -44,8 +44,6 @@ namespace GeoClueProject
 
             services.AddTransient<AccountService>();
             services.AddSingleton<HomeService>();
-            services.AddSingleton<Player>();
-
 
             services.AddMvc();
         }
