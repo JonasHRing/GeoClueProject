@@ -9,7 +9,7 @@ namespace GeoClueProject.Models.ViewModels
 {
     public class HomeGameVM
     {
-        public string ImageURL { get; set; }
+        public string[] ImageURL { get; set; }
 
         [Display(Name ="Country")]
         public SelectListItem[] CountryList { get; set; }

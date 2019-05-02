@@ -2,24 +2,35 @@
 @{
     ViewData["Title"] = "Members";
 }
-
 <h1>Members</h1>
+
 <p>Hello @Model.Username</p>
 
 
 @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
 {
+
+
     <p>This is your total score: </p>
+
+    <form asp-controller="Account" asp-action="Logout">
+        <Input type="submit" value="Logout" />
+    </form>
 
 }
 else
 {
-    <p>If you want to see your score please register</p>;
+    <p>
+        If you want to see your score please   <a asp-controller="Account" asp-action="Register">register</a>
+    </p>;
     <br />
-    <a asp-controller="Account" asp-action="Register">Register as user</a>
+
+    <form asp-controller="Home" asp-action="Game">
+
+        <button asp-controller="Home" asp-action="Game">Singleplayer</button>
+        <button asp-controller="Home" asp-action="Register">Multiplayer</button>
+
+    </form>
+
 }
 
-@*<a href="~/Logout">Logout</a>*@
-<form asp-controller="Account" asp-action="Logout">
-    <Input type="submit" value="Logout" />
-</form>

@@ -7,16 +7,20 @@ using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+
 namespace GeoClueProject.Controllers
 {
     public class HomeController : Controller
     {
         
         HomeService homeService;
+        
+
 
         public HomeController(HomeService homeService)
         {
             this.homeService = homeService;
+           
         }
 
         public IActionResult Index()
@@ -39,15 +43,23 @@ namespace GeoClueProject.Controllers
             var root = await homeService.GetRoot(viewModel);
             var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
             if (selectedCountry == homeService.correctCountry)
+            {
                 return Content("Congrats! "+homeService.correctCountry+" is the correct country!");
-            else
+            }
+         
+           else
                 return View(await homeService.GetImageURL());
         }
 
-        //public int Score()
-        //{
 
-        //}
+        
+        [HttpGet]
+        public IActionResult GetHint1()
+        {
+            return PartialView("_GetHint1",homeService.GetImageURL());
+        }
+
+
         public IActionResult Login()
         {
             return View();
@@ -59,18 +71,19 @@ namespace GeoClueProject.Controllers
         //    return View(await homeService.GetRoot());
         //}
 
-        [HttpGet]
-        [Route("/home/root")]
-        public async Task<IActionResult> Root()
-        {
-            var test = homeService.RandomCountry();
-            //var helper = new ApiCountry();
-            //var result = await helper.CountryList();
-            //var viewModel = new HomeGameVM { ImageURL = result };
-            return Content(test );
+        //[HttpGet]
+        //[Route("/home/root")]
+        //public async Task<IActionResult> Root()
+        //{
+        //    var test = homeService.RandomCountry();
+        //    //var helper = new ApiCountry();
+        //    //var result = await helper.CountryList();
+        //    //var viewModel = new HomeGameVM { ImageURL = result };
+        //    return Content(test );
 
 
-        }
+        //}
+
 
 
         //[Route("")]

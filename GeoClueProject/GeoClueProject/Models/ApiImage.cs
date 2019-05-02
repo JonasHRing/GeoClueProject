@@ -10,11 +10,11 @@ namespace GeoClueProject.Models
 {
     public class ApiImage
     {
-        public string imageURL { get; set; }
+        public string[] ImageURL { get; set; }
 
         const string ApiKey = "12337311-1f9f60b3e0fe189a322c3a724";
 
-        public async Task<string> Search(string searchPhrase)
+        public async Task<string[]> Search(string searchPhrase)
         {
             var encodedSearchPhrase = HttpUtility.UrlEncode(searchPhrase);
 
@@ -27,25 +27,36 @@ namespace GeoClueProject.Models
             // Deserialize JSON
             var root = JsonConvert.DeserializeObject<Rootobject>(json); // GÖr om json objekt till .net core
 
-            imageURL = root.hits[0].largeImageURL;
+            string[] imageURL = new string[3];
+
+            for (int i = 0; i < imageURL.Length; i++)
+            {
+                
+                imageURL[i] = root.hits[i].largeImageURL;
+
+            }
             return imageURL;
         }
+       
 
-        public async Task<string> GetRandomPic(string searchPhrase, int picsToRandomize)
-        {
-            var encodedSearchPhrase = HttpUtility.UrlEncode(searchPhrase); // "India"
+        //public async Task<string> GetRandomPic(string searchPhrase, int picsToRandomize)
+        //{
+        //    var encodedSearchPhrase = HttpUtility.UrlEncode(searchPhrase); // "India"
 
-            var httpClient = new HttpClient();
-            var url = $"https://pixabay.com/api/?key={ApiKey}&q={encodedSearchPhrase}&image_type=photo&per_page={picsToRandomize}";
-            // Make HTTP call
-            var json = await httpClient.GetStringAsync(url);
+        //    var httpClient = new HttpClient();
+        //    var url = $"https://pixabay.com/api/?key={ApiKey}&q={encodedSearchPhrase}&image_type=photo&per_page={picsToRandomize}";
+        //    // Make HTTP call
+        //    var json = await httpClient.GetStringAsync(url);
 
-            // Deserialize JSON
-            var root = JsonConvert.DeserializeObject<Rootobject>(json); // GÖr om json objekt till .net core
+        //    // Deserialize JSON
+        //    var root = JsonConvert.DeserializeObject<Rootobject>(json); // GÖr om json objekt till .net core
 
-            imageURL = root.hits[0].largeImageURL;
-            return imageURL;
-        }
+           
+
+        //     imageURL = root.hits[0].largeImageURL;
+            
+        //    return imageURL;
+        //}
 
         public class Rootobject // 
         {
