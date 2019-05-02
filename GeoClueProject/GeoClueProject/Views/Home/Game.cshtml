@@ -3,9 +3,25 @@
 @model HomeGameVM
 <img src="@Model.ImageURL" />
 <form asp-controller="Home" asp-action="Game">
-    
+
     <label asp-for="CountryList"></label>
     <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
     <input type="submit" value="Guess" />
     <input type="submit" value="Hint" />
 </form>
+
+<Button ID="btnSubmit" value="Hint" @*runat="server"*@ OnClick="Submit" >Picture Hint</Button>
+<hr />
+
+
+<script type="text/javascript" src="@Model.ImageURL">
+
+
+    $(function () {
+        $("#lnk").click(function ()
+
+        {
+            $("[id*=btnSubmit]").click();
+        });
+    });
+</script>
