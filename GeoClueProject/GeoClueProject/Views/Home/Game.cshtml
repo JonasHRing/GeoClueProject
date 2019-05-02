@@ -3,12 +3,10 @@
 
 <img src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-<form asp-controller="Home" asp-action="Game">
-
     <label asp-for="CountryList"></label>
     <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
-    <input type="submit" value="Guess" />
-</form>
+    <div id="divResult"></div>
+    <button id="btnGuess">Guess</button>
 
 <img style="display:none;" id="hint1pic" src="hint1pic" />
 <button onclick="showPicture1()">Hint 1</button>
@@ -32,5 +30,14 @@
             img.style.display = "block";
             }
 
+     $("#btnGuess").click(function () {
+            $.ajax({
+                url: "/Game/SinglePlayer",
+                type: "POST",
+                success: function (result) {
+                    $("#divResult").html(result);
+                }
+            });
+     });
     </script>
 }

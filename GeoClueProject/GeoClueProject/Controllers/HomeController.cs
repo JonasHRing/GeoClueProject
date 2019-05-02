@@ -50,8 +50,7 @@ namespace GeoClueProject.Controllers
             else
                 return View(await homeService.GetImageURL());
 
-            homeService.SetTimer();
-
+SS
         }
 
 
