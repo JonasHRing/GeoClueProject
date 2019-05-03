@@ -13,20 +13,9 @@ namespace GeoClueProject.Models
     {
 
         public Timer aTimer = new Timer();
-       
 
-        public string correctCountry;
-        
-        public async Task<HomeGameVM> GetImageURL()
-        {
-            var helper = new ApiImage();
-            var nameOfCountry = RandomCountry();
-            var result = await helper.Search(nameOfCountry);
-            correctCountry = nameOfCountry;
-
-            return new HomeGameVM { ImageURL = result };
-
-        }
+        // har lagt denna metod i ApiService
+        //public string correctCountry;
 
         public async Task<HomeGameVM> GetRoot(HomeGameVM viewModel)
         {
@@ -43,19 +32,6 @@ namespace GeoClueProject.Models
             return viewModel;
         }
 
-        public string RandomCountry()
-        {
-            var apiCountry = new ApiCountry();
-            var countryList = apiCountry.GetCountryList();
-
-            var rnd = new Random();
-            var index = rnd.Next(15, 18);
-            var country = countryList.Result[index - 1];
-
-            return country;
-
-        }
-
         public async  void SetTimer()
         {
             Timer aTimer = new Timer();
@@ -68,6 +44,14 @@ namespace GeoClueProject.Models
         private static void OnTimedEvent(object source, ElapsedEventArgs e)
         {
             Console.WriteLine("Hello World!");
+        }
+
+        public PlayerVM GetPlayerScore()
+        {
+            var player = new PlayerVM();
+            player.Score += 20;
+           
+            return player;
         }
     }
 }
