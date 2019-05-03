@@ -30,8 +30,6 @@ namespace GeoClueProject.Models
             var country = countryList.Result[index - 1];
 
             return country;
-
         }
-
     }
 }
