@@ -38,7 +38,6 @@ namespace GeoClueProject.Controllers
         public IActionResult Game(string country)
         {
             
-            homeService.SetTimer();
 
             //var root = await homeService.GetRoot(viewModel);
 

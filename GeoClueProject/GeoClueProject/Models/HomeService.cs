@@ -59,7 +59,7 @@ namespace GeoClueProject.Models
         public async  void SetTimer()
         {
             Timer aTimer = new Timer();
-            aTimer.Interval = 2000;
+            //aTimer.Interval = 2000;
             aTimer.Enabled = true;
             //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
         }
