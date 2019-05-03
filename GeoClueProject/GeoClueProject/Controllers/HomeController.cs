@@ -47,7 +47,7 @@ namespace GeoClueProject.Controllers
             //var root = await homeService.GetRoot(viewModel);
 
             //var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
-            HomePlayerVM player1 = new HomePlayerVM();
+            HomeGameVM player1 = new HomeGameVM();
 
             if (country == apiService.correctCountry)
             {
