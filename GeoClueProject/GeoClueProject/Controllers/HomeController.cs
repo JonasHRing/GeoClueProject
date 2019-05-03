@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Timers;
 using GeoClueProject.Models;
 using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -33,19 +34,23 @@ namespace GeoClueProject.Controllers
         }
 
         [HttpPost]
-        [Route("Game/Singleplayer")]
-        public async Task<IActionResult> Game(HomeGameVM viewModel)
+        [Route("Game/Singleplayer/")]
+        public IActionResult Game(string country)
         {
-            var root = await homeService.GetRoot(viewModel);
-            var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
-            if (selectedCountry == homeService.correctCountry)
+            
+            homeService.SetTimer();
+
+            //var root = await homeService.GetRoot(viewModel);
+
+            //var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
+
+            if (country == homeService.correctCountry)
                 return PartialView("Right");
             else
                 return PartialView("Wrong");
-
         }
 
-        
+
         [HttpGet]
         public IActionResult DisplayRightOrWrong()
         {
