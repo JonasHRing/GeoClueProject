@@ -35,10 +35,10 @@ namespace GeoClueProject.Controllers
 
         [HttpPost]
         [Route("Game/Singleplayer/")]
-        public IActionResult Game(string country)
+        public  IActionResult Game(string country)
         {
             
-            homeService.SetTimer();
+            //homeService.SetTimer();
 
             //var root = await homeService.GetRoot(viewModel);
 
