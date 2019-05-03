@@ -9,14 +9,11 @@
 
 @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
 {
-
-
     <p>This is your total score: </p>
 
     <form asp-controller="Account" asp-action="Logout">
         <Input type="submit" value="Logout" />
     </form>
-
 }
 else
 {

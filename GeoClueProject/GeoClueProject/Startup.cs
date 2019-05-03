@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Session;
 
 namespace GeoClueProject
 {
@@ -30,6 +31,7 @@ namespace GeoClueProject
             // Read the connection string (from appsettings.json during dev)
             var connString = configuration.GetConnectionString("DefaultConnection");
 
+            services.AddHttpContextAccessor();
             services.AddDbContext<MyIdentityContext>(o => o.UseSqlServer(connString));
             services.AddIdentity<MyIdentityUser, IdentityRole>(o =>
             {
@@ -56,10 +58,11 @@ namespace GeoClueProject
         {
             app.UseDeveloperExceptionPage();
             app.UseAuthentication();
-            //app.UseMvc();
+            app.UseSession();
+            app.UseMvc();
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
-            app.UseSession();
+            
         }
     }
 }

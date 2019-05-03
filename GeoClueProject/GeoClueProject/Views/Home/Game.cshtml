@@ -1,5 +1,6 @@
 ﻿
 @model HomeGameVM
+@*<partial name="ScoreView">*@
 
 
 <img src="@Model.ImageURL[0]" alt="Picture of the country" />
@@ -15,8 +16,7 @@
     
     <div id="divResult"></div>
     <button id="btnGuess" type="submit">Guess</button>
-        
-   
+
 <img style="display:none;" id="hint1pic" src="hint1pic" />
 <button onclick="showPicture1()">Hint 1</button>
 <img style="display:none;" id="hint2pic" src="hint2pic" />
@@ -56,9 +56,7 @@
             var chooseCountry = $("#selectedCountry option:selected").text();
             $.ajax({
                 url: "/Game/SinglePlayer",
-                data: {
-                    country: chooseCountry
-                },
+                data: {country: chooseCountry},
                 type: "POST",
                 success: function (result) {
                     $("#divResult").html(result);
