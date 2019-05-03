@@ -53,7 +53,7 @@ namespace GeoClueProject.Controllers
                 player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score")) + 20;
                 HttpContext.Session.SetString("player1.Score", player1.Score.ToString());
                 player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score"));
-                return PartialView("Right", player1);
+                return PartialView("Right",player1);
             }
             else
             {
