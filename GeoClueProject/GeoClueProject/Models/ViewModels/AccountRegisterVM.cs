@@ -18,5 +18,7 @@ namespace GeoClueProject.Models.ViewModels
         [Display(Name = "Repeat password")]
         [Compare(nameof(AccountRegisterVM.Password))]
         public string PasswordRepeat { get; set; }
+
+        public int Score { get; set; }
     }
 }
