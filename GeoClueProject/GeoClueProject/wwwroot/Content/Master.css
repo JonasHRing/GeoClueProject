@@ -1,0 +1,70 @@
+﻿body, html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: whitesmoke;
+    color:ghostwhite;
+    /*margin: 0px 40px 0px 40px;*/
+    font-family: 'Yu Gothic';
+    background-image: url("Earth.jpg");
+    /* The image used */
+    Full height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+}
+
+#menubar {
+    background-color: blue;
+    padding: 10px 10px 10px 0px;
+}
+
+#menubar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+       padding: 10px 10px 10px 10px;
+    
+}
+
+#menubar a:hover {
+    color: darkblue;
+    background-color: white;
+    padding: 10px 10px 10px 10px;
+    max-height: 100%;
+
+}
+
+#ContentBox {
+    /*background-color: #CCC;*/
+    background-color: rgb(106,90,205);
+    opacity: 0.9;
+    padding: 10px;
+    text-align:center;
+}
+
+#ContentBox a {
+    color: white;
+}
+
+#IndexContent {
+    text-align:center;
+}
+
+#IndexContent a {
+    color: white;
+}
+
+footer {
+    background-color: cornflowerblue;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

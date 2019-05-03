@@ -1,0 +1,52 @@
+﻿
+@model HomeGameVM
+
+<img src="@Model.ImageURL[0]" alt="Picture of the country" />
+
+
+    <label asp-for="CountryList"></label>
+    <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
+    
+    <div id="divResult"></div>
+    <button id="btnGuess" type="submit">Guess</button>
+    
+
+
+<img style="display:none;" id="hint1pic" src="hint1pic" />
+<button onclick="showPicture1()">Hint 1</button>
+<img style="display:none;" id="hint2pic" src="hint2pic" />
+<button onclick="showPicture2()">Hint 2</button>
+
+
+@section scripts
+{
+    <script>
+            function showPicture1() {
+            var sourceOfPicture = "@Model.ImageURL[1]";
+            var img = document.getElementById('hint1pic')
+            img.src = sourceOfPicture.replace();
+            img.style.display = "block";
+            }
+
+            function showPicture2() {
+            var sourceOfPicture = "@Model.ImageURL[2]";
+            var img = document.getElementById('hint2pic')
+            img.src = sourceOfPicture.replace();
+            img.style.display = "block";
+            }
+
+        $("#btnGuess").click(function () {
+            var chooseCountry = $("#selectedCountry option:selected").text();
+            $.ajax({
+                url: "/Game/SinglePlayer",
+                data: {
+                    country: chooseCountry
+                },
+                type: "POST",
+                success: function (result) {
+                    $("#divResult").html(result);
+                }
+            });
+     });
+    </script>
+}
