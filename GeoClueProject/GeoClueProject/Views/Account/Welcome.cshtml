@@ -19,11 +19,12 @@ else
 {
     <p>
         If you want to see your score please   <a asp-controller="Account" asp-action="Register">register</a>
-    </p>;
+    </p>
     <br />
 
-    <a asp-controller="Home" asp-action="Game">Single</a>
-    <a asp-controller="Home" asp-action="Game">Multiplayer</a>
-
+    <form method="get">
+        <button asp-controller="Home" asp-action="Game">Singleplayer</button>
+        <button asp-controller="Home" asp-action="Register">Multiplayer</button>
+    </form>
 }
 

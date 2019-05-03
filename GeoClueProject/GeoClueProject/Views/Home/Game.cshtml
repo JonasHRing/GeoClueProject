@@ -2,16 +2,20 @@
 @model HomeGameVM
 @*<partial name="ScoreView">*@
 
+
 <img src="@Model.ImageURL[0]" alt="Picture of the country" />
+
+    @*<label asp-for="CountryList"></label>
+    <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
+    <div id="divResult"></div>
+    <button id="btnGuess">Guess</button>*@
 
 
     <label asp-for="CountryList"></label>
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
     
     <div id="divResult"></div>
-    <button id="btnGuess">Guess</button>
-    
-
+    <button id="btnGuess" type="submit">Guess</button>
 
 <img style="display:none;" id="hint1pic" src="hint1pic" />
 <button onclick="showPicture1()">Hint 1</button>
@@ -34,7 +38,19 @@
             var img = document.getElementById('hint2pic')
             img.src = sourceOfPicture.replace();
             img.style.display = "block";
-            }
+    }
+
+     $("#btnGuess").click(function () {
+            $.ajax({
+                url: "/Game/SinglePlayer",
+                type: "POST",
+                success: function (result) {
+                    $("#divResult").html(result);
+                }
+            });
+         
+
+        });
 
         $("#btnGuess").click(function () {
             var chooseCountry = $("#selectedCountry option:selected").text();

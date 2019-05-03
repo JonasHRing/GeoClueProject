@@ -10,13 +10,13 @@
 <body>
     @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
     {
-        <div id="menubar">
-            <a asp-controller="Home" asp-action="Index">Home</a>
-            <a asp-controller="Home" asp-action="Game">Single</a>
-            <a asp-controller="Home" asp-action="Game">Multiplayer</a>
-            <a asp-controller="Account" asp-action="Login">Login</a>
-            <a asp-controller="Account" asp-action="Register">Register</a>
-        </div>
+    <div id="menubar">
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="Game">Single</a>
+        <a asp-controller="Home" asp-action="Game">Multiplayer</a>
+        <a asp-controller="Account" asp-action="Welcome">MyPage</a>
+
+    </div>
 
     }
     else
@@ -25,6 +25,7 @@
             <a asp-controller="Home" asp-action="Index">Home</a>
             <a asp-controller="Account" asp-action="Login">Login</a>
             <a asp-controller="Account" asp-action="Register">Register</a>
+            <a asp-controller="Account" asp-action="Welcome">Guest</a>
         </div>
     }
 
