@@ -27,7 +27,7 @@ namespace GeoClueProject.Models
             // Deserialize JSON
             var root = JsonConvert.DeserializeObject<Rootobject>(json); // GÖr om json objekt till .net core
 
-            string[] imageURL = new string[3];
+            string[] imageURL = new string[4];
 
             for (int i = 0; i < imageURL.Length; i++)
             {
