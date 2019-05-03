@@ -17,7 +17,7 @@ namespace GeoClueProject.Models.ViewModels
         [Range(1,3)]
         public int SelectedCountryValue { get; set; }
 
-        
+        public int Score { get; set; }
 
     }
 

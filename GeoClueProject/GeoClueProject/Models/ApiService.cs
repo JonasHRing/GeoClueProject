@@ -33,9 +33,5 @@ namespace GeoClueProject.Models
 
         }
 
-        ////public bool Correctcountry()
-        ////{
-        ////    if(country == correctCountry)
-        ////}
     }
 }

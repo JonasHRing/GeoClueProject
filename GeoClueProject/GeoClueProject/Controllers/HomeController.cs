@@ -15,6 +15,7 @@ namespace GeoClueProject.Controllers
         
         HomeService homeService;
         ApiService apiService;
+        
 
         public HomeController(HomeService homeService, ApiService apiService)
         {
@@ -49,8 +50,9 @@ namespace GeoClueProject.Controllers
             if (country == apiService.correctCountry)
             {
                 //return Content($"{country} {apiService.correctCountry}");
-
-                return PartialView("Right");
+                var playerScore = homeService.GetPlayerScore();
+                //playerScore = playerScore+20;
+                return PartialView("Right", playerScore);
             }
             else
             {
