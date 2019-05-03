@@ -2,33 +2,33 @@
 @model HomeGameVM
 <partial name="ScoreView">
 
-<img src="@Model.ImageURL[0]" alt="Picture of the country" />
+<img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
     <label asp-for="CountryList"></label>
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
 
     <div id="divResult"></div>
 
-    <button id="btnGuess" type="submit">Guess</button>
+    <button style="color:white" id="btnGuess" type="submit">Guess</button>
 
 
     <form method="get">
-        <button asp-controller="Home" asp-action="Game">New Country</button>
+        <button style="color:white" asp-controller="Home" asp-action="Game">New Country</button>
 
     </form>
 
 
 
     <img style="display:none;" id="hint1pic" src="hint1pic" />
-    <button onclick="showPicture1()">Hint 1</button>
+    <button style="color:white" onclick="showPicture1()">Hint 1</button>
     <img style="display:none;" id="hint2pic" src="hint2pic" />
-    <button onclick="showPicture2()">Hint 2</button>
+    <button style="color:white" onclick="showPicture2()">Hint 2</button>
     <img style="display:none;" id="hint3pic" src="hint3pic" />
-    <button onclick="showPicture3()">Hint 3</button>
+    <button style="color:white" onclick="showPicture3()">Hint 3</button>
 
     @section scripts
         {
-        <script>
+        <script id="Hintpic">
             function showPicture1() {
             var sourceOfPicture = "@Model.ImageURL[1]";
             var img = document.getElementById('hint1pic')

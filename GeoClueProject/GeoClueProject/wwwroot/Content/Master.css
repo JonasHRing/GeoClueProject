@@ -19,6 +19,7 @@ body {
 
 h1 {
     text-align: center;
+    padding: 10px 10px 10px 0px;
 }
 
 #menubar {
@@ -49,7 +50,30 @@ h1 {
     padding: 10px;
     text-align:center;
 }
-
+#MainImage{
+    width: 50%;
+    opacity: 1;
+    align-items:center;
+}
+#Hintpic{
+    display:flex;
+    justify-content:center;
+}
+#hint2pic {
+    width: 600px;
+    opacity: 1;
+    align-items: center;
+}
+#hint3pic {
+    width: 600px;
+    opacity: 1;
+    align-items: center;
+}
+#hint1pic {
+    width: 600px;
+    opacity: 1;
+    align-items: center;
+}
 #ContentBox a {
     color: white;
 }

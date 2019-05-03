@@ -12,7 +12,11 @@
     <p>This is your total score: </p>
 
     <form asp-controller="Account" asp-action="Logout">
-        <Input type="submit" value="Logout" />
+        <Input style="color:white" type="submit" value="Logout" />
+    </form>
+    <form method="get">
+        <button style="color:white" asp-controller="Home" asp-action="Game">Singleplayer</button>
+        <button style="color:white" asp-controller="Home" asp-action="Register">Multiplayer</button>
     </form>
 }
 else
@@ -23,8 +27,8 @@ else
     <br />
 
     <form method="get">
-        <button asp-controller="Home" asp-action="Game">Singleplayer</button>
-        <button asp-controller="Home" asp-action="Register">Multiplayer</button>
+        <button style="color:white" asp-controller="Home" asp-action="Game">Singleplayer</button>
+        <button style="color:white" asp-controller="Home" asp-action="Register">Multiplayer</button>
     </form>
 }
 
