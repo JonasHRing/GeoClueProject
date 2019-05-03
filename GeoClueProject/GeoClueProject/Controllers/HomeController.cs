@@ -14,10 +14,12 @@ namespace GeoClueProject.Controllers
     {
         
         HomeService homeService;
+        ApiService apiService;
 
-        public HomeController(HomeService homeService)
+        public HomeController(HomeService homeService, ApiService apiService)
         {
             this.homeService = homeService;
+            this.apiService = apiService;
         }
 
         public IActionResult Index()
@@ -29,7 +31,7 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game()
         {
-            var viewModel = await homeService.GetImageURL();
+            var viewModel = await apiService.GetImageURL();
             return View(await homeService.GetRoot(viewModel));
         }
 
@@ -44,19 +46,22 @@ namespace GeoClueProject.Controllers
 
             //var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
 
-            if (country == homeService.correctCountry)
+            if (country == apiService.correctCountry)
+            {
+                //return Content($"{country} {apiService.correctCountry}");
+
                 return PartialView("Right");
+            }
             else
+            {
                 return PartialView("Wrong");
+                //return Content($"{country} {apiService.correctCountry}");
+            }
+
         }
 
 
-        [HttpGet]
-        public IActionResult DisplayRightOrWrong()
-        {
-            return PartialView("_GetHint1",homeService.correctCountry);
-        }
-
+     
         public IActionResult Login()
         {
             return View();
