@@ -30,12 +30,6 @@ namespace GeoClueProject.Models
             var country = countryList.Result[index - 1];
 
             return country;
-
         }
-
-        ////public bool Correctcountry()
-        ////{
-        ////    if(country == correctCountry)
-        ////}
     }
 }
