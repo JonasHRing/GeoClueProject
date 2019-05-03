@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using GeoClueProject.Models;
 using GeoClueProject.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -43,19 +44,24 @@ namespace GeoClueProject.Controllers
             //var root = await homeService.GetRoot(viewModel);
 
             //var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
+            Player player1 = new Player();
+
 
             if (country == homeService.correctCountry)
-                return PartialView("Right");
+            {
+                //player1.Score = HttpContext.Session.GetInt32("player1.Score").Value + 20;
+                //HttpContext.Session.SetInt32("player1.Score", player1.Score);
+                //player1.Score = HttpContext.Session.GetInt32("player1.Score").Value;
+
+                player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score")) + 20;
+                HttpContext.Session.SetString("player1.Score", player1.Score.ToString());
+                player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score"));
+                return PartialView("Right", player1);
+            }
             else
                 return PartialView("Wrong");
         }
 
-
-        [HttpGet]
-        public IActionResult GetHint1()
-        {
-            return PartialView("_GetHint1",homeService.GetImageURL());
-        }
 
         public IActionResult Login()
         {

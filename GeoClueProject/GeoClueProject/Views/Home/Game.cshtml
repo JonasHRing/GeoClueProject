@@ -1,5 +1,6 @@
 ﻿
 @model HomeGameVM
+@*<partial name="ScoreView">*@
 
 <img src="@Model.ImageURL[0]" alt="Picture of the country" />
 
@@ -8,7 +9,7 @@
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
     
     <div id="divResult"></div>
-    <button id="btnGuess" type="submit">Guess</button>
+    <button id="btnGuess">Guess</button>
     
 
 
@@ -39,9 +40,7 @@
             var chooseCountry = $("#selectedCountry option:selected").text();
             $.ajax({
                 url: "/Game/SinglePlayer",
-                data: {
-                    country: chooseCountry
-                },
+                data: {country: chooseCountry},
                 type: "POST",
                 success: function (result) {
                     $("#divResult").html(result);
