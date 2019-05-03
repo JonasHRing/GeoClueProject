@@ -46,12 +46,6 @@ namespace GeoClueProject.Models
             Console.WriteLine("Hello World!");
         }
 
-        public PlayerVM GetPlayerScore()
-        {
-            var player = new PlayerVM();
-            player.Score += 20;
-           
-            return player;
-        }
+        
     }
 }
