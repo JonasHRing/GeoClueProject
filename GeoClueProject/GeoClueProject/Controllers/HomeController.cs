@@ -52,9 +52,9 @@ namespace GeoClueProject.Controllers
 
 
         [HttpGet]
-        public IActionResult GetHint1()
+        public IActionResult DisplayRightOrWrong()
         {
-            return PartialView("_GetHint1",homeService.GetImageURL());
+            return PartialView("_GetHint1",homeService.correctCountry);
         }
 
         public IActionResult Login()
