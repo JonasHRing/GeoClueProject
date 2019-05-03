@@ -37,17 +37,26 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game(HomeGameVM viewModel)
         {
-
-            homeService.SetTimer();
+       
 
             var root = await homeService.GetRoot(viewModel);
 
             var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
 
+
             if (selectedCountry == homeService.correctCountry)
-            { return PartialView("Right"); }
-            else
-            { return PartialView("Wrong"); }
+            {
+                //homeService.SetTimer();
+                return PartialView("Right"); }
+
+            else /*homeService.SetTimer();
+*/            { return PartialView("Wrong"); }
+
+
+
+
+           
+
 
         }
 
