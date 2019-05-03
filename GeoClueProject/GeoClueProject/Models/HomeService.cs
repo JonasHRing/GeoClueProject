@@ -13,20 +13,20 @@ namespace GeoClueProject.Models
     {
 
         public Timer aTimer = new Timer();
-       
 
-        public string correctCountry;
-        
-        public async Task<HomeGameVM> GetImageURL()
-        {
-            var helper = new ApiImage();
-            var nameOfCountry = RandomCountry();
-            var result = await helper.Search(nameOfCountry);
-            correctCountry = nameOfCountry;
+        // har lagt denna metod i ApiService
+        //public string correctCountry;
 
-            return new HomeGameVM { ImageURL = result };
+        //public async Task<HomeGameVM> GetImageURL()
+        //{
+        //    var helper = new ApiImage();
+        //    var nameOfCountry = RandomCountry();
+        //    var result = await helper.Search(nameOfCountry);
+        //    correctCountry = nameOfCountry;
 
-        }
+        //    return new HomeGameVM { ImageURL = result };
+
+        //}
 
         public async Task<HomeGameVM> GetRoot(HomeGameVM viewModel)
         {
@@ -42,19 +42,19 @@ namespace GeoClueProject.Models
 
             return viewModel;
         }
+        // har lagt denna metod i ApiService
+        //public string RandomCountry()
+        //{
+        //    var apiCountry = new ApiCountry();
+        //    var countryList = apiCountry.GetCountryList();
 
-        public string RandomCountry()
-        {
-            var apiCountry = new ApiCountry();
-            var countryList = apiCountry.GetCountryList();
+        //    var rnd = new Random();
+        //    var index = rnd.Next(15, 18);
+        //    var country = countryList.Result[index - 1];
 
-            var rnd = new Random();
-            var index = rnd.Next(15, 18);
-            var country = countryList.Result[index - 1];
+        //    return country;
 
-            return country;
-
-        }
+        //}
 
         public async  void SetTimer()
         {
