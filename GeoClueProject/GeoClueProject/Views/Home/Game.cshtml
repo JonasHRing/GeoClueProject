@@ -3,15 +3,11 @@
 
 <img src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-<<<<<<< HEAD
-=======
-<form asp-controller="Home" asp-action="Game">
-
->>>>>>> parent of e79b176... commit old backup
     <label asp-for="CountryList"></label>
     <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
-    <input type="submit" value="Guess" />
-</form>
+    <div id="divResult"></div>
+    <button id="btnGuess">Guess</button>
+
 
     @*<label asp-for="CountryList"></label>
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
@@ -29,10 +25,7 @@
 <img style="display:none;" id="hint2pic" src="hint2pic" />
 <button onclick="showPicture2()">Hint 2</button>
 
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of e79b176... commit old backup
 @section scripts
 {
     <script>
@@ -48,7 +41,19 @@
             var img = document.getElementById('hint2pic')
             img.src = sourceOfPicture.replace();
             img.style.display = "block";
-            }
+    }
+
+     $("#btnGuess").click(function () {
+            $.ajax({
+                url: "/Game/SinglePlayer",
+                type: "POST",
+                success: function (result) {
+                    $("#divResult").html(result);
+                }
+            });
+         
+
+        });
 
         $("#btnGuess").click(function () {
             var chooseCountry = $("#selectedCountry option:selected").text();

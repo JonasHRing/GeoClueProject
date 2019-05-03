@@ -37,7 +37,6 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer/")]
         public IActionResult Game(string country)
         {
-<<<<<<< HEAD
             
             homeService.SetTimer();
 
@@ -49,21 +48,13 @@ namespace GeoClueProject.Controllers
                 return PartialView("Right");
             else
                 return PartialView("Wrong");
-=======
-            var root = await homeService.GetRoot(viewModel);
-            var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
-            if (selectedCountry == homeService.correctCountry)
-                return Content("Congrats! "+homeService.correctCountry+" is the correct country!");
-            else
-                return View(await homeService.GetImageURL());
->>>>>>> parent of e79b176... commit old backup
         }
 
 
         [HttpGet]
-        public IActionResult GetHint1()
+        public IActionResult DisplayRightOrWrong()
         {
-            return PartialView("_GetHint1",homeService.GetImageURL());
+            return PartialView("_GetHint1",homeService.correctCountry);
         }
 
         public IActionResult Login()
