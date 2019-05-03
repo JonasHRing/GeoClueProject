@@ -15,10 +15,10 @@
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
     
     <div id="divResult"></div>
-    
+    <button id="btnGuess" type="submit">Guess</button>
 
     <form method="get">
-        <button id="btnGuess" type="submit">Guess</button> <button asp-controller="Home" asp-action="Game">New Country</button>
+         <button asp-controller="Home" asp-action="Game">New Country</button>
 
     </form>
     
