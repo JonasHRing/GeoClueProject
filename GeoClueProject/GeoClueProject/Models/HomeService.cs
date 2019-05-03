@@ -25,7 +25,6 @@ namespace GeoClueProject.Models
             correctCountry = nameOfCountry;
 
             return new HomeGameVM { ImageURL = result };
-
         }
 
         public async Task<HomeGameVM> GetRoot(HomeGameVM viewModel)
@@ -53,7 +52,6 @@ namespace GeoClueProject.Models
             var country = countryList.Result[index - 1];
 
             return country;
-
         }
 
         public async  void SetTimer()
