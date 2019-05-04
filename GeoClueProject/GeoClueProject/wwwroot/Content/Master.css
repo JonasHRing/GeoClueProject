@@ -50,6 +50,15 @@ h1 {
     padding: 10px;
     text-align:center;
 }
+
+#ContentBox input {
+    color: white;
+}
+
+.button {
+    color:white;
+}
+
 #MainImage{
     width: 50%;
     opacity: 1;

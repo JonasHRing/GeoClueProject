@@ -8,20 +8,20 @@
 
     <div id="divResult"></div>
 
-    <button style="color:white" id="btnGuess" type="submit">Guess</button>
+    <button class="button" id="btnGuess" type="submit">Guess</button>
 
     <form method="get">
-        <button style="color:white" asp-controller="Home" asp-action="Game">New Country</button>
+        <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
 
     </form>
     <img class="hintpic" id="hint1pic" src="hint1pic" />
-    <button style="color:white" onclick="showPicture1()">Hint 1</button> 
+    <button class="button" onclick="showPicture1()">Hint 1</button> 
     
     <img class="hintpic" id="hint2pic" src="hint2pic" /> 
-    <button style="color:white" onclick="showPicture2()">Hint 2</button> 
+    <button class="button" onclick="showPicture2()">Hint 2</button> 
      
     <img class="hintpic" id="hint3pic" src="hint3pic" /> 
-    <button style="color:white"  onclick="showPicture3()">Hint 3</button> 
+    <button class="button" onclick="showPicture3()">Hint 3</button> 
 
     @section scripts
         {
