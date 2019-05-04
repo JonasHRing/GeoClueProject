@@ -9,8 +9,6 @@ namespace GeoClueProject.Models
 {
     public class ApiService
     {
-        public string correctCountry;
-
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public ApiService(IHttpContextAccessor httpContextAccessor)
@@ -29,6 +27,7 @@ namespace GeoClueProject.Models
             return new HomeGameVM { ImageURL = result };
 
         }
+
         public string RandomCountry()
         {
             var apiCountry = new ApiCountry();
