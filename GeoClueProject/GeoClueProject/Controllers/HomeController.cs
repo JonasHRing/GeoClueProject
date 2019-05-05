@@ -13,10 +13,8 @@ namespace GeoClueProject.Controllers
 {
     public class HomeController : Controller
     {
-        
         HomeService homeService;
         ApiService apiService;
-        
 
         public HomeController(HomeService homeService, ApiService apiService)
         {
@@ -48,8 +46,9 @@ namespace GeoClueProject.Controllers
 
             //var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
             HomeGameVM player1 = new HomeGameVM();
+            var correctAnswer = HttpContext.Session.GetString("correctCountry");
 
-            if (country == apiService.correctCountry)
+            if (country == correctAnswer)
             {
                 player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score")) + 20;
                 HttpContext.Session.SetString("player1.Score", player1.Score.ToString());

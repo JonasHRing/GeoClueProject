@@ -12,8 +12,6 @@ namespace GeoClueProject.Models
     {
         public async Task<string[]> GetCountryList()
         {
-            //var encodedSearchPhrase = HttpUtility.UrlEncode(searchPhrase);
-
             var httpClient = new HttpClient();
             var url = $"https://restcountries.eu/rest/v2/all";
 
@@ -21,7 +19,6 @@ namespace GeoClueProject.Models
             var json = await httpClient.GetStringAsync(url);
 
             // Deserialize JSON
-
             var countries = JsonConvert.DeserializeObject<List<Class1>>(json);
 
             return countries
@@ -98,11 +95,5 @@ namespace GeoClueProject.Models
             public string[] otherAcronyms { get; set; }
             public string[] otherNames { get; set; }
         }
-
-
     }
-
-
-
-
 }

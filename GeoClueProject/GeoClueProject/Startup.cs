@@ -47,9 +47,9 @@ namespace GeoClueProject
             services.AddTransient<AccountService>();
             services.AddSingleton<HomeService>();
             services.AddSingleton<ApiService>();
-            
 
             services.AddMvc();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSession();
         }
 
