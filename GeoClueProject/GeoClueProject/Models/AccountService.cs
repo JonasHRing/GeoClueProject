@@ -60,11 +60,11 @@ namespace GeoClueProject.Models
             return viewModel;
         }
 
-        public async Task HandleCorrectGuess(int score)
+        public async Task UpdateUserScore(int score)
         {
             string userId = userManager.GetUserId(_httpContextAccessor.HttpContext.User);
             MyIdentityUser user = await userManager.FindByIdAsync(userId);
-            user.Score += score;
+            user.Score = score;
 
             await userManager.UpdateAsync(user);
         }
