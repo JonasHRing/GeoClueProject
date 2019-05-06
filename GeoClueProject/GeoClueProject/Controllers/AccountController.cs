@@ -11,6 +11,8 @@ namespace GeoClueProject.Controllers
 {
     public class AccountController : Controller
     {
+        //Jonas is the KING!
+
         AccountService accountService;
 
         public AccountController(AccountService accountService)
