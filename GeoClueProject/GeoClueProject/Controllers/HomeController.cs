@@ -6,6 +6,7 @@ using System.Timers;
 using GeoClueProject.Models;
 using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -13,10 +14,8 @@ namespace GeoClueProject.Controllers
 {
     public class HomeController : Controller
     {
-        
         HomeService homeService;
         ApiService apiService;
-        
 
         public HomeController(HomeService homeService, ApiService apiService)
         {
@@ -39,7 +38,7 @@ namespace GeoClueProject.Controllers
 
         [HttpPost]
         [Route("Game/Singleplayer/")]
-        public  IActionResult Game(string country)
+        public IActionResult GameAsync(string country)
         {
             
             //homeService.SetTimer();
@@ -48,8 +47,9 @@ namespace GeoClueProject.Controllers
 
             //var selectedCountry = root.CountryList[viewModel.SelectedCountryValue].Text;
             HomeGameVM player1 = new HomeGameVM();
+            var correctAnswer = HttpContext.Session.GetString("correctCountry");
 
-            if (country == apiService.correctCountry)
+            if (country == correctAnswer)
             {
                 player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score")) + 20;
                 HttpContext.Session.SetString("player1.Score", player1.Score.ToString());

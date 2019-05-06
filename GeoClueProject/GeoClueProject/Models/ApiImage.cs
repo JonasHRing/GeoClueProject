@@ -11,7 +11,6 @@ namespace GeoClueProject.Models
     public class ApiImage
     {
         public string[] ImageURL { get; set; }
-
         const string ApiKey = "12337311-1f9f60b3e0fe189a322c3a724";
 
         public async Task<string[]> Search(string searchPhrase)
@@ -31,9 +30,7 @@ namespace GeoClueProject.Models
 
             for (int i = 0; i < imageURL.Length; i++)
             {
-                
                 imageURL[i] = root.hits[i].largeImageURL;
-
             }
             return imageURL;
         }
