@@ -90,5 +90,12 @@ namespace GeoClueProject.Controllers
             await accountService.LogoutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Scoreboard()
+        {
+            var viewModel = await accountService.GetUsers();
+            return View(viewModel);
+        }
     }
 }
