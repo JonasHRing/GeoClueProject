@@ -32,20 +32,12 @@ namespace GeoClueProject.Models
             return viewModel;
         }
 
-        public  void SetTimer()
+        public async  void SetTimer()
         {
-
-            int GuessTimeLimit = 3;
-            for (int i = 0; i < GuessTimeLimit; i++)
-                
-            {
             Timer aTimer = new Timer();
-                
             aTimer.Interval = 2000;
             aTimer.Enabled = true;
-
-            }
-           
+            //aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
         }
 
         // Specify what you want to happen when the Elapsed event is raised.
