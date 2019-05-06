@@ -11,7 +11,6 @@ namespace GeoClueProject.Models
     public class ApiImage
     {
         public string[] ImageURL { get; set; }
-
         const string ApiKey = "12337311-1f9f60b3e0fe189a322c3a724";
 
         public async Task<string[]> Search(string searchPhrase)
@@ -27,13 +26,11 @@ namespace GeoClueProject.Models
             // Deserialize JSON
             var root = JsonConvert.DeserializeObject<Rootobject>(json); // GÖr om json objekt till .net core
 
-            string[] imageURL = new string[3];
+            string[] imageURL = new string[4];
 
             for (int i = 0; i < imageURL.Length; i++)
             {
-                
                 imageURL[i] = root.hits[i].largeImageURL;
-
             }
             return imageURL;
         }

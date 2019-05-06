@@ -1,132 +1,72 @@
 ﻿
 @model HomeGameVM
 
+    @*<div class="sticky" id="navbarGame">
+        <a asp-controller="Account" asp-action="Register">Register as user</a>
+        <a asp-controller="Account" asp-action="Welcome">Play as guest</a>
+    </div>*@
 
-<img src="@Model.ImageURL[0]" alt="Picture of the country" />
+<img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-
-    @*<label asp-for="CountryList"></label>
-    <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
-    <div id="divResult"></div>
-    <button id="btnGuess">Guess</button>*@
-
-
+<div class="sticky" id="navbar">
     <label asp-for="CountryList"></label>
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
-    
+
     <div id="divResult"></div>
-    <button id="btnGuess" type="submit">Guess</button>
-        
-   
-<img style="display:none;" id="hint1pic" src="hint1pic" />
-<button onclick="showPicture1()">Hint 1</button>
-<img style="display:none;" id="hint2pic" src="hint2pic" />
-<button onclick="showPicture2()">Hint 2</button>
+
+    <button class="button" id="btnGuess" type="submit">Guess</button>
+
+    <form method="get">
+        <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
+
+    </form>
+</div>
+    <img class="hintpic" id="hint1pic" src="hint1pic" />
+    <button class="button" onclick="showPicture1()">Hint 1</button> 
+    
+    <img class="hintpic" id="hint2pic" src="hint2pic" /> 
+    <button class="button" onclick="showPicture2()">Hint 2</button> 
+     
+    <img class="hintpic" id="hint3pic" src="hint3pic" /> 
+    <button class="button" onclick="showPicture3()">Hint 3</button> 
 
 
-@section scripts
-{
-<script>
-
-
-
-
+    @section scripts
+        {
+        <script>
             function showPicture1() {
-            var sourceOfPicture = "@Model.ImageURL[1]";
-            var img = document.getElementById('hint1pic')
-            img.src = sourceOfPicture.replace();
-            img.style.display = "block";
-    }
-
-
-
-
+                var sourceOfPicture = "@Model.ImageURL[1]";
+                var img = document.getElementById('hint1pic')
+                img.src = sourceOfPicture.replace();
+                img.style.display = "block"; 
+            }
 
             function showPicture2() {
-            var sourceOfPicture = "@Model.ImageURL[2]";
-            var img = document.getElementById('hint2pic')
+                var sourceOfPicture = "@Model.ImageURL[2]";
+                var img = document.getElementById('hint2pic')
+                img.src = sourceOfPicture.replace();
+                img.style.display = "block"; 
+            }
+
+            function showPicture3() {
+            var sourceOfPicture = "@Model.ImageURL[3]";
+            var img = document.getElementById('hint3pic')
             img.src = sourceOfPicture.replace();
-                img.style.display = "block";
+            img.style.display = "block";
+            }
 
-                SetPictureInterval();
-
-               function SetPictureInterval () {
-
-               window.setInterval
-
-                   $.ajax({
-
-                        url: "/Game/SinglePlayer",
-                        type: "POST",
-                        success: function (result) {
-
-                            $.get("/Game/SinglePlayer");
-
-                        }
-                   });
-
-                }, 300
-
-
-                window.setInterval(function () {
-
-
-                    // Send an AJAX request every 5s to poll for changes and update the UI
-                    // example with jquery:
-
-                    $.ajax({
-                        url: "/Game/SinglePlayer",
-                        type: "POST",
-                        success: function (result)
-
-                    $.get("/Game/SinglePlayer', function (result) {
-                        // TODO: use the results returned from your controller action
-                        // to update the UI
-                    });
-                }, 5000);
-
-
-
-
-
+            $("#btnGuess").click(function () {
+                var chooseCountry = $("#selectedCountry option:selected").text();
+                $.ajax({
+                    url: "/Game/SinglePlayer",
+                    data: {country: chooseCountry},
+                    type: "POST",
+                    success: function (result) {
+                    $("#divResult").html(result);
+                    }
+                });
+            });
+        </script>
     }
 
-
-
-
-
-     $("#btnGuess").click(function () {
-            $.ajax({
-                url: "/Game/SinglePlayer",
-                type: "POST",
-                success: function (result) {
-                    $("#divResult").html(result);
-                }
-            });
-
-
-        });
-
-        $("#btnGuess").click(function () {
-            var chooseCountry = $("#selectedCountry option:selected").text();
-            $.ajax({
-                url: "/Game/SinglePlayer",
-                data: {
-                    country: chooseCountry
-                },
-                type: "POST",
-                success: function (result) {
-                    $("#divResult").html(result);
-                }
-            });
-    });
-
-
-
-
-
-  </script>
-}
-
-
-       
+ 

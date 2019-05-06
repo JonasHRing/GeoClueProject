@@ -11,6 +11,8 @@ namespace GeoClueProject.Controllers
 {
     public class AccountController : Controller
     {
+        //Jonas is the KING!
+
         AccountService accountService;
 
         public AccountController(AccountService accountService)
@@ -89,6 +91,13 @@ namespace GeoClueProject.Controllers
         {
             await accountService.LogoutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Scoreboard()
+        {
+            var viewModel = await accountService.GetUsers();
+            return View(viewModel);
         }
     }
 }

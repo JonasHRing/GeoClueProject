@@ -19,6 +19,14 @@ body {
 
 h1 {
     text-align: center;
+    padding: 10px 10px 10px 0px;
+}
+
+#navbar {
+    overflow: hidden;
+    /*background-color: #333;*/
+    position: sticky;
+    top: 0px;
 }
 
 #menubar {
@@ -49,6 +57,28 @@ h1 {
     padding: 10px;
     text-align:center;
 }
+
+#ContentBox input {
+    color: green;
+}
+
+.button {
+    color:white;
+}
+
+#MainImage{
+    width: 50%;
+    opacity: 1;
+    align-items:center;
+}
+
+
+.hintpic {
+    display: none;
+    margin: 0 auto; 
+    width: 35%;
+}
+
 
 #ContentBox a {
     color: white;
