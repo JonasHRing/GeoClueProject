@@ -22,21 +22,8 @@ h1 {
     padding: 10px 10px 10px 0px;
 }
 
-#guessbar {
-    overflow: hidden;
-    background-color: cornflowerblue;
-    position: sticky;
-    top: 0px;
-    width:100%;
-    /*display: flex;
-    justify-content:space-between;*/
-}
-#guessbarbtn{
-    
-}
-
 #menubar {
-    background-color: rgb(106,90,205);
+    background-color: blue;
     padding: 10px 10px 10px 0px;
 }
 
@@ -77,14 +64,31 @@ h1 {
     opacity: 1;
     align-items:center;
 }
-
+/*#Hintpic{
+    display:flex;
+    justify-content:center;
+}*/
 
 .hintpic {
     display: none;
     margin: 0 auto; 
-    width: 35%;
+    width: 600px;
 }
 
+/*#hint2pic {
+    width: 600px;
+    opacity: 1;
+}
+
+#hint3pic {
+    width: 600px;
+    opacity: 1;
+}
+
+#hint1pic {
+    width: 600px;
+    opacity: 1;
+}*/
 
 #ContentBox a {
     color: white;

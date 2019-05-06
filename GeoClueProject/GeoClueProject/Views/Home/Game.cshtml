@@ -1,27 +1,19 @@
 ﻿
 @model HomeGameVM
 
-    @*<div class="sticky" id="navbarGame">
-        <a asp-controller="Account" asp-action="Register">Register as user</a>
-        <a asp-controller="Account" asp-action="Welcome">Play as guest</a>
-    </div>*@
-
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-<div id="guessbar">
     <label asp-for="CountryList"></label>
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
-    <div id="guessbarbtn">
-        <button class="button" id="btnGuess" type="submit">Guess</button>
-        <form method="get">
-            <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
-        </form>
-    </div> 
-    <div id="divResult"></div>
-    
-   
 
-</div>
+    <div id="divResult"></div>
+
+    <button class="button" id="btnGuess" type="submit">Guess</button>
+
+    <form method="get">
+        <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
+
+    </form>
 
     <img class="hintpic" id="hint1pic" src="hint1pic" />
     <button class="button" onclick="showPicture1()">Hint 1</button> 
