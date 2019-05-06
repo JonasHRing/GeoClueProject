@@ -7,6 +7,6 @@ namespace GeoClueProject.Models
 {
     public class MultiService
     {
-      
+
     }
 }

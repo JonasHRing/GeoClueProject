@@ -33,7 +33,7 @@ namespace GeoClueProject.Models
             var countryList = apiCountry.GetCountryList();
 
             var rnd = new Random();
-            var index = rnd.Next(15, 18);
+            var index = rnd.Next(15,18);
             var country = countryList.Result[index - 1];
 
             return country;
