@@ -22,6 +22,16 @@ h1 {
     padding: 10px 10px 10px 0px;
 }
 
+<<<<<<< HEAD
+=======
+#navbar {
+    overflow: hidden;
+    /*background-color: #333;*/
+    position: sticky;
+    top: 0px;
+}
+
+>>>>>>> parent of 0eb24de... sticky 2
 #menubar {
     background-color: blue;
     padding: 10px 10px 10px 0px;

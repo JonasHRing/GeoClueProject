@@ -3,18 +3,30 @@
 
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
+<<<<<<< HEAD
+=======
+<div class="sticky" id="navbar">
+>>>>>>> parent of 0eb24de... sticky 2
     <label asp-for="CountryList"></label>
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
 
     <div id="divResult"></div>
 
     <button class="button" id="btnGuess" type="submit">Guess</button>
+<<<<<<< HEAD
 
     <form method="get">
         <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
 
     </form>
+=======
+>>>>>>> parent of 0eb24de... sticky 2
 
+    <form method="get">
+        <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
+
+    </form>
+</div>
     <img class="hintpic" id="hint1pic" src="hint1pic" />
     <button class="button" onclick="showPicture1()">Hint 1</button> 
     
