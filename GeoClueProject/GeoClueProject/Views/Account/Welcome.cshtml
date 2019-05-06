@@ -1,4 +1,6 @@
 ﻿@model AccountWelcomeVM
+
+
 @{
     ViewData["Title"] = "Members";
 }
@@ -9,14 +11,10 @@
 
 @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
 {
-    <p>This is your total score: </p>
+    <p>This is your total score:  </p>
 
     <form asp-controller="Account" asp-action="Logout">
         <Input style="color:white" type="submit" value="Logout" />
-    </form>
-    <form method="get">
-        <button class="button" asp-controller="Home" asp-action="Game">Singleplayer</button>
-        <button class="button" asp-controller="Home" asp-action="Register">Multiplayer</button>
     </form>
 }
 else
@@ -26,9 +24,12 @@ else
     </p>
     <br />
 
-    <form method="get">
-        <button class="button" asp-controller="Home" asp-action="Game">Singleplayer</button>
-        <button class="button" asp-controller="Home" asp-action="Register">Multiplayer</button>
-    </form>
 }
+<form method="get" asp-controller="Home" asp-action="Game">
+    <input type="submit" class="button" value="Singleplayer"/>
+</form>
+<form method="get" asp-controller="Home" asp-action="Register">
+
+    <button class="button" asp-controller="Home" asp-action="Register">Multiplayer</button>
+</form>
 
