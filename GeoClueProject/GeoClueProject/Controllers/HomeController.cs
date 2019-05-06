@@ -6,6 +6,7 @@ using System.Timers;
 using GeoClueProject.Models;
 using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -37,7 +38,7 @@ namespace GeoClueProject.Controllers
 
         [HttpPost]
         [Route("Game/Singleplayer/")]
-        public  IActionResult Game(string country)
+        public IActionResult GameAsync(string country)
         {
             
             //homeService.SetTimer();

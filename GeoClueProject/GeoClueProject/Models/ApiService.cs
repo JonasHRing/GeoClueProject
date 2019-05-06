@@ -25,7 +25,6 @@ namespace GeoClueProject.Models
             _httpContextAccessor.HttpContext.Session.SetString("correctCountry", nameOfCountry);
 
             return new HomeGameVM { ImageURL = result };
-
         }
 
         public string RandomCountry()
