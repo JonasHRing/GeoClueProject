@@ -22,15 +22,21 @@ h1 {
     padding: 10px 10px 10px 0px;
 }
 
-#navbar {
+#guessbar {
     overflow: hidden;
-    /*background-color: #333;*/
+    background-color: cornflowerblue;
     position: sticky;
     top: 0px;
+    width:100%;
+    /*display: flex;
+    justify-content:space-between;*/
+}
+#guessbarbtn{
+    
 }
 
 #menubar {
-    background-color: blue;
+    background-color: rgb(106,90,205);
     padding: 10px 10px 10px 0px;
 }
 
