@@ -8,7 +8,6 @@
 
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-<div id="guessbar">
     <label asp-for="CountryList"></label>
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
     
@@ -17,10 +16,6 @@
             <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
         </form>
         <div id="divResult"></div>
-    
-   
-
-</div>
 
     <img class="hintpic" id="hint1pic" src="hint1pic" />
     <button class="button" onclick="showPicture1()">Hint 1</button> 
@@ -70,4 +65,3 @@
         </script>
     }
 
- 
