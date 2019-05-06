@@ -1,6 +1,12 @@
 ﻿
 @model HomeGameVM
 
+
+
+
+
+
+
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
 <div class="sticky" id="navbar">
@@ -19,31 +25,41 @@
 
 
 </div>
-    <img class="hintpic" id="hint1pic" src="hint1pic" />
-    <button class="button" onclick="showPicture1()">Hint 1</button> 
-    
-    <img class="hintpic" id="hint2pic" src="hint2pic" /> 
-    <button class="button" onclick="showPicture2()">Hint 2</button> 
-     
-    <img class="hintpic" id="hint3pic" src="hint3pic" /> 
-    <button class="button" onclick="showPicture3()">Hint 3</button> 
+<img class="hintpic" id="hint1pic" src="hint1pic" />
+<button class="button" onclick="showPicture1()">Hint 1</button>
+
+<img class="hintpic" id="hint2pic" src="hint2pic" />
+<button class="button" onclick="showPicture2()">Hint 2</button>
+
+<img class="hintpic" id="hint3pic" src="hint3pic" />
+<button class="button" onclick="showPicture3()">Hint 3</button>
 
 
-    @section scripts
-        {
-        <script>
+@section scripts
+    {
+    <script>
+
+
+
+
+
+
+
+
+
+
             function showPicture1() {
                 var sourceOfPicture = "@Model.ImageURL[1]";
                 var img = document.getElementById('hint1pic')
                 img.src = sourceOfPicture.replace();
-                img.style.display = "block"; 
+                img.style.display = "block";
             }
 
             function showPicture2() {
                 var sourceOfPicture = "@Model.ImageURL[2]";
                 var img = document.getElementById('hint2pic')
                 img.src = sourceOfPicture.replace();
-                img.style.display = "block"; 
+                img.style.display = "block";
             }
 
             function showPicture3() {
@@ -64,7 +80,6 @@
                     }
                 });
             });
-        </script>
-    }
+    </script>
+}
 
- 
