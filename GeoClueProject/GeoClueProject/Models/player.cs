@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GeoClueProject.Models.ViewModels
+namespace GeoClueProject.Models
 {
-    public class AccountScoreboardVM
+    public class Player
     {
-        public string Users { get; set; }
         public int Score { get; set; }
     }
 }

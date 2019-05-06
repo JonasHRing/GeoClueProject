@@ -1,5 +1,4 @@
 ﻿using GeoClueProject.Models.ViewModels;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +8,18 @@ namespace GeoClueProject.Models
 {
     public class ApiService
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
-
-        public ApiService(IHttpContextAccessor httpContextAccessor)
-        {
-            _httpContextAccessor = httpContextAccessor;
-        }
+        public string correctCountry;
 
         public async Task<HomeGameVM> GetImageURL()
         {
             var helper = new ApiImage();
             var nameOfCountry = RandomCountry();
             var result = await helper.Search(nameOfCountry);
-            //correctCountry = nameOfCountry;
-            _httpContextAccessor.HttpContext.Session.SetString("correctCountry", nameOfCountry);
+            correctCountry = nameOfCountry;
 
             return new HomeGameVM { ImageURL = result };
-        }
 
+        }
         public string RandomCountry()
         {
             var apiCountry = new ApiCountry();
@@ -37,6 +30,8 @@ namespace GeoClueProject.Models
             var country = countryList.Result[index - 1];
 
             return country;
+
         }
+
     }
 }

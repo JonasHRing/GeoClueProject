@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GeoClueProject.Models.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 
 namespace GeoClueProject.Models
@@ -13,17 +12,13 @@ namespace GeoClueProject.Models
         UserManager<MyIdentityUser> userManager;
         SignInManager<MyIdentityUser> signInManager;
 
-        private readonly IHttpContextAccessor _httpContextAccessor;
-
         public AccountService(
             UserManager<MyIdentityUser> userManager,
-            SignInManager<MyIdentityUser> signInManager,
-            IHttpContextAccessor httpContextAccessor
+            SignInManager<MyIdentityUser> signInManager
             )
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
-            this._httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IdentityResult> TryRegisterAsync(AccountRegisterVM viewModel)
@@ -48,6 +43,7 @@ namespace GeoClueProject.Models
             // Try to sign user
             await signInManager.SignOutAsync();
         }
+<<<<<<< HEAD
 
         public async Task<AccountScoreboardVM> GetUsers()
         {
@@ -68,5 +64,7 @@ namespace GeoClueProject.Models
 
             await userManager.UpdateAsync(user);
         }
+=======
+>>>>>>> parent of d918076... Merge branch 'Development' of https://github.com/JonasHRing/GeoClueProject into Development
     }
 }

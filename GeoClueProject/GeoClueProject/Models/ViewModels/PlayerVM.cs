@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GeoClueProject.Models.ViewModels
 {
-    public class HomePlayerVM
+    public class PlayerVM
     {
         public int Score { get; set; }
     }
