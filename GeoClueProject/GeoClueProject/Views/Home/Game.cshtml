@@ -1,5 +1,11 @@
 ﻿@model HomeGameVM
 
+
+
+
+
+
+
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
 <div class="sticky" id="navbar">
@@ -9,7 +15,7 @@
 
     <div id="divResult"></div>
 
-    <button class="button" id="btnGuess" type="submit">Guess</button>
+    <button class="button" id="btnGuess" type="submit" onclick="guessedCountry">Guess</button>
 
     <form method="get">
         <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
@@ -47,6 +53,10 @@
                 img.style.display = "block"
             }
 
+
+    function guessedCountry() {
+var choosenCountry=
+    }
 
             $("#btnGuess").click(function () {
                 var chooseCountry = $("#selectedCountry option:selected").text();
