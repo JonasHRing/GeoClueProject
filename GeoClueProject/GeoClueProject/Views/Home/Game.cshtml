@@ -1,5 +1,4 @@
-﻿
-@model HomeGameVM
+﻿@model HomeGameVM
 
 
 
@@ -16,58 +15,49 @@
 
     <div id="divResult"></div>
 
-    <button class="button" id="btnGuess" type="submit">Guess</button>
+    <button class="button" id="btnGuess" type="submit" onclick="guessedCountry">Guess</button>
 
     <form method="get">
         <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
 
     </form>
 
-
 </div>
-<img class="hintpic" id="hint1pic" src="hint1pic" />
-<button class="button" onclick="showPicture1()">Hint 1</button>
-
-<img class="hintpic" id="hint2pic" src="hint2pic" />
-<button class="button" onclick="showPicture2()">Hint 2</button>
-
-<img class="hintpic" id="hint3pic" src="hint3pic" />
-<button class="button" onclick="showPicture3()">Hint 3</button>
+    <img class="hintpic" id="hint1pic" src="hint1pic" />
+    <button class="button" onclick="showPicture(1)">Hint 1</button> 
+    
+    <img class="hintpic" id="hint2pic" src="hint2pic" /> 
+    <button class="button" onclick="showPicture(2)">Hint 2</button> 
+     
+    <img class="hintpic" id="hint3pic" src="hint3pic" />
+    <button class="button" onclick="showPicture(3)">Hint 3</button>
 
 
 @section scripts
-    {
-    <script>
+        {
+<script>
+    function showPicture(x) {
+        if (x == 1) {
+             var sourceOfPicture = "@Model.ImageURL[1]";
+             var img = document.getElementById("hint1pic")
+        }
+        else if (x == 2) {
+             var sourceOfPicture = "@Model.ImageURL[2]";
+             var img = document.getElementById("hint2pic")
+        }
+        else {
+             var sourceOfPicture = "@Model.ImageURL[3]";
+             var img = document.getElementById("hint3pic")
+        }
 
-
-
-
-
-
-
-
-
-
-            function showPicture1() {
-                var sourceOfPicture = "@Model.ImageURL[1]";
-                var img = document.getElementById('hint1pic')
                 img.src = sourceOfPicture.replace();
-                img.style.display = "block";
+                img.style.display = "block"
             }
 
-            function showPicture2() {
-                var sourceOfPicture = "@Model.ImageURL[2]";
-                var img = document.getElementById('hint2pic')
-                img.src = sourceOfPicture.replace();
-                img.style.display = "block";
-            }
 
-            function showPicture3() {
-            var sourceOfPicture = "@Model.ImageURL[3]";
-            var img = document.getElementById('hint3pic')
-            img.src = sourceOfPicture.replace();
-            img.style.display = "block";
-            }
+    function guessedCountry() {
+var choosenCountry=
+    }
 
             $("#btnGuess").click(function () {
                 var chooseCountry = $("#selectedCountry option:selected").text();
@@ -80,6 +70,6 @@
                     }
                 });
             });
-    </script>
+</script>
 }
 

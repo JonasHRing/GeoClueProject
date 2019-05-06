@@ -1,4 +1,6 @@
 ﻿@model AccountWelcomeVM
+
+
 @{
     ViewData["Title"] = "Members";
 }
@@ -9,15 +11,13 @@
 
 @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
 {
-    <p>This is your total score: </p>
+    <p>This is your total score:  </p>
 
     <form asp-controller="Account" asp-action="Logout">
         <Input style="color:white" type="submit" value="Logout" />
     </form>
-    <form method="get">
-        <button class="button" asp-controller="Home" asp-action="Game">Singleplayer</button>
-        <button class="button" asp-controller="Home" asp-action="Register">Multiplayer</button>
-    </form>
+
+ 
 }
 else
 {
@@ -26,9 +26,42 @@ else
     </p>
     <br />
 
-    <form method="get">
-        <button class="button" asp-controller="Home" asp-action="Game">Singleplayer</button>
-        <button class="button" asp-controller="Home" asp-action="Register">Multiplayer</button>
-    </form>
 }
+<form method="get" asp-controller="Home" asp-action="Game">
+    <input type="submit" class="button" value="Singleplayer"/>
+</form>
+<form method="get" asp-controller="Home" asp-action="Register">
 
+    <input type="submit" class="button" value="Multiplayer" />
+    
+</form>
+
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            User..........<input type="text" id="userInput" />
+            <br />
+            Message...<input type="text" id="messageInput" />
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
+
+@section scripts
+        {
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js"></script>
+}

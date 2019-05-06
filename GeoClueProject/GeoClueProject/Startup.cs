@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Session;
+using GeoClueProject.SignalRChat.Hubs;
 
 namespace GeoClueProject
 {
@@ -49,6 +50,7 @@ namespace GeoClueProject
             services.AddSingleton<ApiService>();
 
             services.AddMvc();
+            services.AddSignalR();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSession();
         }
@@ -62,7 +64,11 @@ namespace GeoClueProject
             app.UseMvc();
             app.UseMvcWithDefaultRoute();
             app.UseStaticFiles();
-            
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chatHub");
+            });
+
         }
     }
 }

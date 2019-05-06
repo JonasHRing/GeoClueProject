@@ -21,16 +21,20 @@ h1 {
     text-align: center;
     padding: 10px 10px 10px 0px;
 }
+h3 {
+    text-align: center;
+    padding: 10px 10px 10px 0px;
+}
 
 #navbar {
     overflow: hidden;
-    /*background-color: #333;*/
+    background-color: rgb(106,90,205);
     position: sticky;
     top: 0px;
 }
 
 #menubar {
-    background-color: blue;
+    background-color: rgb(106,90,205);
     padding: 10px 10px 10px 0px;
 }
 
@@ -113,5 +117,5 @@ footer {
     background-color: cornflowerblue;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 150%;
 }
