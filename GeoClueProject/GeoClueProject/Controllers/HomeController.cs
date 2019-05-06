@@ -16,13 +16,11 @@ namespace GeoClueProject.Controllers
     {
         HomeService homeService;
         ApiService apiService;
-        private readonly AccountService accountService;
 
-        public HomeController(HomeService homeService, ApiService apiService, AccountService accountService)
+        public HomeController(HomeService homeService, ApiService apiService)
         {
             this.homeService = homeService;
             this.apiService = apiService;
-            this.accountService = accountService;
         }
 
         public IActionResult Index()
@@ -40,7 +38,7 @@ namespace GeoClueProject.Controllers
 
         [HttpPost]
         [Route("Game/Singleplayer/")]
-        public async Task<IActionResult> GameAsync(string country)
+        public IActionResult GameAsync(string country)
         {
             
             //homeService.SetTimer();
