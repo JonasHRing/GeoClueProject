@@ -11,7 +11,7 @@ namespace GeoClueProject.Models.ViewModels
     {
         [Display(Name = "Player")]
         public SelectListItem[] PlayerList { get; set; }
-
+        
         [Range(1, 3)]
         public int SelectedPlayerValue { get; set; }
     }
