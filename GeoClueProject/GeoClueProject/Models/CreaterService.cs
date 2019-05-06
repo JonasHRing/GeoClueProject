@@ -13,7 +13,7 @@ namespace GeoClueProject.Models
         {
             var creater = new Creater();
             creaters = new List<Creater>();
-            creaters.Add();
+         
         }
     }
 }

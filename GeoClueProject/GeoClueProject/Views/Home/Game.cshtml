@@ -1,11 +1,5 @@
 ﻿@model HomeGameVM
 
-
-
-
-
-
-
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
 <div class="sticky" id="navbar">
@@ -55,9 +49,7 @@
 
 
     function guessedCountry() {
-var choosenCountry=
     }
-
             $("#btnGuess").click(function () {
                 var chooseCountry = $("#selectedCountry option:selected").text();
                 $.ajax({
