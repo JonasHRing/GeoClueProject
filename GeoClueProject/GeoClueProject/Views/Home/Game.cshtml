@@ -4,6 +4,7 @@
 
 <img src="@Model.ImageURL[0]" alt="Picture of the country" />
 
+
     @*<label asp-for="CountryList"></label>
     <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
     <div id="divResult"></div>
@@ -25,20 +26,74 @@
 
 @section scripts
 {
-    <script>
+<script>
+
+
+
+
             function showPicture1() {
             var sourceOfPicture = "@Model.ImageURL[1]";
             var img = document.getElementById('hint1pic')
             img.src = sourceOfPicture.replace();
             img.style.display = "block";
-            }
+    }
+
+
+
+
 
             function showPicture2() {
             var sourceOfPicture = "@Model.ImageURL[2]";
             var img = document.getElementById('hint2pic')
             img.src = sourceOfPicture.replace();
-            img.style.display = "block";
+                img.style.display = "block";
+
+                SetPictureInterval();
+
+               function SetPictureInterval () {
+
+               window.setInterval
+
+                   $.ajax({
+
+                        url: "/Game/SinglePlayer",
+                        type: "POST",
+                        success: function (result) {
+
+                            $.get("/Game/SinglePlayer");
+
+                        }
+                   });
+
+                }, 300
+
+
+                window.setInterval(function () {
+
+
+                    // Send an AJAX request every 5s to poll for changes and update the UI
+                    // example with jquery:
+
+                    $.ajax({
+                        url: "/Game/SinglePlayer",
+                        type: "POST",
+                        success: function (result)
+
+                    $.get("/Game/SinglePlayer', function (result) {
+                        // TODO: use the results returned from your controller action
+                        // to update the UI
+                    });
+                }, 5000);
+
+
+
+
+
     }
+
+
+
+
 
      $("#btnGuess").click(function () {
             $.ajax({
@@ -48,7 +103,7 @@
                     $("#divResult").html(result);
                 }
             });
-         
+
 
         });
 
@@ -64,6 +119,14 @@
                     $("#divResult").html(result);
                 }
             });
-     });
-    </script>
+    });
+
+
+
+
+
+  </script>
 }
+
+
+       

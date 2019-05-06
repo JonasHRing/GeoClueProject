@@ -53,12 +53,16 @@ namespace GeoClueProject.Controllers
                 var playerScore = homeService.GetPlayerScore();
                 //playerScore = playerScore+20;
                 return PartialView("Right", playerScore);
+
+                
             }
             else
             {
                 return PartialView("Wrong");
                 //return Content($"{country} {apiService.correctCountry}");
             }
+
+                
 
         }
 
