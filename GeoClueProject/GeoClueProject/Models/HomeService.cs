@@ -1,4 +1,5 @@
 ﻿using GeoClueProject.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -11,7 +12,6 @@ namespace GeoClueProject.Models
 {
     public class HomeService
     {
-
         public Timer aTimer = new Timer();
 
         // har lagt denna metod i ApiService
@@ -46,12 +46,6 @@ namespace GeoClueProject.Models
             Console.WriteLine("Hello World!");
         }
 
-        public PlayerVM GetPlayerScore()
-        {
-            var player = new PlayerVM();
-            player.Score += 20;
-           
-            return player;
-        }
+
     }
 }

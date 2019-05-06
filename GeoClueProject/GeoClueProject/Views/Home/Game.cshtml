@@ -1,7 +1,6 @@
 ﻿
 @model HomeGameVM
 
-<<<<<<< HEAD
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
 <<<<<<< HEAD
@@ -20,31 +19,11 @@
 =======
 <div class="sticky" id="navbar">
 >>>>>>> parent of 0eb24de... sticky 2
-=======
-
-<img src="@Model.ImageURL[0]" alt="Picture of the country" />
-
-
-    @*<label asp-for="CountryList"></label>
-    <select asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
-    <div id="divResult"></div>
-    <button id="btnGuess">Guess</button>*@
-
-
->>>>>>> parent of d918076... Merge branch 'Development' of https://github.com/JonasHRing/GeoClueProject into Development
     <label asp-for="CountryList"></label>
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
-    
-    <div id="divResult"></div>
-    <button id="btnGuess" type="submit">Guess</button>
-        
-   
-<img style="display:none;" id="hint1pic" src="hint1pic" />
-<button onclick="showPicture1()">Hint 1</button>
-<img style="display:none;" id="hint2pic" src="hint2pic" />
-<button onclick="showPicture2()">Hint 2</button>
 
-<<<<<<< HEAD
+    <div id="divResult"></div>
+
     <button class="button" id="btnGuess" type="submit">Guess</button>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -66,15 +45,10 @@
 <<<<<<< HEAD
 =======
 >>>>>>> parent of 0eb24de... sticky 2
-=======
->>>>>>> parent of d918076... Merge branch 'Development' of https://github.com/JonasHRing/GeoClueProject into Development
 
-@section scripts
-{
-<script>
+    <form method="get">
+        <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
 
-
-<<<<<<< HEAD
     </form>
 =======
 >>>>>>> parent of 0eb24de... sticky 2
@@ -91,110 +65,44 @@
      
     <img class="hintpic" id="hint3pic" src="hint3pic" /> 
     <button class="button" onclick="showPicture3()">Hint 3</button> 
-=======
->>>>>>> parent of d918076... Merge branch 'Development' of https://github.com/JonasHRing/GeoClueProject into Development
 
 
+    @section scripts
+        {
+        <script>
             function showPicture1() {
-            var sourceOfPicture = "@Model.ImageURL[1]";
-            var img = document.getElementById('hint1pic')
-            img.src = sourceOfPicture.replace();
-            img.style.display = "block";
-    }
-
-
-
-
+                var sourceOfPicture = "@Model.ImageURL[1]";
+                var img = document.getElementById('hint1pic')
+                img.src = sourceOfPicture.replace();
+                img.style.display = "block"; 
+            }
 
             function showPicture2() {
-            var sourceOfPicture = "@Model.ImageURL[2]";
-            var img = document.getElementById('hint2pic')
+                var sourceOfPicture = "@Model.ImageURL[2]";
+                var img = document.getElementById('hint2pic')
+                img.src = sourceOfPicture.replace();
+                img.style.display = "block"; 
+            }
+
+            function showPicture3() {
+            var sourceOfPicture = "@Model.ImageURL[3]";
+            var img = document.getElementById('hint3pic')
             img.src = sourceOfPicture.replace();
-                img.style.display = "block";
+            img.style.display = "block";
+            }
 
-                SetPictureInterval();
-
-               function SetPictureInterval () {
-
-               window.setInterval
-
-                   $.ajax({
-
-                        url: "/Game/SinglePlayer",
-                        type: "POST",
-                        success: function (result) {
-
-                            $.get("/Game/SinglePlayer");
-
-                        }
-                   });
-
-                }, 300
-
-
-                window.setInterval(function () {
-
-
-                    // Send an AJAX request every 5s to poll for changes and update the UI
-                    // example with jquery:
-
-                    $.ajax({
-                        url: "/Game/SinglePlayer",
-                        type: "POST",
-                        success: function (result)
-
-                    $.get("/Game/SinglePlayer', function (result) {
-                        // TODO: use the results returned from your controller action
-                        // to update the UI
-                    });
-                }, 5000);
-
-
-
-
-
+            $("#btnGuess").click(function () {
+                var chooseCountry = $("#selectedCountry option:selected").text();
+                $.ajax({
+                    url: "/Game/SinglePlayer",
+                    data: {country: chooseCountry},
+                    type: "POST",
+                    success: function (result) {
+                    $("#divResult").html(result);
+                    }
+                });
+            });
+        </script>
     }
 
-
-
-
-
-     $("#btnGuess").click(function () {
-            $.ajax({
-                url: "/Game/SinglePlayer",
-                type: "POST",
-                success: function (result) {
-                    $("#divResult").html(result);
-                }
-            });
-
-<<<<<<< HEAD
  
-=======
-
-        });
-
-        $("#btnGuess").click(function () {
-            var chooseCountry = $("#selectedCountry option:selected").text();
-            $.ajax({
-                url: "/Game/SinglePlayer",
-                data: {
-                    country: chooseCountry
-                },
-                type: "POST",
-                success: function (result) {
-                    $("#divResult").html(result);
-                }
-            });
-    });
-
-
-
-
-
-  </script>
-}
-
-
-       
->>>>>>> parent of d918076... Merge branch 'Development' of https://github.com/JonasHRing/GeoClueProject into Development
