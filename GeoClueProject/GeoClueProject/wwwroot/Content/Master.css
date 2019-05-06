@@ -22,6 +22,13 @@ h1 {
     padding: 10px 10px 10px 0px;
 }
 
+#navbar {
+    overflow: hidden;
+    /*background-color: #333;*/
+    position: sticky;
+    top: 0px;
+}
+
 #menubar {
     background-color: blue;
     padding: 10px 10px 10px 0px;
@@ -64,31 +71,14 @@ h1 {
     opacity: 1;
     align-items:center;
 }
-/*#Hintpic{
-    display:flex;
-    justify-content:center;
-}*/
+
 
 .hintpic {
     display: none;
     margin: 0 auto; 
-    width: 600px;
+    width: 35%;
 }
 
-/*#hint2pic {
-    width: 600px;
-    opacity: 1;
-}
-
-#hint3pic {
-    width: 600px;
-    opacity: 1;
-}
-
-#hint1pic {
-    width: 600px;
-    opacity: 1;
-}*/
 
 #ContentBox a {
     color: white;
