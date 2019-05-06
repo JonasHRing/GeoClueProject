@@ -11,12 +11,13 @@
 <div id="guessbar">
     <label asp-for="CountryList"></label>
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
-    
+    <div id="guessbarbtn">
         <button class="button" id="btnGuess" type="submit">Guess</button>
         <form method="get">
             <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
         </form>
-        <div id="divResult"></div>
+    </div> 
+    <div id="divResult"></div>
     
    
 
