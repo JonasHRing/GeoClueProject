@@ -31,6 +31,7 @@ h3 {
     background-color: rgb(106,90,205);
     position: sticky;
     top: 0px;
+  
 }
 
 #menubar {
@@ -63,7 +64,7 @@ h3 {
 }
 
 #ContentBox input {
-    color: green;
+    color: black;
 }
 
 .button {
@@ -75,31 +76,15 @@ h3 {
     opacity: 1;
     align-items:center;
 }
-/*#Hintpic{
-    display:flex;
-    justify-content:center;
-}*/
+
 
 .hintpic {
     display: none;
     margin: 0 auto; 
-    width: 600px;
+    width: 40%;
 }
 
-/*#hint2pic {
-    width: 600px;
-    opacity: 1;
-}
 
-#hint3pic {
-    width: 600px;
-    opacity: 1;
-}
-
-#hint1pic {
-    width: 600px;
-    opacity: 1;
-}*/
 
 #ContentBox a {
     color: white;
@@ -118,4 +103,21 @@ footer {
     position: fixed;
     bottom: 0;
     width: 150%;
+}
+
+#ContentBox button {
+    color: white;
+}
+#ContentBox input[type=button] {
+    color: white;
+}
+#ContentBox input[type=submit]{
+    color:white;
+}
+
+.AboutBox{
+    display: flex;
+}
+.AboutBox box{
+    
 }
