@@ -77,9 +77,11 @@ namespace GeoClueProject.Controllers
             return View(viewModel);
         }
 
+
         public IActionResult About()
         {
             return View();
         }
+
     }
 }

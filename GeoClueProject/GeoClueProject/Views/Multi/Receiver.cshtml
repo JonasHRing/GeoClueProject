@@ -1,12 +1,22 @@
-﻿<div class="container">
+﻿@model HomeGameVM
+<h1>Multiplayer</h1>
+
+<label asp-for="CountryList"></label>
+<select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
+<button class="button" id="btnGuess" type="submit">Guess</button>
+<button class="button">Cheating</button>
+
+<div class="container">
     <div class="row">&nbsp;</div>
     <div class="row">
         <div class="col-6">&nbsp;</div>
         <div class="col-6">
-            User..........<input type="text" id="userInput" />
+            User:<input type="text" id="userInput" />
             <br />
-            Message...<input type="text" id="messageInput" />
+            Message:<input type="text" id="messageInput" />
+            <br />
             <input type="button" id="sendButton" value="Send Message" />
+
         </div>
     </div>
     <div class="row">
@@ -21,6 +31,8 @@
         </div>
     </div>
 </div>
+
+
 
 @section scripts
 {

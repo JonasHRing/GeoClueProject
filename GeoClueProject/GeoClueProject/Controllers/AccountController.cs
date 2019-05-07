@@ -86,6 +86,8 @@ namespace GeoClueProject.Controllers
             return View(new AccountWelcomeVM { Username = User.Identity.Name });
         }
 
+      
+
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
