@@ -44,9 +44,10 @@ namespace GeoClueProject.Controllers
             }
         }
 
-        public IActionResult Receiver()
+        public async Task<IActionResult> Receiver()
         {
-            return View();
+            var viewModel = await apiService.GetImageURL();
+            return View(await homeService.GetRoot(viewModel));
         }
         public IActionResult Lobby()
         {

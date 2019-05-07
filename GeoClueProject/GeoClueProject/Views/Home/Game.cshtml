@@ -1,34 +1,35 @@
 ﻿@model HomeGameVM
 
-<img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
+<partial name="Angie">
+    <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-<div class="sticky" id="navbar">
+    <div class="sticky" id="navbar">
 
-    <label asp-for="CountryList"></label>
-    <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
+        <label asp-for="CountryList"></label>
+        <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
 
-    <div id="divResult"></div>
+        <div id="divResult"></div>
 
-    <button class="button" id="btnGuess" type="submit" onclick="guessedCountry">Guess</button>
+        <button class="button" id="btnGuess" type="submit">Guess</button>
 
-    <form method="get">
-        <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
-    </form>
+        <form method="get">
+            <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
+        </form>
 
-</div>
+    </div>
     <img class="hintpic" id="hint1pic" src="hint1pic" />
-    <button class="button" onclick="showPicture(1)">Hint 1</button> 
-    
-    <img class="hintpic" id="hint2pic" src="hint2pic" /> 
-    <button class="button" onclick="showPicture(2)">Hint 2</button> 
-     
+    <button class="button" onclick="showPicture(1)">Hint 1</button>
+
+    <img class="hintpic" id="hint2pic" src="hint2pic" />
+    <button class="button" onclick="showPicture(2)">Hint 2</button>
+
     <img class="hintpic" id="hint3pic" src="hint3pic" />
     <button class="button" onclick="showPicture(3)">Hint 3</button>
 
 
-        @section scripts
+    @section scripts
         {
-            <script>
+        <script>
     function showPicture(x) {
         if (x == 1) {
              var sourceOfPicture = "@Model.ImageURL[1]";
@@ -59,6 +60,6 @@
                     }
                 });
             });
-            </script>
-        }
+        </script>
+    }
 
