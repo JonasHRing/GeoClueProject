@@ -1,34 +1,80 @@
-﻿
-    
+﻿@model HomeGameVM
+    <h1>Multiplayer</h1>
+<img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
+
+<div class="sticky" id="navbar">
+
+    <label asp-for="CountryList"></label>
+    <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
+
+    <div id="divResult"></div>
+
+    <button class="button" id="btnGuess" type="submit" onclick="guessedCountry">Guess</button>
+</div>
 
 
-
-    <div class="container">
-        <div class="row">&nbsp;</div>
-        <div class="row">
-            <div class="col-6">&nbsp;</div>
-            <div class="col-6">
-                User..........<input type="text" id="userInput" />
-                <br />
-                Message...<input type="text" id="messageInput" />
-                <input type="button" id="sendButton" value="Send Message" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <hr />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">&nbsp;</div>
-            <div class="col-6">
-                <ul id="messagesList"></ul>
-            </div>
+<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            User: <input type="text" id="userInput" />
+            <br />
+           
+            <input type="text" id="messageInput" />
+            <input type="button" id="sendButton" value="Send" />
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">&nbsp;</div>
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+</div>
 
-    @section scripts
-{
-        <script src="~/lib/signalr/dist/browser/signalr.js"></script>
-        <script src="~/js/chat.js"></script>
+
+
+@section scripts
+        {
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js"></script>
+    <script>
+    function showPicture(x) {
+        if (x == 1) {
+             var sourceOfPicture = "@Model.ImageURL[1]";
+             var img = document.getElementById("hint1pic")
+        }
+        else if (x == 2) {
+             var sourceOfPicture = "@Model.ImageURL[2]";
+             var img = document.getElementById("hint2pic")
+        }
+        else {
+             var sourceOfPicture = "@Model.ImageURL[3]";
+             var img = document.getElementById("hint3pic")
+        }
+
+                img.src = sourceOfPicture.replace();
+                img.style.display = "block"
     }
+
+            $("#btnGuess").click(function () {
+                var chooseCountry = $("#selectedCountry option:selected").text();
+                $.ajax({
+                    url: "/Game/SinglePlayer",
+                    data: {country: chooseCountry},
+                    type: "POST",
+                    success: function (result) {
+                    $("#divResult").html(result);
+                    }
+                });
+            });
+    </script>
+
+}
+

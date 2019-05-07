@@ -26,9 +26,9 @@
     <button class="button" onclick="showPicture(3)">Hint 3</button>
 
 
-@section scripts
+        @section scripts
         {
-<script>
+            <script>
     function showPicture(x) {
         if (x == 1) {
              var sourceOfPicture = "@Model.ImageURL[1]";
@@ -45,12 +45,9 @@
 
                 img.src = sourceOfPicture.replace();
                 img.style.display = "block"
-            }
-
-
-    function guessedCountry() {
 
     }
+
             $("#btnGuess").click(function () {
                 var chooseCountry = $("#selectedCountry option:selected").text();
                 $.ajax({
@@ -62,6 +59,6 @@
                     }
                 });
             });
-</script>
-}
+            </script>
+        }
 
