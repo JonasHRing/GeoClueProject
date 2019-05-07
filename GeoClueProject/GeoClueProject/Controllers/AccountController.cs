@@ -96,8 +96,9 @@ namespace GeoClueProject.Controllers
         [HttpGet]
         public async Task<IActionResult> Scoreboard()
         {
-            var viewModel = await accountService.GetUsers();
-            return View(viewModel);
+            //var viewModel = await accountService.GetUsers();
+            var viewModefl = accountService.GetAllUsers();
+            return View(viewModefl);
         }
     }
 }
