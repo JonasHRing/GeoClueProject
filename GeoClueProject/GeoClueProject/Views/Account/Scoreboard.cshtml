@@ -1,5 +1,10 @@
 ﻿@model AccountScoreboardVM
 
-<p>@Model.Users</p>
-<p>@Model.Score</p>
+
+@for (int i = 0; i < @Model.Users.Count; i++)
+{
+    <p>@Model.Users[i] @Model.Scores[i]</p>
+}
+
+
 

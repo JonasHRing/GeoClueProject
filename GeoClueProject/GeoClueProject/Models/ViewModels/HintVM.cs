@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace GeoClueProject.Models.ViewModels
 {
-    public class AccountScoreboardVM
+    public class HintVM
     {
-        public List<string> Users { get; set; }
-        public List<int> Scores { get; set; }
+        public string Hint { get; set; }
     }
 }

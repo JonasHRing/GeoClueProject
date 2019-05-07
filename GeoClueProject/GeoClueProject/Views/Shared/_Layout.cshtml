@@ -11,10 +11,12 @@
     @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
     {
     <div id="menubar">
-        <a asp-controller="Home" asp-action="Index">Home</a>
-        <a asp-controller="Home" asp-action="Game">Single</a>
-        <a asp-controller="Home" asp-action="Game">Multiplayer</a>
-        <a asp-controller="Account" asp-action="Welcome">MyPage</a>
+
+        <a href="/Home/Index">Home</a>
+        <a href="/Game/Singleplayer">Single</a>
+        <a href="/Multi/Lobby">Multiplayer</a>
+        <a href="/Account/Welcome">My Page</a>
+
 
     </div>
 
@@ -22,16 +24,18 @@
     else
     {
         <div id="menubar">
-            <a asp-controller="Home" asp-action="Index">Home</a>
-            <a asp-controller="Account" asp-action="Login">Login</a>
-            <a asp-controller="Account" asp-action="Register">Register</a>
-            <a asp-controller="Account" asp-action="Welcome">Guest</a>
+            <a href="/Home/Index">Home</a>
+            <a href="/Account/Login">Login</a>
+            <a href="/Account/Register">Register</a>
+            <a href="/Account/Welcome">Guest</a>
+          
         </div>
     }
 
     <h1>Geo Clue</h1>
     <div id="ContentBox" @*style="background-color:#CCC; padding:10px;" *@>
         @RenderBody()
+     
         <footer>&copy; GeoCatch 2019</footer>
     </div>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
