@@ -64,6 +64,11 @@ namespace GeoClueProject.Models
 
         public async Task HandleCorrectGuess(int score)
         {
+            if (!_httpContextAccessor.HttpContext.User.Identity.IsAuthenticated)
+            {
+                return;
+            }
+
             string userId = userManager.GetUserId(_httpContextAccessor.HttpContext.User);
             MyIdentityUser user = await userManager.FindByIdAsync(userId);
             user.Score += score;
