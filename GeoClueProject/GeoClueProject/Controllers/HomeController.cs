@@ -14,6 +14,7 @@ namespace GeoClueProject.Controllers
 {
     public class HomeController : Controller
     {
+        // Hej Jonas
         HomeService homeService;
         ApiService apiService;
         private readonly AccountService accountService;
