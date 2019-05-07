@@ -14,7 +14,7 @@ namespace GeoClueProject.Controllers
 {
     public class HomeController : Controller
     {
-        // Hej Jonas
+       
         HomeService homeService;
         ApiService apiService;
         private readonly AccountService accountService;
@@ -76,5 +76,12 @@ namespace GeoClueProject.Controllers
             var viewModel = apiService.GetHint();
             return View(viewModel);
         }
+
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
     }
 }

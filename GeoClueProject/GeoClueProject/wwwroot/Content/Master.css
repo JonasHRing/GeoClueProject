@@ -82,7 +82,7 @@ h3 {
 .hintpic {
     display: none;
     margin: 0 auto; 
-    width: 600px;
+    width: 40%;
 }
 
 
@@ -114,4 +114,16 @@ footer {
 }
 #ContentBox input[type=submit]{
     color:white;
+}
+
+.AboutBox{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+}
+#box1{
+   
+}
+#box2{
+    
 }
