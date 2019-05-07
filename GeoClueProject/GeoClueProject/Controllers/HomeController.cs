@@ -69,5 +69,11 @@ namespace GeoClueProject.Controllers
         {
             return View();
         }
+
+        public IActionResult GetHint()
+        {
+            var viewModel = apiService.GetHint();
+            return View(viewModel);
+        }
     }
 }

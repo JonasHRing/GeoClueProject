@@ -16,6 +16,12 @@ namespace GeoClueProject.Models
             _httpContextAccessor = httpContextAccessor;
         }
 
+        public HomeGameVM GetHint()
+        {
+            HomeGameVM homeGameVM = new HomeGameVM();
+            homeGameVM.Hint = _httpContextAccessor.HttpContext.Session.GetString("correctCountry");
+            return homeGameVM;
+        }
         public async Task<HomeGameVM> GetImageURL()
         {
             var helper = new ApiImage();
