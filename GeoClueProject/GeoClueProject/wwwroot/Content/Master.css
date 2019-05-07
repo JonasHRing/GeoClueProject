@@ -117,7 +117,12 @@ footer {
 
 .AboutBox{
     display: flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
 }
-.AboutBox box{
+#box1{
+   
+}
+#box2{
     
 }
