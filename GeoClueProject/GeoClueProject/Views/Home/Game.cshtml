@@ -18,44 +18,37 @@
     <span id="secRemaning"></span>
 </div>
 
+    <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
+
+    <div class="sticky" id="navbar">
+
+        <label asp-for="CountryList"></label>
+        <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
+
+        <div id="divResult"></div>
 
 
+    <button class="button" id="btnGuess" type="submit">Guess</button>
 
 
-<img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
+        <form method="get">
+            <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
+        </form>
 
-<div class="sticky" id="navbar">
+    </div>
+    <img class="hintpic" id="hint1pic" src="#" />
+    <button class="button" onclick="showPicture(1)">Hint 1</button>
 
-    <label asp-for="CountryList"></label>
-    <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
+    <img class="hintpic" id="hint2pic" src="#" />
+    <button class="button" onclick="showPicture(2)">Hint 2</button>
 
-    <div id="divResult"></div>
-
-
-
-
-    <button class="button" id="btnGuess" type="submit" onclick="guessedCountry">Guess</button>
-
-    <form method="get">
-        <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
-    </form>
-
-</div>
-<img class="hintpic" id="hint1pic" src="hint1pic" />
-<button class="button" onclick="showPicture(1)">Hint 1</button>
-
-<img class="hintpic" id="hint2pic" src="hint2pic" />
-<button class="button" onclick="showPicture(2)">Hint 2</button>
-
-<img class="hintpic" id="hint3pic" src="hint3pic" />
-<button class="button" onclick="showPicture(3)">Hint 3</button>
+    <img class="hintpic" id="hint3pic" src="#" />
+    <button class="button" onclick="showPicture(3)">Hint 3</button>
 
 
-
-
-@section scripts
-    {
-    <script>
+    @section scripts
+        {
+        <script>
     function showPicture(x) {
         if (x == 1) {
 
@@ -73,10 +66,7 @@
 
                 img.src = sourceOfPicture.replace();
                 img.style.display = "block"
-            }
 
-
-    function guessedCountry() {
     }
 
             $("#btnGuess").click(function () {
@@ -89,44 +79,8 @@
                     $("#divResult").html(result);
                     }
                 });
-        });
-
-
-
-           function   startTick() {
-
-        var remSeconds = @timeRemaning;
-        document.getElementById('secRemaning').innerText =  remSeconds;
-
-
-        var _tick = setInterval( function () {
-
-            remSeconds = remSeconds - 1;
-            document.getElementById('secRemaning').innerText = remSeconds;
-
-            if (remSeconds==0) {
-
-                alert("new guess");
-                location.reload();
-
-                
-                if (document.getElementById('timerBtn').display = true) {
-
-                    return;
-                    startTick();
-
-                }
-            }
-
-
-               },1000);
-
+            });
+        </script>
     }
-      // mste synka så att abckend även uppdateras
-
-    </script>
-
-
-
 
 }

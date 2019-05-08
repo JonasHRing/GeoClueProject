@@ -19,6 +19,10 @@ namespace GeoClueProject.Models.ViewModels
 
         public int Score { get; set; }
 
+        public string Hint { get; set; }
+
+        public string Username { get; set; }
+
     }
 
 

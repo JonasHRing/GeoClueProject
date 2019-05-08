@@ -12,15 +12,23 @@ namespace GeoClueProject.Models
 {
     public class HomeService
     {
+        CountryService countryService;
+
+        public HomeService(IHttpContextAccessor httpContextAccessor, CountryService countryService)
+        {
+            this.httpContextAccessor = httpContextAccessor;
+            this.countryService = countryService;
+        }
+
         public Timer aTimer = new Timer();
+        private readonly IHttpContextAccessor httpContextAccessor;
 
         // har lagt denna metod i ApiService
         //public string correctCountry;
 
         public async Task<HomeGameVM> GetRoot(HomeGameVM viewModel)
         {
-            var helper = new ApiCountry();
-            var result = await helper.GetCountryList();
+           var result = await countryService.GetCountryList();
 
             viewModel.CountryList = new SelectListItem[result.Length];
 
@@ -46,6 +54,12 @@ namespace GeoClueProject.Models
             Console.WriteLine("Hello World!");
         }
 
+        public HomeGameVM GetHint()
+        {
+            HomeGameVM homeGameVM = new HomeGameVM();
+            homeGameVM.Hint = httpContextAccessor.HttpContext.Session.GetString("correctCountry");
+            return homeGameVM;
+        }
 
     }
 }

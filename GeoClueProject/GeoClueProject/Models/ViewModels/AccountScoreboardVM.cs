@@ -7,7 +7,7 @@ namespace GeoClueProject.Models.ViewModels
 {
     public class AccountScoreboardVM
     {
-        public string Users { get; set; }
-        public int Score { get; set; }
+        public List<string> Users { get; set; }
+        public List<int> Scores { get; set; }
     }
 }

@@ -8,15 +8,21 @@ using System.Web;
 
 namespace GeoClueProject.Models
 {
-    public class ApiCountry
+    public class CountryService
     {
+        private readonly IHttpClientFactory httpClientFactory;
+
+        public CountryService(IHttpClientFactory httpClientFactory)
+        {
+            this.httpClientFactory = httpClientFactory;
+        }
         public async Task<string[]> GetCountryList()
         {
-            var httpClient = new HttpClient();
+            
             var url = $"https://restcountries.eu/rest/v2/all";
 
             // Make HTTP call
-            var json = await httpClient.GetStringAsync(url);
+            var json = await httpClientFactory.CreateClient().GetStringAsync(url);
 
             // Deserialize JSON
             var countries = JsonConvert.DeserializeObject<List<Class1>>(json);
@@ -24,6 +30,16 @@ namespace GeoClueProject.Models
             return countries
                 .Select(o => o.name)
                 .ToArray();
+        }
+
+        public string RandomCountry()
+        {
+            var countryList = GetCountryList();
+            var rnd = new Random();
+            var index = rnd.Next(15, 18);
+            var country = countryList.Result[index - 1];
+
+            return country;
         }
 
         public class Rootobject

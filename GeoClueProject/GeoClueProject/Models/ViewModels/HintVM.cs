@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GeoClueProject.Models
+namespace GeoClueProject.Models.ViewModels
 {
-    public class MultiService
+    public class HintVM
     {
-
+        public string Hint { get; set; }
     }
 }
