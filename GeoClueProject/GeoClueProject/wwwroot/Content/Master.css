@@ -59,7 +59,8 @@ h3 {
     /*background-color: #CCC;*/
     background-color: rgb(106,90,205);
     opacity: 0.9;
-    padding: 10px;
+    /*padding: 10px;*/
+    margin-bottom: 15px;
     text-align:center;
 }
 
@@ -81,7 +82,7 @@ h3 {
 .hintpic {
     display: none;
     margin: 0 auto; 
-    width: 600px;
+    width: 40%;
 }
 
 
@@ -102,7 +103,7 @@ footer {
     background-color: cornflowerblue;
     position: fixed;
     bottom: 0;
-    width: 150%;
+    width: 100%;
 }
 
 #ContentBox button {
@@ -113,4 +114,16 @@ footer {
 }
 #ContentBox input[type=submit]{
     color:white;
+}
+
+.AboutBox{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+}
+#box1{
+   
+}
+#box2{
+    
 }

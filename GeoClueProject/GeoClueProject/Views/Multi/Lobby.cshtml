@@ -1,19 +1,37 @@
-﻿@model MultiLobbyVM
-    <h1>Multiplayer</h1>
-    <h3>SEARCH PLAYER: </h3>
-    <select>
-        <option value="value">Bo</option>
-        <option value="value">Li</option>
-        <option value="value">An</option>
+﻿@model AccountScoreboardVM
 
-    </select>      
-<button>OK</button>
+<h1>Multiplayer</h1>
+<h3>SEARCH PLAYER: </h3>
+
+
+<label asp-for="PlayerList"></label>
+<select id="selectedPlayer" asp-for="SelectedPlayerValue" asp-items="Model.PlayerList"> </select>
+
+
+<button id="btnOK">OK</button>
 <h3>RANDOM SEARCH:</h3>
 
 <button>OK</button>
-
+<div id="divResult"></div>
 
 <div id="menubar">
     <a asp-controller="Multi" asp-action="Cluemaster">ClueMaster</a>
     <a asp-controller="Multi" asp-action="Receiver">Receiver</a>
 </div>
+
+
+@section scripts
+        {
+    <script>
+    $("#btnOK").click(function () {
+                var id = $("#selectedPlayer").val();
+                $.ajax({
+                    url: "/Multi/Lobby/"+id,
+                    type: "POST",
+                    success: function (result) {
+                    $("#divResult").html(result);
+                    }
+                });
+    });
+    </script>
+}
