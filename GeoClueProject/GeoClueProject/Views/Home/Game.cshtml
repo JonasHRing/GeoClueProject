@@ -1,6 +1,23 @@
 ﻿@model HomeGameVM
 
-@*<partial name="Angie">*@
+
+
+@{
+    var endTime = DateTime.UtcNow.AddSeconds(5);
+    int timeRemaning = (int)TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds;
+
+
+}
+
+<button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
+
+
+<div>
+
+
+    <span id="secRemaning"></span>
+</div>
+
     <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
     <div class="sticky" id="navbar">
@@ -34,6 +51,7 @@
         <script>
     function showPicture(x) {
         if (x == 1) {
+
              var sourceOfPicture = "@Model.ImageURL[1]";
              var img = document.getElementById("hint1pic")
         }
@@ -65,3 +83,4 @@
         </script>
     }
 
+}
