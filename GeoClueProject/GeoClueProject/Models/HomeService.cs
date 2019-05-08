@@ -54,12 +54,6 @@ namespace GeoClueProject.Models
             Console.WriteLine("Hello World!");
         }
 
-        public HomeGameVM GetHint()
-        {
-            HomeGameVM homeGameVM = new HomeGameVM();
-            homeGameVM.Hint = httpContextAccessor.HttpContext.Session.GetString("correctCountry");
-            return homeGameVM;
-        }
 
     }
 }

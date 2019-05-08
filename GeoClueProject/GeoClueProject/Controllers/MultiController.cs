@@ -6,6 +6,7 @@ using GeoClueProject.Models;
 using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GeoClueProject.Controllers
 {
@@ -53,9 +54,11 @@ namespace GeoClueProject.Controllers
             var viewModel = await imageService.GetImageURL(countryName);
             return View(await homeService.GetRoot(viewModel));
         }
-        public IActionResult Lobby()
+        public IActionResult Lobby(int id)
         {
-            return View();
+            var viewModel =accountService.GetPlayerList();
+            return View(viewModel);
         }
+       
     }
 }
