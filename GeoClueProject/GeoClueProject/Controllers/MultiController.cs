@@ -59,6 +59,5 @@ namespace GeoClueProject.Controllers
             var viewModel =accountService.GetPlayerList();
             return View(viewModel);
         }
-       
     }
 }
