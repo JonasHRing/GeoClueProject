@@ -15,18 +15,19 @@ namespace GeoClueProject.Models
         public string[] ImageURL { get; set; }
         const string ApiKey = "12337311-1f9f60b3e0fe189a322c3a724";
         private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IHttpClientFactory httpClientFactory;
 
-
-        public ImageService(IHttpContextAccessor httpContextAccessor)
+        public ImageService(IHttpContextAccessor httpContextAccessor, IHttpClientFactory httpClientFactory)
         {
             this.httpContextAccessor = httpContextAccessor;
+            this.httpClientFactory = httpClientFactory;
         }
 
         public async Task<string[]> Search(string searchPhrase)
         {
             var encodedSearchPhrase = HttpUtility.UrlEncode(searchPhrase);
 
-            var httpClient = new HttpClient();
+            var httpClient = httpClientFactory.CreateClient();
             var url = $"https://pixabay.com/api/?key={ApiKey}&q={encodedSearchPhrase}&image_type=photo";
 
             // Make HTTP call

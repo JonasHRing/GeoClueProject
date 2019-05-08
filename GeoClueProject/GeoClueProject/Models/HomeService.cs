@@ -12,9 +12,12 @@ namespace GeoClueProject.Models
 {
     public class HomeService
     {
-        public HomeService(IHttpContextAccessor httpContextAccessor)
+        CountryService countryService;
+
+        public HomeService(IHttpContextAccessor httpContextAccessor, CountryService countryService)
         {
             this.httpContextAccessor = httpContextAccessor;
+            this.countryService = countryService;
         }
 
         public Timer aTimer = new Timer();
@@ -25,8 +28,7 @@ namespace GeoClueProject.Models
 
         public async Task<HomeGameVM> GetRoot(HomeGameVM viewModel)
         {
-            var helper = new CountryService();
-            var result = await helper.GetCountryList();
+           var result = await countryService.GetCountryList();
 
             viewModel.CountryList = new SelectListItem[result.Length];
 

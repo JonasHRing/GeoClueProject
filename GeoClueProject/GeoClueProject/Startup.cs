@@ -49,6 +49,7 @@ namespace GeoClueProject
             services.AddTransient<HomeService>();
             services.AddTransient<ImageService>();
             services.AddTransient<CountryService>();
+            services.AddHttpClient();
 
 
             services.AddMvc();

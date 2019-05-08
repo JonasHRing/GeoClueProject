@@ -10,13 +10,19 @@ namespace GeoClueProject.Models
 {
     public class CountryService
     {
+        private readonly IHttpClientFactory httpClientFactory;
+
+        public CountryService(IHttpClientFactory httpClientFactory)
+        {
+            this.httpClientFactory = httpClientFactory;
+        }
         public async Task<string[]> GetCountryList()
         {
-            var httpClient = new HttpClient();
+            
             var url = $"https://restcountries.eu/rest/v2/all";
 
             // Make HTTP call
-            var json = await httpClient.GetStringAsync(url);
+            var json = await httpClientFactory.CreateClient().GetStringAsync(url);
 
             // Deserialize JSON
             var countries = JsonConvert.DeserializeObject<List<Class1>>(json);
