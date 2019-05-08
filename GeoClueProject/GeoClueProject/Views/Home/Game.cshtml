@@ -2,6 +2,22 @@
 
 
 
+@{
+    var endTime = DateTime.UtcNow.AddSeconds(5);
+    int timeRemaning = (int)TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds;
+
+
+}
+
+<button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
+
+
+<div>
+
+
+    <span id="secRemaning"></span>
+</div>
+
 
 
 
@@ -15,6 +31,9 @@
 
     <div id="divResult"></div>
 
+
+
+
     <button class="button" id="btnGuess" type="submit" onclick="guessedCountry">Guess</button>
 
     <form method="get">
@@ -22,21 +41,24 @@
     </form>
 
 </div>
-    <img class="hintpic" id="hint1pic" src="hint1pic" />
-    <button class="button" onclick="showPicture(1)">Hint 1</button> 
-    
-    <img class="hintpic" id="hint2pic" src="hint2pic" /> 
-    <button class="button" onclick="showPicture(2)">Hint 2</button> 
-     
-    <img class="hintpic" id="hint3pic" src="hint3pic" />
-    <button class="button" onclick="showPicture(3)">Hint 3</button>
+<img class="hintpic" id="hint1pic" src="hint1pic" />
+<button class="button" onclick="showPicture(1)">Hint 1</button>
+
+<img class="hintpic" id="hint2pic" src="hint2pic" />
+<button class="button" onclick="showPicture(2)">Hint 2</button>
+
+<img class="hintpic" id="hint3pic" src="hint3pic" />
+<button class="button" onclick="showPicture(3)">Hint 3</button>
+
+
 
 
 @section scripts
-        {
-<script>
+    {
+    <script>
     function showPicture(x) {
         if (x == 1) {
+
              var sourceOfPicture = "@Model.ImageURL[1]";
              var img = document.getElementById("hint1pic")
         }
@@ -67,7 +89,44 @@
                     $("#divResult").html(result);
                     }
                 });
-            });
-</script>
-}
+        });
 
+
+
+           function   startTick() {
+
+        var remSeconds = @timeRemaning;
+        document.getElementById('secRemaning').innerText =  remSeconds;
+
+
+        var _tick = setInterval( function () {
+
+            remSeconds = remSeconds - 1;
+            document.getElementById('secRemaning').innerText = remSeconds;
+
+            if (remSeconds==0) {
+
+                alert("new guess");
+                location.reload();
+
+                
+                if (document.getElementById('timerBtn').display = true) {
+
+                    return;
+                    startTick();
+
+                }
+            }
+
+
+               },1000);
+
+    }
+      // mste synka så att abckend även uppdateras
+
+    </script>
+
+
+
+
+}
