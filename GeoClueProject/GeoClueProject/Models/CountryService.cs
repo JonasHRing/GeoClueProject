@@ -32,12 +32,12 @@ namespace GeoClueProject.Models
                 .ToArray();
         }
 
-        public string RandomCountry()
+        public async Task<string> RandomCountryAsync()
         {
-            var countryList = GetCountryList();
+            var countryList = await GetCountryList();
             var rnd = new Random();
-            var index = rnd.Next(17, 17);
-            var country = countryList.Result[index - 1];
+            var index = rnd.Next(15, 17);
+            var country = countryList[index - 1];
 
             return country;
         }

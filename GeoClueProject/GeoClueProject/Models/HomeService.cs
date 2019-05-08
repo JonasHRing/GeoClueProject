@@ -40,7 +40,7 @@ namespace GeoClueProject.Models
             return viewModel;
         }
 
-        public async  void SetTimer()
+        public void SetTimer()
         {
             Timer aTimer = new Timer();
             aTimer.Interval = 2000;

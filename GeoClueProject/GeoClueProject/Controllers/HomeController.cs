@@ -38,7 +38,7 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game()
         {
-            var countryName = countryService.RandomCountry();
+            var countryName = await countryService.RandomCountryAsync();
             HttpContext.Session.SetString("correctCountry", countryName);
             var test = HttpContext.Session.GetString("correctCountry");
             var viewModel = await imageService.GetImageURL(countryName);
@@ -48,7 +48,7 @@ namespace GeoClueProject.Controllers
 
         [HttpPost]
         [Route("Game/Singleplayer/")]
-        public async Task<IActionResult> GameAsync(string guessedCountry)
+        public async Task<IActionResult> GameAsync(string country)
         {
             
             //homeService.SetTimer();
@@ -59,19 +59,20 @@ namespace GeoClueProject.Controllers
             HomeGameVM player1 = new HomeGameVM();
             var correctAnswer = HttpContext.Session.GetString("correctCountry");
 
-            if (guessedCountry == correctAnswer)
+            if (country == correctAnswer)
             {
-                //player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score")) + 20;
-                //await accountService.HandleCorrectGuess(20);
-                //HttpContext.Session.SetString("player1.Score", player1.Score.ToString());
-                //player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score"));
-                //return PartialView("Right",player1);
-                return Content($"Right answer: {correctAnswer} {guessedCountry}");
+                player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score")) + 20;
+                await accountService.HandleCorrectGuess(20);
+                HttpContext.Session.SetString("player1.Score", player1.Score.ToString());
+                player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score"));
+                return PartialView("Right", player1);
+                return Content($"Right answer: {correctAnswer} {country}");
             }
             else
             {
                 //return PartialView("Wrong");
-                return Content($"Wrong Answer{correctAnswer}{guessedCountry}");
+                return Content($"Wrong Answer{correctAnswer}{country}");
+                //return PartialView("Wrong");
             }
         }
 

@@ -27,7 +27,7 @@ namespace GeoClueProject.Controllers
 
         public async Task<IActionResult> Cluemaster()
         {
-            var countryName = countryService.RandomCountry();
+            var countryName =  await countryService.RandomCountryAsync();
             var viewModel = await imageService.GetImageURL(countryName);
             return View(await homeService.GetRoot(viewModel));
         }
@@ -50,7 +50,7 @@ namespace GeoClueProject.Controllers
 
         public async Task<IActionResult> Receiver()
         {
-            var countryName = countryService.RandomCountry();
+            var countryName = await countryService.RandomCountryAsync();
             var viewModel = await imageService.GetImageURL(countryName);
             return View(await homeService.GetRoot(viewModel));
         }
