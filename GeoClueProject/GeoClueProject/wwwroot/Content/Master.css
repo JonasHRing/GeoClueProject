@@ -64,7 +64,12 @@ h3 {
     background-color: white;
     padding: 10px 10px 10px 10px;
     max-height: 100%;
+}
 
+#MainImage{
+    width: 50%;
+    opacity: 1;
+    align-items:center;
 }
 
 #ContentBox {
@@ -84,15 +89,11 @@ h3 {
     color:white;
 }
 
-#MainImage{
-    width: 50%;
-    opacity: 1;
-    align-items:center;
-}
 
 
 .hintpic {
     display: none;
+    opacity:1;
     margin: 0 auto; 
     width: 40%;
 }
@@ -125,17 +126,11 @@ footer {
     color: white;
 }
 #ContentBox input[type=submit]{
-    color:white;
+    color: white;
 }
 
 .AboutBox{
     display: flex;
     justify-content:space-around;
     flex-wrap:wrap;
-}
-#box1{
-   
-}
-#box2{
-    
 }

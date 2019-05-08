@@ -13,60 +13,67 @@
 
 
 <div>
-
-
     <span id="secRemaning"></span>
 </div>
 
-    <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
+<img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-    <div class="sticky" id="navbar">
+<div class="sticky" id="navbar">
 
-        <label asp-for="CountryList"></label>
-        <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
+    <label asp-for="CountryList"></label>
+    <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
 
-        <div id="divResult"></div>
+    <div id="divResult"></div>
 
 
     <button class="button" id="btnGuess" type="submit">Guess</button>
 
 
-        <form method="get">
-            <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
-        </form>
+    <form method="get">
+        <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
+    </form>
 
-    </div>
-    <img class="hintpic" id="hint1pic" />
-    <button class="button" onclick="showPicture(1)">Hint 1</button>
-
-    <img class="hintpic" id="hint2pic" />
-    <button class="button" onclick="showPicture(2)">Hint 2</button>
-
-    <img class="hintpic" id="hint3pic" />
-    <button class="button" onclick="showPicture(3)">Hint 3</button>
+    <button class="button" id="showPicture(1)" onclick="showPicture(1)">Hint 1</button>
+    <button class="button" id="showPicture(2)" onclick="showPicture(2)">Hint 2</button>
+    <button class="button" id="showPicture(3)"onclick="showPicture(3)">Hint 3</button>
+</div>
 
 
-    @section scripts
+<h4 id="Makevisible1" style="display:none;">Hint 1</h4></p>
+<img class="hintpic" id="hint1pic" />
+
+<h4 id="Makevisible2" style="display:none;">Hint 2</h4></p>
+<img class="hintpic" id="hint2pic" />
+<h4 id="Makevisible3" style="display:none;">Hint 3</h4></p>
+
+<img class="hintpic" id="hint3pic" />
+
+
+@section scripts
         {
-        <script>
+    <script>
     function showPicture(x) {
         if (x == 1) {
+            $('#Makevisible1').show();
+            //$('.button').display.hidden;
+            var sourceOfPicture = "@Model.ImageURL[1]";
+            var img = document.getElementById("hint1pic")
 
-             var sourceOfPicture = "@Model.ImageURL[1]";
-             var img = document.getElementById("hint1pic")
         }
         else if (x == 2) {
+            $('#Makevisible2').show();
              var sourceOfPicture = "@Model.ImageURL[2]";
              var img = document.getElementById("hint2pic")
         }
         else {
+            $('#Makevisible3').show();
              var sourceOfPicture = "@Model.ImageURL[3]";
              var img = document.getElementById("hint3pic")
         }
 
                 img.src = sourceOfPicture.replace();
                 img.style.display = "block"
-
+            x.style.display = 'none';
     }
 
             $("#btnGuess").click(function () {
@@ -80,7 +87,6 @@
                     }
                 });
             });
-        </script>
-    }
-
+    </script>
 }
+
