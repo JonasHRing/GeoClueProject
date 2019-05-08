@@ -88,7 +88,7 @@ namespace GeoClueProject.Controllers
 
       
 
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await accountService.LogoutAsync();
