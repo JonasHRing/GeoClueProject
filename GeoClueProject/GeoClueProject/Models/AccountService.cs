@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using GeoClueProject.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace GeoClueProject.Models
 {
@@ -92,6 +93,22 @@ namespace GeoClueProject.Models
             viewModel.Scores = scoreList;
             viewModel.Users = userList;
             return viewModel;
+        }
+
+        public AccountScoreboardVM GetPlayerList()
+        {
+            AccountScoreboardVM accountScoreboardVM = new AccountScoreboardVM();
+
+            var list = GetAllUsers().Users;
+
+            accountScoreboardVM.PlayerList = new SelectListItem[list.Count];
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                accountScoreboardVM.PlayerList[i] = new SelectListItem { Value = i.ToString(), Text = list[i] };
+            }
+
+            return accountScoreboardVM;
         }
 
     }

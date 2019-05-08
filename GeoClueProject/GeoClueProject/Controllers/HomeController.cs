@@ -16,14 +16,17 @@ namespace GeoClueProject.Controllers
     {
        
         HomeService homeService;
-        ApiService apiService;
+        ImageService imageService;
+        CountryService countryService;
+      
         private readonly AccountService accountService;
 
-        public HomeController(HomeService homeService, ApiService apiService, AccountService accountService)
+        public HomeController(HomeService homeService, AccountService accountService, ImageService imageService, CountryService countryService)
         {
             this.homeService = homeService;
-            this.apiService = apiService;
             this.accountService = accountService;
+            this.imageService = imageService;
+            this.countryService = countryService;
         }
 
         public IActionResult Index()
@@ -35,7 +38,9 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game()
         {
-            var viewModel = await apiService.GetImageURL();
+            var countryName = countryService.RandomCountry();
+            var viewModel = await imageService.GetImageURL(countryName);
+            
             return View(await homeService.GetRoot(viewModel));
         }
 
@@ -54,15 +59,17 @@ namespace GeoClueProject.Controllers
 
             if (country == correctAnswer)
             {
-                player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score")) + 20;
-                await accountService.HandleCorrectGuess(20);
-                HttpContext.Session.SetString("player1.Score", player1.Score.ToString());
-                player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score"));
-                return PartialView("Right",player1);
+                //player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score")) + 20;
+                //await accountService.HandleCorrectGuess(20);
+                //HttpContext.Session.SetString("player1.Score", player1.Score.ToString());
+                //player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score"));
+                //return PartialView("Right",player1);
+                return Content($"{correctAnswer}{country}");
             }
             else
             {
-                return PartialView("Wrong");
+                //return PartialView("Wrong");
+                return Content($"{correctAnswer}{country}");
             }
         }
 
@@ -70,13 +77,6 @@ namespace GeoClueProject.Controllers
         {
             return View();
         }
-
-        public IActionResult GetHint()
-        {
-            var viewModel = apiService.GetHint();
-            return View(viewModel);
-        }
-
 
         public IActionResult About()
         {
