@@ -10,26 +10,31 @@
 <body>
     @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
     {
-    <div id="menubar">
+    <div class="menubar" id="menubarUser">
 
         <a href="/Home/Index">Home</a>
         <a href="/Game/Singleplayer">Singleplayer</a>
         <a href="/Multi/Lobby">Multiplayer</a>
         <a href="/Account/Scoreboard">Scoreboard</a>
+        <a href="/Home/Info">Learn the game</a>
         <a href="/Home/About">About us</a>
         <a href="/Account/Welcome">My Page</a>
+        <a href="/Account/Logout">Sign Out</a>
       
     </div>
 
     }
     else
     {
-        <div id="menubar">
+        <div class="menubar" id="menubarGuest">
             <a href="/Home/Index">Home</a>
-            <a href="/Account/Login">Login</a>
-            <a href="/Account/Register">Register</a>
+            @*<a href="/Account/Login">Login</a>*@
+            @*<a href="/Account/Register">Register</a>*@
+            <a href="/Home/Info">Learn the game</a>
             <a href="/Home/About">About us</a>
-            <a href="/Account/Welcome">Guest</a>
+            @*<a href="/Account/Welcome">Guest</a>*@
+            <a href="/Account/Register">Join GeoClue!</a>
+            <a href="/Account/Login">Sign In</a>
           
         </div>
     }

@@ -34,20 +34,32 @@ h3 {
   
 }
 
-#menubar {
+.menubar {
     background-color: rgb(106,90,205);
     padding: 10px 10px 10px 0px;
 }
 
-#menubar a {
+#menubarUser a:nth-child(7) {
+    /*background: red;*/
+    /*float: right;*/
+    margin-left: 710px;
+}
+
+#menubarGuest a:nth-child(5) {
+    /*background: red;*/
+    /*float: right;*/
+    margin-left: 1020px;
+}
+
+.menubar a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-       padding: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
     
 }
 
-#menubar a:hover {
+.menubar a:hover {
     color: darkblue;
     background-color: white;
     padding: 10px 10px 10px 10px;
