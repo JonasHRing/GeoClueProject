@@ -16,14 +16,17 @@ namespace GeoClueProject.Controllers
     {
        
         HomeService homeService;
-        ApiService apiService;
+        ImageService imageService;
+        CountryService countryService;
+      
         private readonly AccountService accountService;
 
-        public HomeController(HomeService homeService, ApiService apiService, AccountService accountService)
+        public HomeController(HomeService homeService, AccountService accountService, ImageService imageService, CountryService countryService)
         {
             this.homeService = homeService;
-            this.apiService = apiService;
             this.accountService = accountService;
+            this.imageService = imageService;
+            this.countryService = countryService;
         }
 
         public IActionResult Index()
@@ -35,7 +38,9 @@ namespace GeoClueProject.Controllers
         [Route("Game/Singleplayer")]
         public async Task<IActionResult> Game()
         {
-            var viewModel = await apiService.GetImageURL();
+            var countryName = countryService.RandomCountry();
+            var viewModel = await imageService.GetImageURL(countryName);
+            
             return View(await homeService.GetRoot(viewModel));
         }
 
@@ -73,7 +78,7 @@ namespace GeoClueProject.Controllers
 
         public IActionResult GetHint()
         {
-            var viewModel = apiService.GetHint();
+            var viewModel = homeService.GetHint();
             return View(viewModel);
         }
 

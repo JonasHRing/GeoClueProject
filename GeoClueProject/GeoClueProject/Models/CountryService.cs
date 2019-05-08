@@ -8,7 +8,7 @@ using System.Web;
 
 namespace GeoClueProject.Models
 {
-    public class ApiCountry
+    public class CountryService
     {
         public async Task<string[]> GetCountryList()
         {
@@ -24,6 +24,16 @@ namespace GeoClueProject.Models
             return countries
                 .Select(o => o.name)
                 .ToArray();
+        }
+
+        public string RandomCountry()
+        {
+            var countryList = GetCountryList();
+            var rnd = new Random();
+            var index = rnd.Next(15, 18);
+            var country = countryList.Result[index - 1];
+
+            return country;
         }
 
         public class Rootobject

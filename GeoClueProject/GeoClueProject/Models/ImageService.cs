@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using GeoClueProject.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +10,17 @@ using System.Web;
 
 namespace GeoClueProject.Models
 {
-    public class ApiImage
+    public class ImageService
     {
         public string[] ImageURL { get; set; }
         const string ApiKey = "12337311-1f9f60b3e0fe189a322c3a724";
+        private readonly IHttpContextAccessor httpContextAccessor;
+
+
+        public ImageService(IHttpContextAccessor httpContextAccessor)
+        {
+            this.httpContextAccessor = httpContextAccessor;
+        }
 
         public async Task<string[]> Search(string searchPhrase)
         {
@@ -33,6 +42,14 @@ namespace GeoClueProject.Models
                 imageURL[i] = root.hits[i].largeImageURL;
             }
             return imageURL;
+        }
+        public async Task<HomeGameVM> GetImageURL(string nameOfCountry)
+        {
+            var result = await Search(nameOfCountry);
+            //correctCountry = nameOfCountry;
+            httpContextAccessor.HttpContext.Session.SetString("correctCountry", nameOfCountry);
+
+            return new HomeGameVM { ImageURL = result };
         }
 
         public class Rootobject // 

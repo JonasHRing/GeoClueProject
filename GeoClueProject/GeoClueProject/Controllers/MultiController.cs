@@ -12,19 +12,22 @@ namespace GeoClueProject.Controllers
     public class MultiController : Controller
     {
         HomeService homeService;
-        ApiService apiService;
+        ImageService imageService;
+        CountryService countryService;
         private readonly AccountService accountService;
 
-        public MultiController(HomeService homeService, ApiService apiService, AccountService accountService)
+        public MultiController(HomeService homeService, ImageService imageService, AccountService accountService, CountryService countryService)
         {
             this.homeService = homeService;
-            this.apiService = apiService;
+            this.imageService = imageService;
             this.accountService = accountService;
+            this.countryService = countryService;
         }
 
         public async Task<IActionResult> Cluemaster()
         {
-            var viewModel = await apiService.GetImageURL();
+            var countryName = countryService.RandomCountry();
+            var viewModel = await imageService.GetImageURL(countryName);
             return View(await homeService.GetRoot(viewModel));
         }
 
@@ -46,7 +49,8 @@ namespace GeoClueProject.Controllers
 
         public async Task<IActionResult> Receiver()
         {
-            var viewModel = await apiService.GetImageURL();
+            var countryName = countryService.RandomCountry();
+            var viewModel = await imageService.GetImageURL(countryName);
             return View(await homeService.GetRoot(viewModel));
         }
         public IActionResult Lobby()
