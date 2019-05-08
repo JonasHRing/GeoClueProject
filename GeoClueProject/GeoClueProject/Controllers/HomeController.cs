@@ -18,8 +18,8 @@ namespace GeoClueProject.Controllers
         HomeService homeService;
         ImageService imageService;
         CountryService countryService;
-      
         private readonly AccountService accountService;
+
 
         public HomeController(HomeService homeService, AccountService accountService, ImageService imageService, CountryService countryService)
         {
@@ -39,6 +39,8 @@ namespace GeoClueProject.Controllers
         public async Task<IActionResult> Game()
         {
             var countryName = countryService.RandomCountry();
+            HttpContext.Session.SetString("correctCountry", countryName);
+            var test = HttpContext.Session.GetString("correctCountry");
             var viewModel = await imageService.GetImageURL(countryName);
             
             return View(await homeService.GetRoot(viewModel));
@@ -46,7 +48,7 @@ namespace GeoClueProject.Controllers
 
         [HttpPost]
         [Route("Game/Singleplayer/")]
-        public async Task<IActionResult> GameAsync(string country)
+        public async Task<IActionResult> GameAsync(string guessedCountry)
         {
             
             //homeService.SetTimer();
@@ -57,19 +59,19 @@ namespace GeoClueProject.Controllers
             HomeGameVM player1 = new HomeGameVM();
             var correctAnswer = HttpContext.Session.GetString("correctCountry");
 
-            if (country == correctAnswer)
+            if (guessedCountry == correctAnswer)
             {
                 //player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score")) + 20;
                 //await accountService.HandleCorrectGuess(20);
                 //HttpContext.Session.SetString("player1.Score", player1.Score.ToString());
                 //player1.Score = Convert.ToInt32(HttpContext.Session.GetString("player1.Score"));
                 //return PartialView("Right",player1);
-                return Content($"{correctAnswer}{country}");
+                return Content($"Right answer: {correctAnswer} {guessedCountry}");
             }
             else
             {
                 //return PartialView("Wrong");
-                return Content($"{correctAnswer}{country}");
+                return Content($"Wrong Answer{correctAnswer}{guessedCountry}");
             }
         }
 
