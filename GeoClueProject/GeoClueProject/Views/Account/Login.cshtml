@@ -2,6 +2,7 @@
 @model AccountLoginVM
 
 <div id="ContentBox">
+    <div class="LoginBox">
     <h3>Login</h3>
     <form asp-controller="Account" asp-action="Login" > @*asp-route-returnUrl="@Model.ReturnUrl"*@
         <label asp-for="Username"></label>
@@ -15,5 +16,7 @@
         <input style="color:white" type="submit" value="Login" />
     </form>
     <div asp-validation-summary="All"></div>
+
+    </div>
 </div>
 
