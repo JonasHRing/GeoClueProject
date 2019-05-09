@@ -65,9 +65,10 @@
     function showPicture(x) {
         if (x == 1) {
             $('#Makevisible1').show();
-            //$('.button').display.hidden;
             var sourceOfPicture = "@Model.ImageURL[1]";
             var img = document.getElementById("hint1pic")
+            //$('#showPicture(1)').style.display = 'None';
+            //$button.style.display = "none";
 
         }
         else if (x == 2) {
@@ -89,8 +90,9 @@
             url: "/Game/Hint",
             type: "POST",
             success: function (result) {
-                //$("#divResult").html(result);
-                console.log(result)
+                var html = "<div>" + result + "points" + "</div>";
+                $("#divResult").html(html);
+                //console.log(result)
             }
         });
 

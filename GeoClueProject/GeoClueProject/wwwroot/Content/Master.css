@@ -99,10 +99,10 @@ h3 {
     border-radius: 25px;
     /*background-blend-mode: color;*/
     
-    /*margin-left: 35%;
-    margin-right: 35%;*/
-    min-width: 300px;
-    max-width:600px;
+    margin-left: 35%;
+    margin-right: 35%;
+    /*min-width: 300px;
+    max-width:600px;*/
     /*border-image: linear-gradient(red, transparent);*/
 }
 .button {
