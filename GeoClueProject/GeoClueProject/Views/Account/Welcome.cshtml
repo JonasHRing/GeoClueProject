@@ -13,11 +13,11 @@
 {
     <p>This is your total score:  </p>
 
-    <form asp-controller="Account" asp-action="Logout">
-        <Input style="color:white" type="submit" value="Logout" />
-    </form>
+    @*<form asp-controller="Account" asp-action="Logout">
+            <Input style="color:white" type="submit" value="Logout" />
+        </form>*@
 
- 
+
 }
 else
 {
@@ -28,12 +28,12 @@ else
 
 }
 <form method="get" asp-controller="Home" asp-action="Game">
-    <input type="submit" class="button" value="Singleplayer"/>
+    <input type="submit" class="button" value="Singleplayer" />
 </form>
 <form method="get" asp-controller="Multi" asp-action="Lobby">
 
     <input type="submit" class="button" value="Multiplayer" />
-    
+
 </form>
 
 <div class="container">
@@ -41,9 +41,12 @@ else
     <div class="row">
         <div class="col-6">&nbsp;</div>
         <div class="col-6">
-            User..........<input type="text" id="userInput" />
+            <label> User:</label>
+            <input type="text" id="userInput" />
             <br />
-            Message...<input type="text" id="messageInput" />
+            <label>Message:</label>
+            <input type="text" id="messageInput" />
+            <br />
             <input type="button" id="sendButton" value="Send Message" />
         </div>
     </div>
@@ -61,7 +64,14 @@ else
 </div>
 
 @section scripts
-        {
+    {
     <script src="~/lib/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/chat.js"></script>
+
+    <script>
+        console.log("Resetting");
+        localStorage.setItem('IsTimerOn', false);
+
+    </script>
 }
+

@@ -10,39 +10,54 @@
 <body>
     @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
     {
-    <div id="menubar">
+    <div class="menubar" id="menubarUser">
 
         <a href="/Home/Index">Home</a>
         <a href="/Game/Singleplayer">Singleplayer</a>
         <a href="/Multi/Lobby">Multiplayer</a>
         <a href="/Account/Scoreboard">Scoreboard</a>
+        <a href="/Home/Info">Learn the game</a>
         <a href="/Home/About">About us</a>
         <a href="/Account/Welcome">My Page</a>
+        <a href="/Account/Logout">Sign Out</a>
       
     </div>
 
     }
     else
     {
-        <div id="menubar">
+        <div class="menubar" id="menubarGuest">
             <a href="/Home/Index">Home</a>
-            <a href="/Account/Login">Login</a>
-            <a href="/Account/Register">Register</a>
+            @*<a href="/Account/Login">Login</a>*@
+            @*<a href="/Account/Register">Register</a>*@
+            <a href="/Home/Info">Learn the game</a>
             <a href="/Home/About">About us</a>
-            <a href="/Account/Welcome">Guest</a>
+            @*<a href="/Account/Welcome">Guest</a>*@
+            <a href="/Account/Register">Join GeoClue!</a>
+            <a href="/Account/Login">Sign In</a>
           
         </div>
     }
 
-    <h1>Geo Clue the best project ever!</h1>
+    <h1>Geo Clue</h1>
     <div id="ContentBox" @*style="background-color:#CCC; padding:10px;" *@>
         @RenderBody()
      
-        <footer>&copy; GeoCatch 2019</footer>
     </div>
+        <footer id="footer">&copy; GeoCatch 2019</footer>
+
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     @RenderSection("scripts", false)
 
+
+
+    <script>
+
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+
+    </script>
 </body>
 </html>
 

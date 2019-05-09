@@ -48,7 +48,7 @@ namespace GeoClueProject.Models
         {
             var result = await Search(nameOfCountry);
             //correctCountry = nameOfCountry;
-            httpContextAccessor.HttpContext.Session.SetString("correctCountry", nameOfCountry);
+            //httpContextAccessor.HttpContext.Session.SetString("correctCountry", nameOfCountry);
 
             return new HomeGameVM { ImageURL = result };
         }

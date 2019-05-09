@@ -4,8 +4,8 @@
 }
 
 body {
-    background-color: whitesmoke;
-    color:ghostwhite;
+    background-color: rgb(64, 77, 163);
+    color: ghostwhite;
     /*margin: 0px 40px 0px 40px;*/
     font-family: 'Yu Gothic';
     background-image: url("Earth.jpg");
@@ -15,6 +15,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
 h1 {
@@ -28,48 +29,42 @@ h3 {
 
 #navbar {
     overflow: hidden;
-    background-color: rgb(106,90,205);
+    background-color: rgba(64, 77, 163, 0.7);
     position: sticky;
     top: 0px;
-  
+    margin-top: 85px;
 }
 
-#menubar {
-    background-color: rgb(106,90,205);
+.menubar {
+    background: rgba(112, 112, 219, 0.5) /*rgba(64, 77, 163, 0.7)*/; /*background-color: rgb(106,90,205);*/
     padding: 10px 10px 10px 0px;
 }
 
-#menubar a {
+#menubarUser a:nth-child(7) {
+    /*background: red;*/
+    /*float: right;*/
+    margin-left: 710px;
+}
+
+#menubarGuest a:nth-child(5) {
+    /*background: red;*/
+    /*float: right;*/
+    margin-left: 1020px;
+}
+
+.menubar a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-       padding: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
     
 }
 
-#menubar a:hover {
+.menubar a:hover {
     color: darkblue;
     background-color: white;
     padding: 10px 10px 10px 10px;
     max-height: 100%;
-
-}
-
-#ContentBox {
-    /*background-color: #CCC;*/
-    background-color: rgb(106,90,205);
-    opacity: 0.9;
-    /*padding: 10px;*/
-    margin-bottom: 15px;
-    text-align:center;
-}
-
-#ContentBox input {
-    color: black;
-}
-
-.button {
-    color:white;
 }
 
 #MainImage{
@@ -78,9 +73,46 @@ h3 {
     align-items:center;
 }
 
+#ContentBox {
+    /*background: rgba(64, 77, 163, 0.7);*/
+    /*background-color: rgb(106,90,205);*/
+    opacity: 0.9;
+    /*padding: 10px;*/
+    /*margin-bottom: 15px;*/
+    text-align: center;
+    min-height: 100%;
+    margin-bottom: 10px;
+}
+#ContentBox:after{
+    content:"";
+    display:block;
+}
+
+#ContentBox input {
+    color: black;
+}
+
+.registerBox {
+    box-sizing: padding-box;
+    background-color: rgba(64, 77, 163, 0.7);
+    border-radius: 25px;
+    /*background-blend-mode: color;*/
+    
+    margin-left: 35%;
+    margin-right: 35%;
+    /*min-width: 300px;
+    max-width:600px;*/
+    /*border-image: linear-gradient(red, transparent);*/
+}
+.button {
+    color:white;
+}
+
+
 
 .hintpic {
     display: none;
+    opacity:1;
     margin: 0 auto; 
     width: 40%;
 }
@@ -98,12 +130,15 @@ h3 {
 #IndexContent a {
     color: white;
 }
-
+#footer,#ContentBox:after{
+    height: 10px;
+}
 footer {
-    background-color: cornflowerblue;
-    position: fixed;
+    background-color: rgba(0,0,0,0);
+
+    /*position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100%;*/
 }
 
 #ContentBox button {
@@ -113,7 +148,7 @@ footer {
     color: white;
 }
 #ContentBox input[type=submit]{
-    color:white;
+    color: white;
 }
 
 .AboutBox{
@@ -121,9 +156,4 @@ footer {
     justify-content:space-around;
     flex-wrap:wrap;
 }
-#box1{
-   
-}
-#box2{
-    
-}
+
