@@ -23,6 +23,8 @@ namespace GeoClueProject.Models.ViewModels
 
         public string Username { get; set; }
 
+
+        
     }
 
 

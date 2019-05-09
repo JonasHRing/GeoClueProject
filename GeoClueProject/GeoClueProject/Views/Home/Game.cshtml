@@ -8,19 +8,25 @@
     <button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
 *@
 
+@{
+
+    var endTime = DateTime.UtcNow.AddSeconds(5);
+
+
+    var timeRemaning = TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds;
+}
 
 
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-}
 
-@*<button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
+
 
 
 
     <div>
         <span id="secRemaning"></span>
-    </div>*@
+    </div>
 
 
 <div class="sticky" id="navbar">
@@ -45,7 +51,6 @@
 
 </div>
 
-@*<p id="timer">_____</p>*@
 
 <div class="HintImg">
     <h4 id="Makevisible1" style="display:none;">Hint 1</h4>
@@ -56,10 +61,15 @@
     <img class="hintpic" id="hint3pic" />
 </div>
 
+<span id="timer"></span>
+
+<button class="button" id="timerBtn" onclick="startTick()" asp-controller="Home" asp-action="Game">Timer Mode</button>
 
 @section scripts
     {
     <script>
+
+
     function showPicture(x) {
         if (x == 1) {
             $('#Makevisible1').show();
@@ -114,11 +124,40 @@
             });
 
 
-        //function setup() {
-        //    noCanvas();
-        //    var timer = select('#timer');
-        //    timer.display('aaa');
-        //}
+        var remSeconds = 60;
+         function startTick() {
+
+
+             document.getElementById("timer").innerHTML = remSeconds;
+
+            var _tick = setInterval(function () {
+                remSeconds = remSeconds - 1;
+                document.getElementById("timer").innerHTML = remSeconds;
+
+                if (remSeconds == 0) {
+                    alert('New guess !');
+                    localStorage.setItem('IsTimerOn', true);
+                    clearInterval(_tick);
+                    location.reload();
+                    
+
+                }
+
+            }, 1000);
+
+        }
+        var IsTimerOn = localStorage.getItem("IsTimerOn");
+        console.log(IsTimerOn);
+        if (IsTimerOn=="true") {
+
+            console.log("starting");
+            startTick();
+        }
+        else
+            console.log("Not starting");
+       
+
+
 
 
     </script>

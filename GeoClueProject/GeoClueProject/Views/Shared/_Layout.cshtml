@@ -49,6 +49,15 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
     @RenderSection("scripts", false)
 
+
+
+    <script>
+
+        $("body").on("contextmenu", function (e) {
+            return false;
+        });
+
+    </script>
 </body>
 </html>
 
