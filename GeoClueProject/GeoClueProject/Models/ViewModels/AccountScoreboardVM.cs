@@ -9,8 +9,9 @@ namespace GeoClueProject.Models.ViewModels
 {
     public class AccountScoreboardVM
     {
-        public List<string> Users { get; set; }
-        public List<int> Scores { get; set; }
+        List<User> users = new List<User>();
+
+        public List<User> Users { get; set; }
 
         [Display(Name = "Player")]
         public SelectListItem[] PlayerList { get; set; }
@@ -18,5 +19,10 @@ namespace GeoClueProject.Models.ViewModels
         [Range(1, 3)]
         public int SelectedPlayerValue { get; set; }
 
+    }
+    public class User
+    {
+        public int Score { get; set; }
+        public string Name { get; set; }
     }
 }
