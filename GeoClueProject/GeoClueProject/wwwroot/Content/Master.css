@@ -4,8 +4,8 @@
 }
 
 body {
-    background-color: whitesmoke;
-    color:ghostwhite;
+    background-color: rgb(64, 77, 163);
+    color: ghostwhite;
     /*margin: 0px 40px 0px 40px;*/
     font-family: 'Yu Gothic';
     background-image: url("Earth.jpg");
@@ -15,6 +15,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
 h1 {
@@ -28,14 +29,14 @@ h3 {
 
 #navbar {
     overflow: hidden;
-    background-color: rgb(106,90,205);
+    background-color: rgba(64, 77, 163, 0.7);
     position: sticky;
     top: 0px;
-  
+    margin-top: 85px;
 }
 
 .menubar {
-    background: rgba(64, 77, 163, 0.7); /*background-color: rgb(106,90,205);*/
+    background: rgba(112, 112, 219, 0.5) /*rgba(64, 77, 163, 0.7)*/; /*background-color: rgb(106,90,205);*/
     padding: 10px 10px 10px 0px;
 }
 
@@ -67,14 +68,14 @@ h3 {
 }
 
 #MainImage{
+    max-height:350px;
     width: 50%;
     opacity: 1;
     align-items:center;
 }
 
 #ContentBox {
-    background: rgba(72, 61, 139, 0.4);
-    
+    /*background: rgba(64, 77, 163, 0.7);*/
     /*background-color: rgb(106,90,205);*/
     opacity: 0.9;
     /*padding: 10px;*/
@@ -92,6 +93,18 @@ h3 {
     color: black;
 }
 
+.registerBox {
+    box-sizing: padding-box;
+    background-color: rgba(64, 77, 163, 0.7);
+    border-radius: 25px;
+    /*background-blend-mode: color;*/
+    
+    margin-left: 35%;
+    margin-right: 35%;
+    /*min-width: 300px;
+    max-width:600px;*/
+    /*border-image: linear-gradient(red, transparent);*/
+}
 .button {
     color:white;
 }
