@@ -5,6 +5,17 @@
 
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
+}
+
+<button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
+
+
+<div>
+    <span id="secRemaning"></span>
+</div>
+
+<img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
+
 <div class="sticky" id="navbar">
 
     <label asp-for="CountryList"></label>
@@ -35,25 +46,48 @@
 
 @section scripts
     {
+
+    <button class="button" id="showPicture(1)" onclick="showPicture(1)">Hint 1</button>
+    <button class="button" id="showPicture(2)" onclick="showPicture(2)">Hint 2</button>
+    <button class="button" id="showPicture(3)"onclick="showPicture(3)">Hint 3</button>
+</div>
+
+
+<h4 id="Makevisible1" style="display:none;">Hint 1</h4></p>
+<img class="hintpic" id="hint1pic" />
+
+<h4 id="Makevisible2" style="display:none;">Hint 2</h4></p>
+<img class="hintpic" id="hint2pic" />
+<h4 id="Makevisible3" style="display:none;">Hint 3</h4></p>
+
+<img class="hintpic" id="hint3pic" />
+
+
+@section scripts
+        {
     <script>
     function showPicture(x) {
         if (x == 1) {
+            $('#Makevisible1').show();
+            //$('.button').display.hidden;
+            var sourceOfPicture = "@Model.ImageURL[1]";
+            var img = document.getElementById("hint1pic")
 
-             var sourceOfPicture = "@Model.ImageURL[1]";
-             var img = document.getElementById("hint1pic")
         }
         else if (x == 2) {
+            $('#Makevisible2').show();
              var sourceOfPicture = "@Model.ImageURL[2]";
              var img = document.getElementById("hint2pic")
         }
         else {
+            $('#Makevisible3').show();
              var sourceOfPicture = "@Model.ImageURL[3]";
              var img = document.getElementById("hint3pic")
         }
 
                 img.src = sourceOfPicture.replace();
                 img.style.display = "block"
-
+            x.style.display = 'none';
     }
 
             $("#btnGuess").click(function () {
