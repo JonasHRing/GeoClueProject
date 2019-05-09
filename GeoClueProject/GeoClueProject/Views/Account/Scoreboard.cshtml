@@ -1,6 +1,10 @@
 ﻿@model AccountScoreboardVM
-    <div id="list">
-        <ol>
+<div id="list">
+
+    <h2>Scoreboard</h2>
+ 
+    <div>
+        <ol style="margin-left:40%; margin-bottom:20px;">
             @for (int i = 0; i < @Model.Users.Count; i++)
             {
 
@@ -9,8 +13,11 @@
 
 
             }
+
         </ol>
+
     </div>
+</div>
 
 
         <style>
