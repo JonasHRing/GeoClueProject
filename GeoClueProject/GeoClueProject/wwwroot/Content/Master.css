@@ -78,10 +78,10 @@ h3 {
     /*background-color: rgb(106,90,205);*/
     opacity: 0.9;
     /*padding: 10px;*/
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     text-align: center;
     min-height: 100%;
-    margin-bottom:-142px;
+    margin-bottom: 10px;
 }
 #ContentBox:after{
     content:"";
@@ -119,7 +119,7 @@ h3 {
     color: white;
 }
 #footer,#ContentBox:after{
-    height: 142px;
+    height: 10px;
 }
 footer {
     background-color: rgba(0,0,0,0);
