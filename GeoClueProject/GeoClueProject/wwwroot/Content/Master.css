@@ -35,7 +35,7 @@ h3 {
 }
 
 .menubar {
-    background-color: rgb(106,90,205);
+    background: rgba(64, 77, 163, 0.7); /*background-color: rgb(106,90,205);*/
     padding: 10px 10px 10px 0px;
 }
 
@@ -73,12 +73,19 @@ h3 {
 }
 
 #ContentBox {
-    /*background-color: #CCC;*/
-    background-color: rgb(106,90,205);
+    background: rgba(72, 61, 139, 0.4);
+    
+    /*background-color: rgb(106,90,205);*/
     opacity: 0.9;
     /*padding: 10px;*/
     margin-bottom: 15px;
-    text-align:center;
+    text-align: center;
+    min-height: 100%;
+    margin-bottom:-142px;
+}
+#ContentBox:after{
+    content:"";
+    display:block;
 }
 
 #ContentBox input {
@@ -111,12 +118,15 @@ h3 {
 #IndexContent a {
     color: white;
 }
-
+#footer,#ContentBox:after{
+    height: 142px;
+}
 footer {
-    background-color: cornflowerblue;
-    position: fixed;
+    background-color: rgba(0,0,0,0);
+
+    /*position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100%;*/
 }
 
 #ContentBox button {
@@ -134,3 +144,4 @@ footer {
     justify-content:space-around;
     flex-wrap:wrap;
 }
+
