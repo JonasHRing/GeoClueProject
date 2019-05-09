@@ -4,8 +4,8 @@
 }
 
 body {
-    background-color: whitesmoke;
-    color:ghostwhite;
+    background-color: rgb(64, 77, 163);
+    color: ghostwhite;
     /*margin: 0px 40px 0px 40px;*/
     font-family: 'Yu Gothic';
     background-image: url("Earth.jpg");
@@ -32,6 +32,7 @@ h3 {
     background-color: rgba(64, 77, 163, 0.7);
     position: sticky;
     top: 0px;
+    margin-top: 85px;
 }
 
 .menubar {
@@ -67,6 +68,7 @@ h3 {
 }
 
 #MainImage{
+    max-height:350px;
     width: 50%;
     opacity: 1;
     align-items:center;
@@ -96,8 +98,11 @@ h3 {
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
     /*background-blend-mode: color;*/
-    margin-left: 35%;
-    margin-right: 35%;
+    
+    /*margin-left: 35%;
+    margin-right: 35%;*/
+    min-width: 300px;
+    max-width:600px;
     /*border-image: linear-gradient(red, transparent);*/
 }
 .button {

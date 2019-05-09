@@ -83,7 +83,17 @@
 
                 img.src = sourceOfPicture.replace();
                 img.style.display = "block"
-            x.style.display = 'none';
+        
+
+        $.ajax({
+            url: "/Game/Hint",
+            type: "POST",
+            success: function (result) {
+                //$("#divResult").html(result);
+                console.log(result)
+            }
+        });
+
     }
 
             $("#btnGuess").click(function () {
