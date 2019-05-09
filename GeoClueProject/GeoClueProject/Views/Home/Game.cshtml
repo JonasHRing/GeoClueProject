@@ -33,21 +33,21 @@
 
 
     <div id="divResult" ></div>
-    <div class="guessContainer" style="display:flex; justify-content:center;">
-        <div class="guessItem" style="margin-right:5px">
+    <div class="guessContainer">
+        <div class="guessItem" >
             <label asp-for="CountryList"></label>
             <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
         </div>
-        <div class="guessItem" style="margin-left:5px">
+        <div class="guessItem" style="margin-left:10px";>
             <button class="button" id="btnGuess" type="submit">Guess</button>
-        </div>style="display:flex; justify-content:center;
+        </div>
     </div>
-            <form method="get">
+            <form method="get" style="margin-bottom:10px;">
                 <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
             </form>
-    <button class="button1" id="showPicture(1)" onclick="showPicture(1)">Hint 1</button>
-    <button class="button2" id="showPicture(2)" onclick="showPicture(2)">Hint 2</button>
-    <button class="button3" id="showPicture(3)" onclick="showPicture(3)">Hint 3</button>
+    <button class="button1" id="showPicture(1)" onclick="showPicture(1)" style="margin-right:20px; margin-bottom:10px;">Hint 1</button >
+    <button class="button2" id="showPicture(2)" onclick="showPicture(2)" style="margin-right:20px;margin-bottom:10px;">Hint 2</button>
+    <button class="button3" id="showPicture(3)" onclick="showPicture(3)" style="margin-bottom:10px;">Hint 3</button>
 
 </div>
 
