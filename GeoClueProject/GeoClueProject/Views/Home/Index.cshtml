@@ -3,22 +3,31 @@
     ViewBag.Title = "Index";
 }
 
-<h3>Login</h3>
-<form asp-controller="Account" asp-action="Login">
+<form method="get" asp-controller="Account" asp-action="Login">
     @*asp-route-returnUrl="@Model.ReturnUrl"*@
-    <label asp-for="Username"></label>
-    <input asp-for="Username" />
-    <span asp-validation-for="Username"></span>
-
-    <label asp-for="Password"></label>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
-    <br />
-    <input style="color:white" type="submit" value="Login" />
+    <input class="IndexButton" type="submit" value="Sign in to account" />
 </form>
-<div asp-validation-summary="All"></div>
-<a asp-controller="Account" asp-action="Welcome">Play as guest</a>
-<br />
 <a asp-controller="Account" asp-action="Register">Register as user</a>
 
+<form method="get" asp-controller="Account" asp-action="Welcome">
+    <input style="color:white" class="IndexButton" type="submit" value="Try as guest" />
+</form>
+
+    @*<h3>Login</h3>
+        <form method="get" asp-controller="Account" asp-action="Login">
+            @*asp-route-returnUrl="@Model.ReturnUrl"*@
+    @*<label asp-for="Username"></label>
+            <input asp-for="Username" />
+            <span asp-validation-for="Username"></span>
+
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+            <br />
+            <input style="color:white" class="IndexButton" type="submit" value="Login" />
+        </form>
+        <div asp-validation-summary="All"></div>
+        <a asp-controller="Account" asp-action="Welcome">Play as guest</a>
+        <br />
+        <a asp-controller="Account" asp-action="Register">Register as user</a>*@
 
