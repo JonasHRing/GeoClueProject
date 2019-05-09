@@ -40,8 +40,11 @@ li {
 }
 
 .menubar {
-    background: rgba(112, 112, 219, 0.5) /*rgba(64, 77, 163, 0.7)*/; /*background-color: rgb(106,90,205);*/
-    padding: 10px 10px 10px 0px;
+    /*background: rgba(112, 112, 219, 0.5)*/ /*rgba(64, 77, 163, 0.7)*/
+    ; /*background-color: rgb(106,90,205);*/
+    padding: 15px 10px 15px 0px;
+    background-color: rgba(24, 20, 20, 0.7);
+    /*background-color: rgba(1, 42, 129, 0.70);*/
 }
 
 #menubarUser a:nth-child(7) {
@@ -60,14 +63,14 @@ li {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 10px 10px 10px;
-    
+    padding: 15px 10px 15px 10px;
+    opacity: 0.8;
 }
 
 .menubar a:hover {
     color: darkblue;
     background-color: white;
-    padding: 10px 10px 10px 10px;
+    padding: 15px 10px 15px 10px;
     max-height: 100%;
 }
 
