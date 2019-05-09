@@ -1,5 +1,13 @@
 ﻿@model HomeGameVM
 
+@*
+@{
+    var endTime = DateTime.UtcNow.AddSeconds(5);
+    int timeRemaning = (int)TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds;
+
+}
+<button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
+*@
 
 
 
@@ -8,6 +16,7 @@
 }
 
 @*<button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
+
 
 
 <div>
@@ -21,11 +30,7 @@
     <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
 
     <div id="divResult"></div>
-
-
     <button class="button" id="btnGuess" type="submit">Guess</button>
-
-
     <form method="get">
         <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
     </form>
@@ -34,8 +39,13 @@
     <button class="button" id="showPicture(2)" onclick="showPicture(2)">Hint 2</button>
     <button class="button" id="showPicture(3)"onclick="showPicture(3)">Hint 3</button>
 
+
+<h4 id="Makevisible1" style="display:none;">Hint 1</h4></p>
+<img class="hintpic" id="hint1pic" />
+@*
 </div>
 
+*@
 
 @*<p id="timer">_____</p>*@
 
