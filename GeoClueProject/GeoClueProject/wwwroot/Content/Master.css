@@ -15,6 +15,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 30px;
 }
 
 h1 {
@@ -28,14 +29,13 @@ h3 {
 
 #navbar {
     overflow: hidden;
-    background-color: rgb(106,90,205);
+    background-color: rgba(64, 77, 163, 0.7);
     position: sticky;
     top: 0px;
-  
 }
 
 .menubar {
-    background: rgba(64, 77, 163, 0.7); /*background-color: rgb(106,90,205);*/
+    background: rgba(112, 112, 219, 0.5) /*rgba(64, 77, 163, 0.7)*/; /*background-color: rgb(106,90,205);*/
     padding: 10px 10px 10px 0px;
 }
 
@@ -73,15 +73,14 @@ h3 {
 }
 
 #ContentBox {
-    background: rgba(72, 61, 139, 0.4);
-    
+    /*background: rgba(64, 77, 163, 0.7);*/
     /*background-color: rgb(106,90,205);*/
     opacity: 0.9;
     /*padding: 10px;*/
     margin-bottom: 15px;
     text-align: center;
     min-height: 100%;
-    margin-bottom:-142px;
+    margin-bottom: -142px;
 }
 #ContentBox:after{
     content:"";
@@ -92,6 +91,15 @@ h3 {
     color: black;
 }
 
+.registerBox {
+    box-sizing: padding-box;
+    background-color: rgba(64, 77, 163, 0.7);
+    border-radius: 25px;
+    /*background-blend-mode: color;*/
+    margin-left: 35%;
+    margin-right: 35%;
+    /*border-image: linear-gradient(red, transparent);*/
+}
 .button {
     color:white;
 }

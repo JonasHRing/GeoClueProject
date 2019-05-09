@@ -2,6 +2,7 @@
 @{ViewBag.Title = "Register"; }
 @model AccountRegisterVM
 
+<div class="registerBox">
 <h3>Register</h3>
 <form asp-controller="Account" asp-action="Register">
     <label asp-for="Username"></label>
@@ -24,7 +25,6 @@
     <input style="color:white" type="submit" value="Go to Log in" />
 </a>
 
-
-
 <div asp-validation-summary="All"></div>
 
+</div>
