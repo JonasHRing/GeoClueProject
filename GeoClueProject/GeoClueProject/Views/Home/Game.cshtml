@@ -1,53 +1,56 @@
 ﻿@model HomeGameVM
-
 @*
-@{
-    var endTime = DateTime.UtcNow.AddSeconds(5);
-    int timeRemaning = (int)TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds;
+    @{
+        var endTime = DateTime.UtcNow.AddSeconds(5);
+        int timeRemaning = (int)TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds;
 
-}
-<button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
+    }
+    <button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
 *@
 
+@{
+
+    var endTime = DateTime.UtcNow.AddSeconds(5);
+
+
+    var timeRemaning = TimeSpan.FromTicks(endTime.Ticks - DateTime.UtcNow.Ticks).TotalSeconds;
+}
 
 
 <img id="MainImage" src="@Model.ImageURL[0]" alt="Picture of the country" />
 
-}
-
-@*<button class="button" id="timerBtn" onclick="startTick()">Timer Mode</button>
 
 
 
-<div>
-    <span id="secRemaning"></span>
-</div>*@
+
+
+    <div>
+        <span id="secRemaning"></span>
+    </div>
 
 
 <div class="sticky" id="navbar">
 
-    <label asp-for="CountryList"></label>
-    <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
 
-    <div id="divResult"></div>
-    <button class="button" id="btnGuess" type="submit">Guess</button>
-    <form method="get">
-        <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
-    </form>
+    <div id="divResult" ></div>
+    <div class="guessContainer" style="display:flex; justify-content:center;">
+        <div class="guessItem" style="margin-right:5px">
+            <label asp-for="CountryList"></label>
+            <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
+        </div>
+        <div class="guessItem" style="margin-left:5px">
+            <button class="button" id="btnGuess" type="submit">Guess</button>
+        </div>style="display:flex; justify-content:center;
+    </div>
+            <form method="get">
+                <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
+            </form>
+    <button class="button1" id="showPicture(1)" onclick="showPicture(1)">Hint 1</button>
+    <button class="button2" id="showPicture(2)" onclick="showPicture(2)">Hint 2</button>
+    <button class="button3" id="showPicture(3)" onclick="showPicture(3)">Hint 3</button>
 
-    <button class="button" id="showPicture(1)" onclick="showPicture(1)">Hint 1</button>
-    <button class="button" id="showPicture(2)" onclick="showPicture(2)">Hint 2</button>
-    <button class="button" id="showPicture(3)"onclick="showPicture(3)">Hint 3</button>
-
-
-<h4 id="Makevisible1" style="display:none;">Hint 1</h4></p>
-<img class="hintpic" id="hint1pic" />
-@*
 </div>
 
-*@
-
-@*<p id="timer">_____</p>*@
 
 <div class="HintImg">
     <h4 id="Makevisible1" style="display:none;">Hint 1</h4>
@@ -58,39 +61,51 @@
     <img class="hintpic" id="hint3pic" />
 </div>
 
+<span id="timer"></span>
+
+<button class="button" id="timerBtn" onclick="startTick()" asp-controller="Home" asp-action="Game">Timer Mode</button>
 
 @section scripts
-        {
+    {
     <script>
+
+
     function showPicture(x) {
         if (x == 1) {
             $('#Makevisible1').show();
-            //$('.button').display.hidden;
             var sourceOfPicture = "@Model.ImageURL[1]";
             var img = document.getElementById("hint1pic")
-
+            //$('#showPicture(1)').style.display = 'None';
+            //$button.style.display = "none";
+            //$("#showPicture(1)").css("color", "red");
+            $('.button1').hide();
         }
         else if (x == 2) {
             $('#Makevisible2').show();
              var sourceOfPicture = "@Model.ImageURL[2]";
-             var img = document.getElementById("hint2pic")
+            var img = document.getElementById("hint2pic")
+            $('.button2').hide();
+
         }
         else {
             $('#Makevisible3').show();
              var sourceOfPicture = "@Model.ImageURL[3]";
-             var img = document.getElementById("hint3pic")
+            var img = document.getElementById("hint3pic")
+            $('.button3').hide();
+
         }
 
                 img.src = sourceOfPicture.replace();
                 img.style.display = "block"
-        
+
 
         $.ajax({
             url: "/Game/Hint",
             type: "POST",
             success: function (result) {
-                //$("#divResult").html(result);
-                console.log(result)
+                var html = "<div>" + result + "points" + "</div>";
+                $("#divResult").html(html);
+                //console.log(result)
             }
         });
 
@@ -108,15 +123,44 @@
                 });
             });
 
-  
-        //function setup() {
-        //    noCanvas();
-        //    var timer = select('#timer');
-        //    timer.display('aaa');
-        //}
+
+        var remSeconds = 60;
+         function startTick() {
+
+
+             document.getElementById("timer").innerHTML = remSeconds;
+
+            var _tick = setInterval(function () {
+                remSeconds = remSeconds - 1;
+                document.getElementById("timer").innerHTML = remSeconds;
+
+                if (remSeconds == 0) {
+                    alert('New guess !');
+                    localStorage.setItem('IsTimerOn', true);
+                    clearInterval(_tick);
+                    location.reload();
+                    
+
+                }
+
+            }, 1000);
+
+        }
+        var IsTimerOn = localStorage.getItem("IsTimerOn");
+        console.log(IsTimerOn);
+        if (IsTimerOn=="true") {
+
+            console.log("starting");
+            startTick();
+        }
+        else
+            console.log("Not starting");
+       
+
+
 
 
     </script>
-        
+
 
 }

@@ -15,7 +15,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: 30px;
+    
 }
 
 h1 {
@@ -72,7 +72,6 @@ li {
 }
 
 #MainImage{
-    max-height:350px;
     width: 50%;
     opacity: 1;
     align-items:center;
@@ -83,10 +82,10 @@ li {
     /*background-color: rgb(106,90,205);*/
     opacity: 0.9;
     /*padding: 10px;*/
-    margin-bottom: 15px;
+    /*margin-bottom: 15px;*/
     text-align: center;
     min-height: 100%;
-    margin-bottom: -142px;
+    margin-bottom: 10px;
 }
 #ContentBox:after{
     content:"";
@@ -103,10 +102,10 @@ li {
     border-radius: 25px;
     /*background-blend-mode: color;*/
     
-    /*margin-left: 35%;
-    margin-right: 35%;*/
-    min-width: 300px;
-    max-width:600px;
+    margin-left: 35%;
+    margin-right: 35%;
+    /*min-width: 300px;
+    max-width:600px;*/
     /*border-image: linear-gradient(red, transparent);*/
 }
 .button {
@@ -136,7 +135,7 @@ li {
     color: white;
 }
 #footer,#ContentBox:after{
-    height: 142px;
+    height: 10px;
 }
 footer {
     background-color: rgba(0,0,0,0);
@@ -156,9 +155,22 @@ footer {
     color: white;
 }
 
-.AboutBox{
+.AboutBox {
     display: flex;
-    justify-content:space-around;
-    flex-wrap:wrap;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    box-sizing: padding-box;
+    background-color: rgba(64, 77, 163, 0.7);
+    border-radius: 25px;
+}
+
+.LoginBox {
+    box-sizing: padding-box;
+    background-color: rgba(64, 77, 163, 0.7);
+    border-radius: 25px;
+    /*background-blend-mode: color;*/
+    margin-left: 35%;
+    margin-right: 35%;
+}
 }
 
