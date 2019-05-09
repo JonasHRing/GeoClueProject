@@ -39,7 +39,7 @@
             <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
         </div>
         <div class="guessItem" style="margin-left:10px";>
-            <button class="button" id="btnGuess" type="submit">Guess</button>
+            <button class="buttonG" id="btnGuess" type="submit">Guess</button>
         </div>
     </div>
             <form method="get" style="margin-bottom:10px;">
@@ -63,7 +63,7 @@
 
 <span id="timer"></span>
 
-<button class="button" id="timerBtn" onclick="startTick()" asp-controller="Home" asp-action="Game">Timer Mode</button>
+<button class="buttonT" id="timerBtn" onclick="startTick()" asp-controller="Home" asp-action="Game">Timer Mode</button>
 
 @section scripts
     {
@@ -117,17 +117,20 @@
                     url: "/Game/SinglePlayer",
                     data: {country: chooseCountry},
                     type: "POST",
+                    
                     success: function (result) {
                     $("#divResult").html(result);
                     }
+                    
                 });
+                $(".buttonG").hide();
             });
 
 
         var remSeconds = 60;
          function startTick() {
 
-
+             $(".buttonT").hide(); 
              document.getElementById("timer").innerHTML = remSeconds;
 
             var _tick = setInterval(function () {
