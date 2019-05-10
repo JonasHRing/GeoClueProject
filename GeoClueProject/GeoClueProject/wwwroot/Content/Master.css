@@ -194,7 +194,7 @@ footer {
 .guessContainer {
     display: flex;
     justify-content: center;
-    align-items:flex-end;
+    align-items:center;
 }
 #list {
     box-sizing: padding-box;
@@ -204,9 +204,9 @@ footer {
     margin-left: 35%;
     margin-right: 35%;
     display: flex;
-    justify-content:center;
+    justify-content:center;*/
     
-}*/
+}
 .WelcomeBox {
     box-sizing: padding-box;
     background-color: rgba(64, 77, 163, 0.7);
