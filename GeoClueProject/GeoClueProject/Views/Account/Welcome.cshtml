@@ -5,7 +5,8 @@
     ViewData["Title"] = "Members";
 }
 
-<h1>Hello @Model.Username</h1>
+<div class="WelcomeBox">
+<h2>Hello @Model.Username</h2>
 
 
 @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
@@ -30,10 +31,14 @@ else
 
 </form>
 
+</div>
+
+
 <div class="container">
     <div class="row">&nbsp;</div>
     <div class="row">
         <div class="col-6">&nbsp;</div>
+        <h4>CHAT</h4>
         <div class="col-6">
             <label> User:</label>
             <input type="text" id="userInput" />
@@ -52,7 +57,7 @@ else
     <div class="row">
         <div class="col-6">&nbsp;</div>
         <div class="col-6">
-            <ul id="messagesList"></ul>
+            <ul style="background-color:lightblue; color:darkslateblue;" id="messagesList"></ul>
         </div>
     </div>
 </div>

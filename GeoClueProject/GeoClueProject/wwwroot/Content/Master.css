@@ -205,4 +205,12 @@ footer {
     justify-content:center;*/
     
 }
+.WelcomeBox {
+    box-sizing: padding-box;
+    background-color: rgba(64, 77, 163, 0.7);
+    border-radius: 25px;
+    /*background-blend-mode: color;*/
+    margin-left: 35%;
+    margin-right: 35%;
+}
 
