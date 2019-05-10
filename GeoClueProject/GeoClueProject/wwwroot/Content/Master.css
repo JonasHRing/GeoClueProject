@@ -104,9 +104,9 @@ li {
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
     /*background-blend-mode: color;*/
-    
     margin-left: 35%;
     margin-right: 35%;
+    padding-bottom: 15px;
     /*min-width: 300px;
     max-width:600px;*/
     /*border-image: linear-gradient(red, transparent);*/
@@ -176,6 +176,7 @@ footer {
     box-sizing: padding-box;
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
+    padding-bottom: 15px;
 }
 
 .LoginBox {
@@ -199,13 +200,13 @@ footer {
     box-sizing: padding-box;
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
-    /*background-blend-mode: color;*/
+    /*background-blend-mode: color;
     margin-left: 35%;
     margin-right: 35%;
-    /*display: flex;
-    justify-content:center;*/
+    display: flex;
+    justify-content:center;
     
-}
+}*/
 .WelcomeBox {
     box-sizing: padding-box;
     background-color: rgba(64, 77, 163, 0.7);
@@ -213,5 +214,6 @@ footer {
     /*background-blend-mode: color;*/
     margin-left: 35%;
     margin-right: 35%;
+    padding-bottom: 15px;
 }
 
