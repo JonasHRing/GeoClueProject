@@ -5,7 +5,7 @@
     ViewData["Title"] = "Members";
 }
 
-    <div class="WelcomeBox">
+<div class="WelcomeBox">
 
         @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
         {
@@ -13,25 +13,25 @@
             <p>Your total score is: @Model.Score </p>
         }
 
-        else
-        {
-            <h2>Hello Guest</h2>
-            <p>
-                If you want to see your score please <a asp-controller="Account" asp-action="Register">register</a>
-            </p>
-            <br />
+    else
+    {
+        <h2>Hello Guest</h2>
+        <p>
+            If you want to see your score please <a asp-controller="Account" asp-action="Register">register</a>
+        </p>
+        <br />
 
-        }
-        <form method="get" asp-controller="Home" asp-action="Game">
-            <input type="submit" class="button" value="Singleplayer" />
-        </form>
-        <form method="get" asp-controller="Multi" asp-action="Lobby">
+    }
+    <form method="get" asp-controller="Home" asp-action="Game">
+        <input type="submit" class="button" value="Singleplayer" />
+    </form>
+    <form method="get" asp-controller="Multi" asp-action="Lobby">
 
-            <input type="submit" class="button" value="Multiplayer" />
+        <input type="submit" class="button" value="Multiplayer" />
 
-        </form>
+    </form>
 
-    </div>
+</div>
 
 
 <div class="container">
@@ -48,19 +48,19 @@
             <br />
             <input type="button" id="sendButton" value="Send Message" />
         </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <hr />
+        <div class="row">
+            <div class="col-12">
+                <br />
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-6">&nbsp;</div>
-        <div class="col-6">
-            <ul style="background-color:lightblue; color:darkslateblue;" id="messagesList"></ul>
+        <div class="row">
+            <div class="col-6">&nbsp;</div>
+            <div class="col-6">
+                <ul id="messagesList" style="background-color:lightblue; color:darkslateblue;" ></ul>
+            </div>
         </div>
-    </div>
 </div>
+
 
 @section scripts
     {

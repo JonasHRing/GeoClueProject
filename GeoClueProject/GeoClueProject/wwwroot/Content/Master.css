@@ -88,12 +88,12 @@ li {
     /*margin-bottom: 15px;*/
     text-align: center;
     min-height: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
-#ContentBox:after{
+/*#ContentBox:after{
     content:"";
     display:block;
-}
+}*/
 
 #ContentBox input {
     color: black;
@@ -104,9 +104,9 @@ li {
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
     /*background-blend-mode: color;*/
-    
     margin-left: 35%;
     margin-right: 35%;
+    padding-bottom: 15px;
     /*min-width: 300px;
     max-width:600px;*/
     /*border-image: linear-gradient(red, transparent);*/
@@ -148,15 +148,17 @@ li {
 #IndexContent a {
     color: white;
 }
-#footer,#ContentBox:after{
+/*#footer,#ContentBox:after{
     height: 10px;
-}
+}*/
 footer {
+    /*padding-top: 100px;*/
     background-color: rgba(0,0,0,0);
-
-    /*position: fixed;
+    text-align:center;
+    
+    /*position: fixed;*/
     bottom: 0;
-    width: 100%;*/
+    width: 100%;
 }
 
 #ContentBox button {
@@ -176,6 +178,7 @@ footer {
     box-sizing: padding-box;
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
+    padding-bottom: 15px;
 }
 
 .LoginBox {
@@ -193,16 +196,16 @@ footer {
 .guessContainer {
     display: flex;
     justify-content: center;
-    align-items:flex-end;
+    align-items:center;
 }
 #list {
     box-sizing: padding-box;
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
-    /*background-blend-mode: color;*/
+    /*background-blend-mode: color;
     margin-left: 35%;
     margin-right: 35%;
-    /*display: flex;
+    display: flex;
     justify-content:center;*/
     
 }
@@ -213,5 +216,6 @@ footer {
     /*background-blend-mode: color;*/
     margin-left: 35%;
     margin-right: 35%;
+    padding-bottom: 15px;
 }
 
