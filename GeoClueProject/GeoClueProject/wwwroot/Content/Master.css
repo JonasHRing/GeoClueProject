@@ -181,7 +181,8 @@ footer {
 .LoginBox {
     box-sizing: padding-box;
     /*background-color: rgba(64, 77, 163, 0.7);*/
-    background-color: rgba(0, 0, 0, 0.7);
+    /*background-color: rgba(0, 0, 0, 0.7);*/
+    background-color:rgba(64, 77, 163, 0.7) ;
     border-radius: 25px;
     /*background-blend-mode: color;*/
     margin-left: 35%;

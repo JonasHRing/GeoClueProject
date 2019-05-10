@@ -5,33 +5,33 @@
     ViewData["Title"] = "Members";
 }
 
-<div class="WelcomeBox">
-<h2>Hello @Model.Username</h2>
+    <div class="WelcomeBox">
 
+        @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
+        {
+            <h2>Hello @Model.Username</h2>
+            <p>Your total score is: @Model.Score </p>
+        }
 
-@if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
-{
-    <p>Your total score is: @Model.Score </p>
-}
+        else
+        {
+            <h2>Hello Guest</h2>
+            <p>
+                If you want to see your score please <a asp-controller="Account" asp-action="Register">register</a>
+            </p>
+            <br />
 
-else
-{
-    <p>
-        If you want to see your score please <a asp-controller="Account" asp-action="Register">register</a>
-    </p>
-    <br />
+        }
+        <form method="get" asp-controller="Home" asp-action="Game">
+            <input type="submit" class="button" value="Singleplayer" />
+        </form>
+        <form method="get" asp-controller="Multi" asp-action="Lobby">
 
-}
-<form method="get" asp-controller="Home" asp-action="Game">
-    <input type="submit" class="button" value="Singleplayer" />
-</form>
-<form method="get" asp-controller="Multi" asp-action="Lobby">
+            <input type="submit" class="button" value="Multiplayer" />
 
-    <input type="submit" class="button" value="Multiplayer" />
+        </form>
 
-</form>
-
-</div>
+    </div>
 
 
 <div class="container">
