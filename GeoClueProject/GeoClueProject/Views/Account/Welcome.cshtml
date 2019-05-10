@@ -9,7 +9,7 @@
 
         @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
         {
-            <h2>Hello @Model.Username</h2>
+            <h2>Hello<h2 id="userName"> @Model.Username</h2></h2>
             <p>Your total score is: @Model.Score </p>
         }
 
@@ -40,8 +40,8 @@
         <div class="col-6">&nbsp;</div>
         <h4>CHAT</h4>
         <div class="col-6">
-            <label> User:</label>
-            <input type="text" id="userInput" />
+            <label id="nameToDisplay"> User:</label>
+            <input type="text" id="userInput" value=""/>
             <br />
             <label>Message:</label>
             <input type="text" id="messageInput" />
@@ -72,5 +72,17 @@
         localStorage.setItem('IsTimerOn', false);
 
     </script>
-}
+ <script>
+     
+     function AutoCompleteUserName() {
 
+             document.getElementById("userInput").value = document.getElementById("userName").innerText;
+
+           
+     }
+
+     AutoCompleteUserName();
+
+    </script>
+
+}
