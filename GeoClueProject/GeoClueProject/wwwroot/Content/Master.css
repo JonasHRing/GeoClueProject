@@ -20,7 +20,7 @@ body {
 
 h1 {
     text-align: center;
-    padding: 10px 10px 10px 0px;
+    padding: 30px 10px 10px 0px;
 }
 h3 {
     text-align: center;
@@ -40,8 +40,11 @@ li {
 }
 
 .menubar {
-    background: rgba(112, 112, 219, 0.5) /*rgba(64, 77, 163, 0.7)*/; /*background-color: rgb(106,90,205);*/
-    padding: 10px 10px 10px 0px;
+    /*background: rgba(112, 112, 219, 0.5)*/ /*rgba(64, 77, 163, 0.7)*/
+    ; /*background-color: rgb(106,90,205);*/
+    padding: 15px 10px 15px 0px;
+    background-color: rgba(24, 20, 20, 0.7);
+    /*background-color: rgba(1, 42, 129, 0.70);*/
 }
 
 #menubarUser a:nth-child(7) {
@@ -53,21 +56,21 @@ li {
 #menubarGuest a:nth-child(5) {
     /*background: red;*/
     /*float: right;*/
-    margin-left: 1020px;
+    margin-left: 900px;
 }
 
 .menubar a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 10px 10px 10px;
-    
+    padding: 15px 10px 15px 10px;
+    opacity: 0.8;
 }
 
 .menubar a:hover {
     color: darkblue;
     background-color: white;
-    padding: 10px 10px 10px 10px;
+    padding: 15px 10px 15px 10px;
     max-height: 100%;
 }
 
@@ -110,9 +113,22 @@ li {
 }
 .button {
     color:white;
+    /*background-color: yellow;*/
 }
 
+#ContentBox .IndexButton {
+    background-color: rgba(24, 20, 20, 0.3);
+    /*opacity: 0.3;*/
+}
 
+#ContentBox form {
+    margin-bottom: 0px;
+}
+
+#ContentBox #PlayAsGuest {
+    margin-top: 10px;
+    background-color: rgba(24, 20, 20, 0.2);
+}
 
 .hintpic {
     display: none;
@@ -120,8 +136,6 @@ li {
     margin: 0 auto; 
     width: 40%;
 }
-
-
 
 #ContentBox a {
     color: white;
@@ -166,11 +180,38 @@ footer {
 
 .LoginBox {
     box-sizing: padding-box;
-    background-color: rgba(64, 77, 163, 0.7);
+    /*background-color: rgba(64, 77, 163, 0.7);*/
+    /*background-color: rgba(0, 0, 0, 0.7);*/
+    background-color:rgba(64, 77, 163, 0.7) ;
     border-radius: 25px;
     /*background-blend-mode: color;*/
     margin-left: 35%;
     margin-right: 35%;
 }
+
+
+.guessContainer {
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+}
+#list {
+    box-sizing: padding-box;
+    background-color: rgba(64, 77, 163, 0.7);
+    border-radius: 25px;
+    /*background-blend-mode: color;*/
+    margin-left: 35%;
+    margin-right: 35%;
+    /*display: flex;
+    justify-content:center;*/
+    
+}
+.WelcomeBox {
+    box-sizing: padding-box;
+    background-color: rgba(64, 77, 163, 0.7);
+    border-radius: 25px;
+    /*background-blend-mode: color;*/
+    margin-left: 35%;
+    margin-right: 35%;
 }
 

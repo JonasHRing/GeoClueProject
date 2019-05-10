@@ -103,5 +103,13 @@ namespace GeoClueProject.Controllers
             return View();
         }
 
+
+
+        public IActionResult Info()
+        {
+            return View();
+        }
+
+
     }
 }

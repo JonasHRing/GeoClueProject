@@ -33,21 +33,21 @@
 
 
     <div id="divResult" ></div>
-    <div class="guessContainer" style="display:flex; justify-content:center;">
-        <div class="guessItem" style="margin-right:5px">
+    <div class="guessContainer">
+        <div class="guessItem" >
             <label asp-for="CountryList"></label>
             <select id="selectedCountry" asp-for="SelectedCountryValue" asp-items="Model.CountryList"> </select>
         </div>
-        <div class="guessItem" style="margin-left:5px">
-            <button class="button" id="btnGuess" type="submit">Guess</button>
-        </div>style="display:flex; justify-content:center;
+        <div class="guessItem" style="margin-left:10px";>
+            <button class="buttonG" id="btnGuess" type="submit">Guess</button>
+        </div>
     </div>
-            <form method="get">
+            <form method="get" style="margin-bottom:10px;">
                 <button class="button" asp-controller="Home" asp-action="Game">New Country</button>
             </form>
-    <button class="button1" id="showPicture(1)" onclick="showPicture(1)">Hint 1</button>
-    <button class="button2" id="showPicture(2)" onclick="showPicture(2)">Hint 2</button>
-    <button class="button3" id="showPicture(3)" onclick="showPicture(3)">Hint 3</button>
+    <button class="button1" id="showPicture(1)" onclick="showPicture(1)" style="margin-right:20px; margin-bottom:10px;">Hint 1</button >
+    <button class="button2" id="showPicture(2)" onclick="showPicture(2)" style="margin-right:20px;margin-bottom:10px;">Hint 2</button>
+    <button class="button3" id="showPicture(3)" onclick="showPicture(3)" style="margin-bottom:10px;">Hint 3</button>
 
 </div>
 
@@ -63,7 +63,7 @@
 
 <span id="timer"></span>
 
-<button class="button" id="timerBtn" onclick="startTick()" asp-controller="Home" asp-action="Game">Timer Mode</button>
+<button class="buttonT" id="timerBtn" onclick="startTick()" asp-controller="Home" asp-action="Game">Timer Mode</button>
 
 @section scripts
     {
@@ -117,17 +117,20 @@
                     url: "/Game/SinglePlayer",
                     data: {country: chooseCountry},
                     type: "POST",
+                    
                     success: function (result) {
                     $("#divResult").html(result);
                     }
+                    
                 });
+                $(".buttonG").hide();
             });
 
-
-        var remSeconds = 60;
+        
+        var remSeconds = 10;
          function startTick() {
 
-
+             $(".buttonT").hide(); 
              document.getElementById("timer").innerHTML = remSeconds;
 
             var _tick = setInterval(function () {

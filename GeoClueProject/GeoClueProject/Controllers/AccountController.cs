@@ -81,12 +81,12 @@ namespace GeoClueProject.Controllers
                 return Redirect(viewModel.ReturnUrl);
         }
 
-        public IActionResult Welcome()
+        public async Task<IActionResult> Welcome()
         {
-            return View(new AccountWelcomeVM { Username = User.Identity.Name });
+            var viewModel = await accountService.GetUserScore();
+            viewModel.Username = User.Identity.Name;
+            return View(viewModel);
         }
-
-      
 
         [HttpGet]
         public async Task<IActionResult> Logout()

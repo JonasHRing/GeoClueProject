@@ -4,42 +4,41 @@
 @{
     ViewData["Title"] = "Members";
 }
-<h1>Members</h1>
 
-<p>Hello @Model.Username</p>
+    <div class="WelcomeBox">
 
+        @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
+        {
+            <h2>Hello @Model.Username</h2>
+            <p>Your total score is: @Model.Score </p>
+        }
 
-@if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
-{
-    <p>This is your total score:  </p>
+        else
+        {
+            <h2>Hello Guest</h2>
+            <p>
+                If you want to see your score please <a asp-controller="Account" asp-action="Register">register</a>
+            </p>
+            <br />
 
-    @*<form asp-controller="Account" asp-action="Logout">
-            <Input style="color:white" type="submit" value="Logout" />
-        </form>*@
+        }
+        <form method="get" asp-controller="Home" asp-action="Game">
+            <input type="submit" class="button" value="Singleplayer" />
+        </form>
+        <form method="get" asp-controller="Multi" asp-action="Lobby">
 
+            <input type="submit" class="button" value="Multiplayer" />
 
-}
-else
-{
-    <p>
-        If you want to see your score please <a asp-controller="Account" asp-action="Register">register</a>
-    </p>
-    <br />
+        </form>
 
-}
-<form method="get" asp-controller="Home" asp-action="Game">
-    <input type="submit" class="button" value="Singleplayer" />
-</form>
-<form method="get" asp-controller="Multi" asp-action="Lobby">
+    </div>
 
-    <input type="submit" class="button" value="Multiplayer" />
-
-</form>
 
 <div class="container">
     <div class="row">&nbsp;</div>
     <div class="row">
         <div class="col-6">&nbsp;</div>
+        <h4>CHAT</h4>
         <div class="col-6">
             <label>CHAT</label>
             <label> User:</label>
@@ -59,7 +58,7 @@ else
     <div class="row">
         <div class="col-6">&nbsp;</div>
         <div class="col-6">
-            <ul id="messagesList"></ul>
+            <ul style="background-color:lightblue; color:darkslateblue;" id="messagesList"></ul>
         </div>
     </div>
 </div>
