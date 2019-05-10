@@ -27,19 +27,17 @@
     else
     {
         <div class="menubar" id="menubarGuest">
-            <a href="/Home/Index">Home</a>
-            @*<a href="/Account/Login">Login</a>*@
-            @*<a href="/Account/Register">Register</a>*@
+            <a href="/Home/Index">Home</a>      
             <a href="/Home/Info">Learn the game</a>
             <a href="/Home/About">About us</a>
-            @*<a href="/Account/Welcome">Guest</a>*@
             <a href="/Account/Register">Join GeoClue!</a>
+            <a href="/Account/Welcome">Guest</a>
             <a href="/Account/Login">Sign In</a>
           
         </div>
     }
 
-    <h1>Geo Clue</h1>
+    <h1 id="TitelGeoClue">Geo Clue</h1>
     <div id="ContentBox" @*style="background-color:#CCC; padding:10px;" *@>
         @RenderBody()
      

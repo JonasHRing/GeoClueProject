@@ -77,21 +77,34 @@ namespace GeoClueProject.Models
             await userManager.UpdateAsync(user);
         }
 
+        public async Task<AccountWelcomeVM> GetUserScore()
+        {
+            string userId = userManager.GetUserId(_httpContextAccessor.HttpContext.User);
+            if (userId == null)
+                return new AccountWelcomeVM();
+            MyIdentityUser user = await userManager.FindByIdAsync(userId);
+            var viewModel = new AccountWelcomeVM { Score = user.Score }; 
+
+            return viewModel;
+        }
+
         public AccountScoreboardVM GetAllUsers()
         {
             var Users = myIdentityContext.Users.ToList();
 
+            var orderedList = Users
+                .OrderByDescending(o => o.Score);
+
             AccountScoreboardVM viewModel = new AccountScoreboardVM();
-            var scoreList = new List<int>();
-            var userList = new List<string>();
-            foreach(var item in Users)
+            var users = new List<User>();
+            viewModel.Users = users;
+            foreach (var item in Users)
             {
-                scoreList.Add(item.Score);
-                userList.Add(item.UserName);
+
+               viewModel.Users.Add(new User {Score = item.Score, Name = item.UserName}); 
             }
 
-            viewModel.Scores = scoreList;
-            viewModel.Users = userList;
+            
             return viewModel;
         }
 
@@ -99,13 +112,13 @@ namespace GeoClueProject.Models
         {
             AccountScoreboardVM accountScoreboardVM = new AccountScoreboardVM();
 
-            var list = GetAllUsers().Users;
+            var usersList = GetAllUsers().Users;
 
-            accountScoreboardVM.PlayerList = new SelectListItem[list.Count];
+            accountScoreboardVM.PlayerList = new SelectListItem[usersList.Count];
 
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < usersList.Count; i++)
             {
-                accountScoreboardVM.PlayerList[i] = new SelectListItem { Value = i.ToString(), Text = list[i] };
+                accountScoreboardVM.PlayerList[i] = new SelectListItem { Value = i.ToString(), Text = usersList[i].Name };
             }
 
             return accountScoreboardVM;

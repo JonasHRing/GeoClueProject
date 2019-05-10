@@ -1,10 +1,39 @@
 ﻿@model AccountScoreboardVM
 
 
-@for (int i = 0; i < @Model.Users.Count; i++)
-{
-    <p>@Model.Users[i] @Model.Scores[i]</p>
-}
+    <div id="list">
+        <ol>
+<div id="list">
 
+    <h2>Scoreboard</h2>
+ 
+    <div>
+        <ol style="margin-left:40%; margin-bottom:20px;">
+
+            @for (int i = 0; i < @Model.Users.Count; i++)
+            {
+
+
+                <li><span> @Model.Users[i].Name @Model.Users[i].Score</span></li>
+
+
+            }
+
+        </ol>
+
+    </div>
+</div>
+
+
+        <style>
+            li{
+              
+               
+                text-align:left;
+            }
+            #list{
+                text-align:center;
+            }
+        </style>
 
 
