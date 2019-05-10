@@ -77,6 +77,15 @@ namespace GeoClueProject.Models
             await userManager.UpdateAsync(user);
         }
 
+        public async Task<AccountWelcomeVM> GetUserScore()
+        {
+            string userId = userManager.GetUserId(_httpContextAccessor.HttpContext.User);
+            MyIdentityUser user = await userManager.FindByIdAsync(userId);
+            var viewModel = new AccountWelcomeVM { Score = user.Score }; 
+
+            return viewModel;
+        }
+
         public AccountScoreboardVM GetAllUsers()
         {
             var Users = myIdentityContext.Users.ToList();

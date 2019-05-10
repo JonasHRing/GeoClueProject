@@ -20,7 +20,7 @@ body {
 
 h1 {
     text-align: center;
-    padding: 10px 10px 10px 0px;
+    padding: 30px 10px 10px 0px;
 }
 h3 {
     text-align: center;
@@ -56,7 +56,7 @@ li {
 #menubarGuest a:nth-child(5) {
     /*background: red;*/
     /*float: right;*/
-    margin-left: 1000px;
+    margin-left: 900px;
 }
 
 .menubar a {
@@ -121,6 +121,14 @@ li {
     /*opacity: 0.3;*/
 }
 
+#ContentBox form {
+    margin-bottom: 0px;
+}
+
+#ContentBox #PlayAsGuest {
+    margin-top: 10px;
+    background-color: rgba(24, 20, 20, 0.6);
+}
 
 .hintpic {
     display: none;
@@ -172,12 +180,14 @@ footer {
 
 .LoginBox {
     box-sizing: padding-box;
-    background-color: rgba(64, 77, 163, 0.7);
+    /*background-color: rgba(64, 77, 163, 0.7);*/
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 25px;
     /*background-blend-mode: color;*/
     margin-left: 35%;
     margin-right: 35%;
 }
+
 
 .guessContainer {
     display: flex;

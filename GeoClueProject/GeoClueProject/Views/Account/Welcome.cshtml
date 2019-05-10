@@ -4,21 +4,15 @@
 @{
     ViewData["Title"] = "Members";
 }
-<h1>Members</h1>
 
-<p>Hello @Model.Username</p>
+<h1>Hello @Model.Username</h1>
 
 
 @if ((Context.User != null) && Context.User.Identity.IsAuthenticated)
 {
-    <p>This is your total score:  </p>
-
-    @*<form asp-controller="Account" asp-action="Logout">
-            <Input style="color:white" type="submit" value="Logout" />
-        </form>*@
-
-
+    <p>Your total score is: @Model.Score </p>
 }
+
 else
 {
     <p>
