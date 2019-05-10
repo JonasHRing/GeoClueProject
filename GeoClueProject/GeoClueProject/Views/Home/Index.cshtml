@@ -5,12 +5,13 @@
 
 <form method="get" asp-controller="Account" asp-action="Login">
     @*asp-route-returnUrl="@Model.ReturnUrl"*@
-    <input class="IndexButton" type="submit" value="Sign in to account" />
+    <input class="IndexButton" id="SignInIndex" type="submit" value="Sign in to account" />
 </form>
-<a asp-controller="Account" asp-action="Register">Register as user</a>
+@*<a asp-controller="Account" asp-action="Register">Register as user</a>
+<a asp-controller="Account" asp-action="Welcome">Play as user</a>*@
 
 <form method="get" asp-controller="Account" asp-action="Welcome">
-    <input style="color:white" class="IndexButton" type="submit" value="Try as guest" />
+    <input style="color:white" class="IndexButton" id="PlayAsGuest" type="submit" value="Play as guest" />
 </form>
 
 

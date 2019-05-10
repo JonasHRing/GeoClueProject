@@ -8,5 +8,7 @@ namespace GeoClueProject.Models.ViewModels
     public class AccountWelcomeVM
     {
         public string Username { get; set; }
+
+        public int Score { get; set; }
     }
 }
