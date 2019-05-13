@@ -186,6 +186,8 @@ footer {
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
     padding-bottom: 15px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .LoginBox {
@@ -232,4 +234,15 @@ footer {
         margin-right: 35%;
         padding-bottom: 15px;
     }
+.InfoBox {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    box-sizing: padding-box;
+    background-color: rgba(64, 77, 163, 0.7);
+    border-radius: 25px;
+    padding-bottom: 15px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
 
