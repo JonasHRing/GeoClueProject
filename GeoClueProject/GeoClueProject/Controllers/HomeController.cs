@@ -61,7 +61,8 @@ namespace GeoClueProject.Controllers
             HomeGameVM player1 = new HomeGameVM();
             var correctAnswer = HttpContext.Session.GetString("correctCountry");
             var hintsTaken = int.Parse(HttpContext.Session.GetString("hintsTaken"));
-
+            player1.correctCountry = correctAnswer;
+            
 
             if (country == correctAnswer)
             {
@@ -76,7 +77,7 @@ namespace GeoClueProject.Controllers
             else
             {
                 // return Content($"Wrong Answer{correctAnswer}{country}");
-                return PartialView("Wrong");
+                return PartialView("Wrong", player1);
             }
         }
 

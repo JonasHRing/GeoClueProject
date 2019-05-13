@@ -186,6 +186,8 @@ footer {
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
     padding-bottom: 15px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .LoginBox {
@@ -209,20 +211,38 @@ footer {
     box-sizing: padding-box;
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
-    /*background-blend-mode: color;
-    margin-left: 35%;
-    margin-right: 35%;
-    display: flex;
+    /*background-blend-mode: color;*/
+    margin-top:10px;
+    margin-left: 40%;
+    margin-right: 40%;
+    padding: 4px 6px 4px 6px;
+    /*display: flex;
     justify-content:center;*/
     
 }
-.WelcomeBox {
+    #list ol {
+    margin-left:40%; 
+    margin-bottom:20px;
+    }
+
+    .WelcomeBox {
+        box-sizing: padding-box;
+        background-color: rgba(64, 77, 163, 0.7);
+        border-radius: 25px;
+        /*background-blend-mode: color;*/
+        margin-left: 35%;
+        margin-right: 35%;
+        padding-bottom: 15px;
+    }
+.InfoBox {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
     box-sizing: padding-box;
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
-    /*background-blend-mode: color;*/
-    margin-left: 35%;
-    margin-right: 35%;
     padding-bottom: 15px;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
