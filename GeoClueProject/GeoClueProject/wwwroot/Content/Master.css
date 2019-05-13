@@ -209,20 +209,27 @@ footer {
     box-sizing: padding-box;
     background-color: rgba(64, 77, 163, 0.7);
     border-radius: 25px;
-    /*background-blend-mode: color;
-    margin-left: 35%;
-    margin-right: 35%;
-    display: flex;
+    /*background-blend-mode: color;*/
+    margin-top:10px;
+    margin-left: 40%;
+    margin-right: 40%;
+    padding: 4px 6px 4px 6px;
+    /*display: flex;
     justify-content:center;*/
     
 }
-.WelcomeBox {
-    box-sizing: padding-box;
-    background-color: rgba(64, 77, 163, 0.7);
-    border-radius: 25px;
-    /*background-blend-mode: color;*/
-    margin-left: 35%;
-    margin-right: 35%;
-    padding-bottom: 15px;
-}
+    #list ol {
+    margin-left:40%; 
+    margin-bottom:20px;
+    }
+
+    .WelcomeBox {
+        box-sizing: padding-box;
+        background-color: rgba(64, 77, 163, 0.7);
+        border-radius: 25px;
+        /*background-blend-mode: color;*/
+        margin-left: 35%;
+        margin-right: 35%;
+        padding-bottom: 15px;
+    }
 
