@@ -14,8 +14,7 @@ namespace GeoClueProject.Models
     {
         public string[] ImageURL { get; set; }
         //Loggad in via Facebook(Emilys)
-        const string ApiKey = "12337311-6c2b186b1693a3791041789ea";
-        //const string ApiKey = "12337311-1f9f60b3e0fe189a322c3a724";
+        const string ApiKey = "12337311-1f9f60b3e0fe189a322c3a724";
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IHttpClientFactory httpClientFactory;
 
