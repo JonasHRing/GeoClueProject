@@ -2,29 +2,33 @@
 @{ViewBag.Title = "Register"; }
 @model AccountRegisterVM
 
-<div class="registerBox">
-<h3>Register</h3>
-<form asp-controller="Account" asp-action="Register">
-    <label asp-for="Username"></label>
-    <input asp-for="Username" />
-    <span asp-validation-for="Username"></span>
+    <div class="registerBox">
+        <h3>Register</h3>
+   
 
-    <label asp-for="Password"></label>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
+            <form asp-controller="Account" asp-action="Register">
+                <label asp-for="Username"></label>
+                <input asp-for="Username" class="Textbox" />
+                <span asp-validation-for="Username"></span>
 
-    <label asp-for="PasswordRepeat"></label>
-    <input asp-for="PasswordRepeat" />
-    <span asp-validation-for="PasswordRepeat"></span>
-    <br />
-    <input style="color:white" type="submit" value="Register" />
-</form>
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="Textbox"/>
+                <span asp-validation-for="Password"></span>
+
+                <label asp-for="PasswordRepeat"></label>
+                <input asp-for="PasswordRepeat"class="Textbox" />
+                <span asp-validation-for="PasswordRepeat"></span>
+                <br />
+                <input style="color:white" type="submit" value="Register" class="Submit"/>
+            </form>
+           
 
 
-<a asp-controller="Account" asp-action="Login">
-    <input style="color:white" type="submit" value="Go to Sign in" />
-</a>
 
-<div asp-validation-summary="All"></div>
+                <a asp-controller="Account" asp-action="Login">
+                    <input style="color:white" type="submit" value="Go to Sign in" class="Submit"/>
+                </a>
 
-</div>
+                <div asp-validation-summary="All"></div>
+
+            </div>

@@ -4,18 +4,20 @@
 <div id="ContentBox">
     <div class="LoginBox">
     <h3>Sign in</h3>
-    <form asp-controller="Account" asp-action="Login" > @*asp-route-returnUrl="@Model.ReturnUrl"*@
-        <label asp-for="Username"></label>
-        <input asp-for="Username" />
-        <span asp-validation-for="Username"></span>
+    
+        <form asp-controller="Account" asp-action="Login">
+            @*asp-route-returnUrl="@Model.ReturnUrl"*@
+            <label asp-for="Username"></label>
+            <input asp-for="Username" class="Textbox" />
+            <span asp-validation-for="Username"></span>
 
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-        <br />
-        <input style="color:white" type="submit" value="Sign In" />
-    </form>
-    <div asp-validation-summary="All"></div>
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="Textbox"/>
+            <span asp-validation-for="Password"></span>
+            <br />
+            <input style="color:white" type="submit" value="Sign In" />
+        </form>
+        <div asp-validation-summary="All"></div>
 
     </div>
 </div>

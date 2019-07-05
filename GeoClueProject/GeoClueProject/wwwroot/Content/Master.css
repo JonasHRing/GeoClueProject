@@ -43,7 +43,8 @@ li {
     background-color: rgba(64, 77, 163, 0.7);
     position: sticky;
     top: 0px;
-    margin-top: 85px;
+    margin-top: 28,3%
+        /*85px;*/
 }
 
 .menubar {
@@ -56,15 +57,30 @@ li {
 
 #menubarUser a:nth-child(7) {
     /*background: red;*/
-    /*float: right;*/
-    margin-left: 710px;
+    padding: 15px 10px 15px 0px;
+    float: right;
+    /*margin-left: 710px;*/
 }
 
+#menubarUser a:nth-child(8) {
+    /*background: red;*/
+    padding: 15px 10px 15px 0px;
+    float: right;
+    /*margin-left: 710px;*/
+}
 #menubarGuest a:nth-child(5) {
     /*background: red;*/
-    /*float: right;*/
-    margin-left: 900px;
+    padding: 15px 10px 15px 0px;
+    float: right;
+    /*margin-left: 900px;*/
 }
+#menubarGuest a:nth-child(6) {
+    /*background: red;*/
+    padding: 15px 10px 15px 0px;
+    float: right;
+    /*margin-left: 900px;*/
+}
+
 
 .menubar a {
     color: white;
@@ -95,7 +111,7 @@ li {
     /*margin-bottom: 15px;*/
     text-align: center;
     min-height: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 10%; /*30px;*/
 }
 /*#ContentBox:after{
     content:"";
@@ -244,5 +260,13 @@ footer {
     padding-bottom: 15px;
     margin-left: 25%;
     margin-right: 25%;
+}
+.Textbox{
+    box-sizing: border-box;
+    width:80%;
+}
+.Submit{
+    box-sizing: border-box;
+    width:50%
 }
 
